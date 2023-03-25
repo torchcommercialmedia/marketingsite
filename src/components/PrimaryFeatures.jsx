@@ -12,9 +12,9 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'AI-Augmented Photo Editing',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "Professional-grade photo editor with AI augmentation to accelearate sorting, removal of bad images, cropping, straightening, color, and exposure correction",
     image: screenshotPayroll,
   },
   {
