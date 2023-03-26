@@ -10,7 +10,7 @@ export default function Register() {
   return (
     <>
       <Head>
-        <title>Sign Up - TaxPal</title>
+        <title>Wait List - Chrome Lot</title>
       </Head>
       <AuthLayout>
         <div className="flex flex-col">
@@ -19,12 +19,12 @@ export default function Register() {
           </Link>
           <div className="mt-20">
             <h2 className="text-lg font-semibold text-gray-900">
-              Get started for free
+              Get on the Wait List
             </h2>
             <p className="mt-2 text-sm text-gray-700">
               Already registered?{' '}
               <Link
-                href="/login"
+                href="https://app.chromelot.com/signin"
                 className="font-medium text-blue-600 hover:underline"
               >
                 Sign in
@@ -64,11 +64,20 @@ export default function Register() {
           />
           <TextField
             className="col-span-full"
-            label="Password"
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="new-password"
+            label="Dealership"
+            id="dealership"
+            name="dealership"
+            type="text"
+            autoComplete="Dealership"
+            required
+          />
+           <TextField
+            className="col-span-full"
+            label="Location"
+            id="location"
+            name="location"
+            type="text"
+            autoComplete="Location"
             required
           />
           <SelectField
@@ -77,11 +86,11 @@ export default function Register() {
             id="referral_source"
             name="referral_source"
           >
-            <option>AltaVista search</option>
-            <option>Super Bowl commercial</option>
-            <option>Our route 34 city bus ad</option>
-            <option>The “Never Use This” podcast</option>
+            <option>Google</option>
+            <option>Existing Service Customer</option>
+            <option>Referral</option>
           </SelectField>
+
           <div className="col-span-full">
             <Button
               type="submit"
@@ -90,7 +99,7 @@ export default function Register() {
               className="w-full"
             >
               <span>
-                Sign up <span aria-hidden="true">&rarr;</span>
+                Get on the Wait List <span aria-hidden="true"></span>
               </span>
             </Button>
           </div>

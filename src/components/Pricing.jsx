@@ -110,14 +110,13 @@ export function Pricing() {
             for everyone.
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            It doesn’t matter what size your business is, our software won’t
-            work well for you.
+            Choose a plan that best fits your needs - you can even let us do the work for you if you'd like.  
           </p>
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
           <Plan
-            name="Starter"
-            price="$9"
+            name="Chrome Lot Service Package"
+            price="$12/car"
             description="Good for anyone who is self-employed and just getting started."
             href="/register"
             features={[
@@ -130,8 +129,8 @@ export function Pricing() {
           />
           <Plan
             featured
-            name="Small business"
-            price="$15"
+            name="Merchandising Management"
+            price="$299/mo"
             description="Perfect for small / medium sized businesses."
             href="/register"
             features={[
@@ -145,12 +144,12 @@ export function Pricing() {
             ]}
           />
           <Plan
-            name="Enterprise"
-            price="$39"
+            name="Inventory Management"
+            price="$599/mo"
             description="For even the biggest enterprise companies."
             href="/register"
             features={[
-              'Send unlimited quotes and invoices',
+              'Includes Merchandising Management',
               'Connect up to 15 bank accounts',
               'Track up to 200 expenses per month',
               'Automated payroll support',
