@@ -11,11 +11,11 @@ export function LaunchForm() {
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
-              <a href="/register"
+              <Link href="/register"
                 className="flex-none rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Get on the Waitlist
-              </a>
+              </Link>
             </div>
           </form>
         </div>
