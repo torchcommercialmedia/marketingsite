@@ -110,7 +110,7 @@ export function Pricing() {
             for everyone.
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Choose a plan that best fits your needs - you can even let us do the work for you if you'd like.  
+            Choose a plan that best fits your needs - you can even let us do the work for you if you would like.  
           </p>
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
