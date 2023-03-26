@@ -9,6 +9,8 @@ import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
 import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import screenshotInventoryList from '@/images/screenshots/inventory-list.png'
+import screenshotWorkflow from '@/images/screenshots/workflow.png'
 
 const features = [
   {
@@ -18,23 +20,24 @@ const features = [
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Custom Merchandising Workflows',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-    image: screenshotExpenses,
+      "Set as many steps as you need, with functions like photo editing, QA, and description writing, and access conditional logic to get things done right, every time.",
+    image: screenshotWorkflow,
   },
   {
-    title: 'VAT handling',
+    title: 'Custom Window Stickers',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "Design branded, eye-popping window sticker and other vehicle documents, or have our team help design one for you",
     image: screenshotVatReturns,
   },
   {
-    title: 'Reporting',
+    title: 'Insert Images with Vehicle Data',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      'Add in insert images, with custom vehicle data to your application so everyone knows about your dealership, and you build value in the car',
     image: screenshotReporting,
   },
+ 
 ]
 
 export function PrimaryFeatures() {
@@ -72,11 +75,10 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Complete Merchandising Toolkit
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+            Next-generation tools to make your vehicle marketing stand head and shoulders above the competition
           </p>
         </div>
         <Tab.Group
