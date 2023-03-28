@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export function LaunchForm() {
     return (
       <div className="bg-indigo-700 py-16 sm:py-24 lg:py-32">
@@ -18,7 +20,7 @@ export function LaunchForm() {
               </Link>
             </div>
           </form>
-        </div>git a
+        </div>
       </div>
     )
   }
