@@ -11,6 +11,7 @@ import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 import screenshotInventoryList from '@/images/screenshots/inventory-list.png'
 import screenshotWorkflow from '@/images/screenshots/workflow.png'
+import { CircleBackground } from '@/components/CircleBackground'
 
 const features = [
   {

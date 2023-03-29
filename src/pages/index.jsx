@@ -10,6 +10,8 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
+import { ProductMenu } from '@/components/ProductMenu'
+
 
 export default function Home() {
   return (
@@ -22,6 +24,7 @@ export default function Home() {
         />
       </Head>
       <Header />
+      <ProductMenu />
       <main>
         <Hero />
         <PrimaryFeatures />
