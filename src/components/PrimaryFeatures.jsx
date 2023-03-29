@@ -13,6 +13,7 @@ import screenshotInventoryList from '@/images/screenshots/inventory-list.png'
 import screenshotWorkflow from '@/images/screenshots/workflow.png'
 import { CircleBackground } from '@/components/CircleBackground'
 
+
 const features = [
   {
     title: 'AI-Augmented Photo Editing',

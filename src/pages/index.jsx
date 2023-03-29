@@ -23,7 +23,6 @@ export default function Home() {
           content="Vehicle photos, reconditioning and more."
         />
       </Head>
-      <Header />
       <ProductMenu />
       <main>
         <Hero />

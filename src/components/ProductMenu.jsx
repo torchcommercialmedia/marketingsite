@@ -16,36 +16,36 @@ import {
   ArrowDownCircleIcon,
   CameraIcon,
   WrenchScrewdriverIcon,
-  ClipboardDocumentCheckIcon
+  ClipboardDocumentCheckIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { NavLink } from '@/components/NavLink'
 import { Logo } from '@/components/Logo'
-
+import { Button } from '@/components/Button'
 
 const solutions = [
   {
     name: 'Merchandising Management',
-    description:
-      'Photography Program Management, Window Stickers, and More',
+    description: 'Photography Program Management, Window Stickers, and More',
     href: '#',
     icon: CameraIcon,
   },
   {
     name: 'Reconditioning Software',
-    description: 'Condition Reports, Task Assignments, Vehicle Preperation Systems, Repair Order Management',
+    description:
+      'Condition Reports, Task Assignments, Vehicle Preperation Systems, Repair Order Management',
     href: '#',
     icon: WrenchScrewdriverIcon,
   },
   {
     name: 'For Service Companies',
-    description: "Book Business with Dealers, Track Invoices and Repair Orders",
+    description: 'Book Business with Dealers, Track Invoices and Repair Orders',
     href: '#',
     icon: ClipboardDocumentCheckIcon,
   },
   {
     name: 'Dallas-Based Service',
-    description: "Dallas Based Photography and Vehicle Reconditioning Services",
+    description: 'Dallas Based Photography and Vehicle Reconditioning Services',
     href: '#',
     icon: BoltIcon,
   },
@@ -58,10 +58,10 @@ const callsToAction = [
 
 export function ProductMenu() {
   return (
-    <Popover className="flex justify-between-50 relative z-50 py-5 px-10 shadow position-sticky">
-      <div className="flex items-center md:gap-x-12">
+    <Popover className="flex justify-center relative z-50 flex py-5 px-10 shadow">
+      <nav className="flex justify-center items-center md:gap-x-12">
         <Logo className="h-10 w-auto" />
-        <div className="ml- mx-auto max-w-7xl lg:px-8">
+        <div className="ml- mx-auto flex max-w-7xl items-center justify-start lg:px-8">
           <NavLink href="#features">Features</NavLink>
           <NavLink href="#testimonials">Testimonials</NavLink>
           <NavLink href="#pricing">Pricing</NavLink>
@@ -71,7 +71,17 @@ export function ProductMenu() {
             <ArrowDownCircleIcon className="h-5 w-5" aria-hidden="true" />
           </Popover.Button>
         </div>
-      </div>
+        <div className="flex items-center justify-end">
+          <div className="">
+            <NavLink href="https://app.chromelot.com/signin">Sign in</NavLink>
+          </div>
+          <Button href="/register" color="blue">
+            <span>
+              <span className="hidden lg:inline">Get on </span>Waitlist
+            </span>
+          </Button>
+        </div>
+      </nav>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-200"
