@@ -33,7 +33,7 @@ export function RobustSupport() {
             Robust Suport
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Getting a photo program working well is complex and difficult.  We're here to get you into great shape, and we're here to keep you 
+            Getting a photo program working well is complex and difficult.  We&apos;re here to get you into great shape, and we&apos;re here to keep you in great shape. 
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
