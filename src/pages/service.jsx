@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import { CallToAction } from '@/components/CallToAction'
 import { Faqs } from '@/components/Faqs'
 import { Footer } from '@/components/Footer'
@@ -10,8 +9,10 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
+import { ProductMenu } from '@/components/ProductMenu'
+import { ServiceHeader } from '@/components/ServiceHeader'
 
-export default function Home() {
+export default function Service() {
   return (
     <>
       <Head>
@@ -21,9 +22,9 @@ export default function Home() {
           content="Vehicle photos, reconditioning and more."
         />
       </Head>
-      <Header />
+      <ProductMenu />
       <main>
-        <PrimaryFeatures />
+        <ServiceHeader />
         <SecondaryFeatures />
         <Testimonials />
         <Faqs />

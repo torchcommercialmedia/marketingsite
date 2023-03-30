@@ -27,20 +27,20 @@ const solutions = [
   {
     name: 'Merchandising Management',
     description: 'Photography Program Management, Window Stickers, and More',
-    href: '#',
+    href: '/merchandising',
     icon: CameraIcon,
   },
   {
     name: 'Reconditioning Software',
     description:
       'Condition Reports, Task Assignments, Vehicle Preperation Systems, Repair Order Management',
-    href: '#',
+    href: '/reconditioning',
     icon: WrenchScrewdriverIcon,
   },
   {
     name: 'For Service Companies',
     description: 'Book Business with Dealers, Track Invoices and Repair Orders',
-    href: '#',
+    href: '/service',
     icon: ClipboardDocumentCheckIcon,
   },
   {
@@ -60,19 +60,22 @@ export function ProductMenu() {
   return (
     <Popover className="flex justify-center relative z-50 flex py-5 px-10 shadow">
       <nav className="flex justify-center items-center md:gap-x-12">
-        <Logo className="h-10 w-auto" />
+      <Link href="/" aria-label="Home">
+              <Logo className="h-10 w-auto" />
+            </Link>
         <div className="ml- mx-auto flex max-w-7xl items-center justify-start lg:px-8">
+          <div className="hidden lg:inline">
           <NavLink href="#features">Features</NavLink>
           <NavLink href="#testimonials">Testimonials</NavLink>
           <NavLink href="#pricing">Pricing</NavLink>
-          <NavLink href="/products">Products</NavLink>
+          </div>
           <Popover.Button className="ml-4 inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
             All Solutions
             <ArrowDownCircleIcon className="h-5 w-5" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <div className="flex items-center justify-end">
-          <div className="">
+        <div className="flex items-center justify-end nowrap">
+          <div className="mr-5">
             <NavLink href="https://app.chromelot.com/signin">Sign in</NavLink>
           </div>
           <Button href="/register" color="blue">
