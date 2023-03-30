@@ -1,4 +1,5 @@
 import { LifebuoyIcon, NewspaperIcon, PhoneIcon, CurrencyDollarIcon } from '@heroicons/react/20/solid'
+import Image from 'next/image'
 
 const cards = [
   {
@@ -21,7 +22,7 @@ const cards = [
 export function ServiceHeader() {
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-      <img
+      <Image
         src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
@@ -78,7 +79,7 @@ export function ServiceHeader() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Service Companies</h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Whether you're a photography company, mobile detail, or body shop, you can streamline your practices, make your business scaleable, and give your customers a world class experience.
+            Whether you&apos;re a photography company, mobile detail, or body shop, you can streamline your practices, make your business scaleable, and give your customers a world class experience.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
