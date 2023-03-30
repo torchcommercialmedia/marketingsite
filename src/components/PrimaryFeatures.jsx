@@ -80,7 +80,7 @@ export function PrimaryFeatures() {
             Complete Merchandising Toolkit
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Next-generation tools to make your vehicle marketing stand head and shoulders above the competition
+            Give customers extrodinary online shopping experiences
           </p>
         </div>
         <Tab.Group

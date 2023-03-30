@@ -11,6 +11,9 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
+import { PhotographerManagement } from '@/components/PhotographerManagement'
+import { EditingManagement } from '@/components/EditingManagement'
+import { RobustSupport } from '@/components/RobustSupport'
 
 export default function Products() {
   return (
@@ -25,8 +28,9 @@ export default function Products() {
       <ProductMenu />
       <main>
         <PrimaryFeatures />
-        <SecondaryFeatures />
-        <Testimonials />
+        <PhotographerManagement />
+        <EditingManagement />
+        <RobustSupport />
         <Faqs />
         <Pricing />
         <LaunchForm />

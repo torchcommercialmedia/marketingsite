@@ -26,7 +26,6 @@ export default function Service() {
       <main>
         <ServiceHeader />
         <SecondaryFeatures />
-        <Testimonials />
         <Faqs />
         <Pricing />
         <LaunchForm />

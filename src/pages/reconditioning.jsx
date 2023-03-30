@@ -11,6 +11,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
+import { InventoryFeatureGrid } from '@/components/InventoryFeatureGrid'
 
 export default function Reconditioning() {
   return (
@@ -25,7 +26,7 @@ export default function Reconditioning() {
       <ProductMenu />
       <main>
         <SecondaryFeatures />
-        <Testimonials />
+        <InventoryFeatureGrid />
         <Faqs />
         <Pricing />
         <LaunchForm />

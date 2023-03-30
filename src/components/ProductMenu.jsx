@@ -38,17 +38,18 @@ const solutions = [
     icon: WrenchScrewdriverIcon,
   },
   {
+    name: 'Design and Marketing Agency',
+    description: 'Advanced Support Customized to Your Dealership',
+    href: '#',
+    icon: BoltIcon,
+  },
+  {
     name: 'For Service Companies',
     description: 'Book Business with Dealers, Track Invoices and Repair Orders',
     href: '/service',
     icon: ClipboardDocumentCheckIcon,
   },
-  {
-    name: 'Dallas-Based Service',
-    description: 'Dallas Based Photography and Vehicle Reconditioning Services',
-    href: '#',
-    icon: BoltIcon,
-  },
+
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -58,19 +59,14 @@ const callsToAction = [
 
 export function ProductMenu() {
   return (
-    <Popover className="flex justify-center relative z-50 flex py-5 px-10 shadow">
-      <nav className="flex justify-center items-center md:gap-x-12">
+    <Popover className="flex justify-around relative z-50 flex py-5 px-10 shadow">
+      <nav className="flex items-center md:gap-x-12">
       <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
         <div className="ml- mx-auto flex max-w-7xl items-center justify-start lg:px-8">
-          <div className="hidden lg:inline">
-          <NavLink href="#features">Features</NavLink>
-          <NavLink href="#testimonials">Testimonials</NavLink>
-          <NavLink href="#pricing">Pricing</NavLink>
-          </div>
           <Popover.Button className="ml-4 inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-            All Solutions
+            Solutions
             <ArrowDownCircleIcon className="h-5 w-5" aria-hidden="true" />
           </Popover.Button>
         </div>
