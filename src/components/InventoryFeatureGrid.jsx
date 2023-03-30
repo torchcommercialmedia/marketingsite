@@ -48,7 +48,7 @@ import {
             Simple, Comprehensive Features to Manage Your Inventory Prep
           </p>
           <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
-            Everything you need, and nothing you don\'t.
+            Everything you need, and nothing you don&apos;t.
           </p>
           <div className="mt-20">
             <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
