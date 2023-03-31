@@ -39,16 +39,16 @@ const solutions = [
     icon: WrenchScrewdriverIcon,
   },
   {
-    name: 'Design and Marketing Agency',
-    description: 'Advanced Support Customized to Your Dealership',
-    href: '#',
-    icon: BoltIcon,
-  },
-  {
     name: 'For Service Companies',
     description: 'Book Business with Dealers, Track Invoices and Repair Orders',
     href: '/service',
     icon: ClipboardDocumentCheckIcon,
+  },
+  {
+    name: 'Design and Marketing Agency',
+    description: 'Advanced Support Customized to Your Dealership',
+    href: '#',
+    icon: BoltIcon,
   },
 
 ]
@@ -141,7 +141,7 @@ function MobileNavigation() {
 export function ProductMenu() {
   return (
     <nav>
-    <Popover className="flex justify-around relative z-50 flex py-5 px-10 shadow">
+    <Popover className="flex justify-around relative z-50 flex py-5 px-10 shadow w-full">
       <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>

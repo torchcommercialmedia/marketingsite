@@ -11,6 +11,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
+import { ServiceCompanies } from '@/components/Main/ServiceCompanies'
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <Hero />
         <PrimaryFeatures />
         <SecondaryFeatures />
+        <ServiceCompanies />
         <Testimonials />
         <Faqs />
         <Pricing />

@@ -10,7 +10,12 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
-import { ServiceHeader } from '@/components/ServiceHeader'
+import { ServiceHeader } from '@/components/ServiceCompany/ServiceHeader'
+import { CustomerSupport } from '@/components/ServiceCompany/CustomerSupport'
+import { ServiceTestimonials } from '@/components/ServiceCompany/ServiceTestimonials'
+import { FullBusinessManagement } from '@/components/ServiceCompany/FullBusinessManagement'
+import { JobManagement } from '@/components/ServiceCompany/JobManagement'
+import { CustomerManagement } from '@/components/ServiceCompany/CustomerManagement'
 
 export default function Service() {
   return (
@@ -25,9 +30,11 @@ export default function Service() {
       <ProductMenu />
       <main>
         <ServiceHeader />
-        <SecondaryFeatures />
-        <Faqs />
-        <Pricing />
+        <FullBusinessManagement />
+        <JobManagement />
+        <CustomerManagement />
+        <CustomerSupport />
+        <ServiceTestimonials />
         <LaunchForm />
       </main>
       <Footer />
