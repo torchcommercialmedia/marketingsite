@@ -22,6 +22,7 @@ import Link from 'next/link'
 import { NavLink } from '@/components/NavLink'
 import { Logo } from '@/components/Logo'
 import { Button } from '@/components/Button'
+import clsx from 'clsx'
 
 const solutions = [
   {
@@ -54,13 +55,93 @@ const solutions = [
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
-  { name: 'View all products', href: '#', icon: RectangleGroupIcon },
 ]
+
+function MobileNavLink({ href, children }) {
+  return (
+    <Popover.Button as={Link} href={href} className="block w-full p-2">
+      {children}
+    </Popover.Button>
+  )
+}
+
+function MobileNavIcon({ open }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
+      fill="none"
+      strokeWidth={2}
+      strokeLinecap="round"
+    >
+      <path
+        d="M0 1H14M0 7H14M0 13H14"
+        className={clsx(
+          'origin-center transition',
+          open && 'scale-90 opacity-0'
+        )}
+      />
+      <path
+        d="M2 2L12 12M12 2L2 12"
+        className={clsx(
+          'origin-center transition',
+          !open && 'scale-90 opacity-0'
+        )}
+      />
+    </svg>
+  )
+}
+
+function MobileNavigation() {
+  return (
+    <Popover>
+      <Popover.Button
+        className="relative z-10 flex h-8 w-8 items-center justify-center [&:not(:focus-visible)]:focus:outline-none"
+        aria-label="Toggle Navigation"
+      >
+        {({ open }) => <MobileNavIcon open={open} />}
+      </Popover.Button>
+      <Transition.Root>
+        <Transition.Child
+          as={Fragment}
+          enter="duration-150 ease-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="duration-150 ease-in"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Popover.Overlay className="fixed inset-0 bg-slate-300/50" />
+        </Transition.Child>
+        <Transition.Child
+          as={Fragment}
+          enter="duration-150 ease-out"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="duration-100 ease-in"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          <Popover.Panel
+            as="div"
+            className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
+          >
+            <MobileNavLink href="#features">Features</MobileNavLink>
+            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
+            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
+            <hr className="m-2 border-slate-300/40" />
+            <MobileNavLink href="/login">Sign in</MobileNavLink>
+          </Popover.Panel>
+        </Transition.Child>
+      </Transition.Root>
+    </Popover>
+  )
+}
 
 export function ProductMenu() {
   return (
+    <nav>
     <Popover className="flex justify-around relative z-50 flex py-5 px-10 shadow">
-      <nav className="flex items-center md:gap-x-12">
       <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
@@ -71,7 +152,7 @@ export function ProductMenu() {
           </Popover.Button>
         </div>
         <div className="flex items-center justify-end nowrap">
-          <div className="mr-5">
+          <div className="mr-5 hidden sm:block">
             <NavLink href="https://app.chromelot.com/signin">Sign in</NavLink>
           </div>
           <Button href="/register" color="blue">
@@ -80,7 +161,6 @@ export function ProductMenu() {
             </span>
           </Button>
         </div>
-      </nav>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-200"
@@ -115,15 +195,16 @@ export function ProductMenu() {
           </div>
           <div className="bg-gray-50">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
+              <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
+              
                 {callsToAction.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="flex items-center gap-x-2.5 p-3 px-6 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
+                    className="group flex items-center gap-x-2.5 p-3 px-6 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
                   >
                     <item.icon
-                      className="h-5 w-5 flex-none text-gray-400"
+                      className="h-5 w-5 flex-none text-gray-400 group-hover:text-red-600"
                       aria-hidden="true"
                     />
                     {item.name}
@@ -132,8 +213,16 @@ export function ProductMenu() {
               </div>
             </div>
           </div>
+          <div className ="block sm:hidden bg-gray-50 py-2 px-3">
+            <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
+            <Button href="https://app.chromelot.com/signin" color="blue" className="w-auto px-2">
+            Sign In
+            </Button>
+            </div>
+          </div>
         </Popover.Panel>
       </Transition>
     </Popover>
+    </nav>
   )
 }
