@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
     ArrowPathIcon,
     CloudArrowUpIcon,
@@ -6,37 +7,25 @@ import {
     LockClosedIcon,
     ServerIcon,
   } from '@heroicons/react/20/solid'
+  import ServiceCompany from '@/images/screenshots/servicecompany.jpg'
+  import ServiceHeaderPic from '@/images/screenshots/ServiceHeaderPic.jpg'
+
   
   const features = [
     {
-      name: 'Push to deploy.',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+      name: 'Scheduling Tools',
+      description: 'Track you job schedule, book appointments, and manage your workers.',
       icon: CloudArrowUpIcon,
     },
     {
-      name: 'SSL certificates.',
-      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+      name: 'Product Management',
+      description: 'Set up multiple product workflows, from repair orders, to ',
       icon: LockClosedIcon,
     },
     {
-      name: 'Simple queues.',
-      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
+      name: 'Invoice Management',
+      description: 'Easily track which customers owe you, get paid through the app, and generate automatic payment reminders',
       icon: ArrowPathIcon,
-    },
-    {
-      name: 'Advanced security.',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
-      icon: FingerPrintIcon,
-    },
-    {
-      name: 'Powerful API.',
-      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-      icon: Cog6ToothIcon,
-    },
-    {
-      name: 'Database backups.',
-      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. ',
-      icon: ServerIcon,
     },
   ]
   
@@ -45,18 +34,16 @@ import {
       <div className="bg-gray-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-400">Everything you need</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">No server? No problem.</p>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Full Business Management</p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-              dolor cupiditate blanditiis.
+              Everything you need to track customers, jobs, and workers, so you can grow your businesss.
             </p>
           </div>
         </div>
         <div className="relative overflow-hidden pt-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <img
-              src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+            <Image
+              src={ServiceCompany}
               alt="App screenshot"
               className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-white/10"
               width={2432}

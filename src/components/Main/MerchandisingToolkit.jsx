@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-
 import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-features.jpg'
 import screenshotExpenses from '@/images/screenshots/expenses.png'
@@ -13,24 +13,23 @@ import screenshotInventoryList from '@/images/screenshots/inventory-list.png'
 import screenshotWorkflow from '@/images/screenshots/workflow.png'
 import { CircleBackground } from '@/components/CircleBackground'
 
-
 const features = [
   {
     title: 'AI-Augmented Photo Editing',
     description:
-      "Professional-grade photo editor with AI augmentation to accelearate sorting, removal of bad images, cropping, straightening, color, and exposure correction",
+      'Professional-grade photo editor with AI augmentation to accelearate sorting, removal of bad images, cropping, straightening, color, and exposure correction',
     image: screenshotPayroll,
   },
   {
     title: 'Custom Merchandising Workflows',
     description:
-      "Set as many steps as you need, with functions like photo editing, QA, and description writing, and access conditional logic to get things done right, every time.",
+      'Set as many steps as you need, with functions like photo editing, QA, and description writing, and access conditional logic to get things done right, every time.',
     image: screenshotWorkflow,
   },
   {
     title: 'Custom Window Stickers',
     description:
-      "Design branded, eye-popping window sticker and other vehicle documents, or have our team help design one for you",
+      'Design branded, eye-popping window sticker and other vehicle documents, or have our team help design one for you',
     image: screenshotVatReturns,
   },
   {
@@ -39,7 +38,6 @@ const features = [
       'Add in insert images, with custom vehicle data to your application so everyone knows about your dealership, and you build value in the car',
     image: screenshotReporting,
   },
- 
 ]
 
 export function PrimaryFeatures() {
@@ -64,7 +62,7 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features for running your books"
-      className="relative overflow-hidden bg-blue-600 pt-20 pb-28 sm:py-32"
+      className="relative overflow-hidden bg-blue-400 pt-20 pb-28 sm:py-32"
     >
       <Image
         className="absolute top-1/2 left-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
@@ -80,7 +78,10 @@ export function PrimaryFeatures() {
             Complete Merchandising Toolkit
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Give customers extrodinary online shopping experiences
+            Give customers extrodinary online shopping experiences.&nbsp;&nbsp;
+            <span className="font-bold leading-6 hover:underline">
+              <Link href="/merchandising">Learn More →</Link>
+            </span>
           </p>
         </div>
         <Tab.Group

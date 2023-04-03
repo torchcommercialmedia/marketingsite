@@ -219,7 +219,7 @@ export function SecondaryFeatures() {
             Vehicle Reconditioning Made Simple
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our powerful, cutsomizable vehicle recon system is easy to use, and easily integrates with third party service providers.
+            Our powerful, cutsomizable vehicle recon system is easy to use, and easily integrates with third party service providers.  <span className ="font-bold text-sky-600 leading-6 hover:underline"><a href="/merchandising">Learn More →</a></span>
           </p>
         </div>
         <FeaturesMobile />

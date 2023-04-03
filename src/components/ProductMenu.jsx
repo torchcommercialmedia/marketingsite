@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition, Disclosure } from '@headlessui/react'
 import {
   ChevronDownIcon,
   PhoneIcon,
@@ -50,7 +50,6 @@ const solutions = [
     href: '#',
     icon: BoltIcon,
   },
-
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -126,9 +125,12 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
-            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
+            <MobileNavLink href="/merchandising">Merchandising</MobileNavLink>
+            <MobileNavLink href="/reconditioning">
+              Recon Management
+            </MobileNavLink>
+            <MobileNavLink href="service">For Service Companies</MobileNavLink>
+            <MobileNavLink href="/design">Design Agency</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
             <MobileNavLink href="/login">Sign in</MobileNavLink>
           </Popover.Panel>
@@ -141,17 +143,17 @@ function MobileNavigation() {
 export function ProductMenu() {
   return (
     <nav>
-    <Popover className="flex justify-around relative z-50 flex py-5 px-10 shadow w-full">
-      <Link href="/" aria-label="Home">
-              <Logo className="h-10 w-auto" />
-            </Link>
+      <Popover className="relative z-50 flex w-full justify-around py-5 px-10 shadow">
+        <Link href="/" aria-label="Home">
+          <Logo className="h-10 w-auto" />
+        </Link>
         <div className="ml- mx-auto flex max-w-7xl items-center justify-start lg:px-8">
-          <Popover.Button className="ml-4 inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+          <Popover.Button className="ml-4 hidden items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 sm:inline-flex">
             Solutions
             <ArrowDownCircleIcon className="h-5 w-5" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <div className="flex items-center justify-end nowrap">
+        <div className="nowrap flex items-center justify-end">
           <div className="mr-5 hidden sm:block">
             <NavLink href="https://app.chromelot.com/signin">Sign in</NavLink>
           </div>
@@ -161,68 +163,74 @@ export function ProductMenu() {
             </span>
           </Button>
         </div>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 -translate-y-1"
-      >
-        <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
-            {solutions.map((item) => (
-              <div
-                key={item.name}
-                className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-blue-50 sm:flex-col sm:p-6"
-              >
-                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                  <item.icon
-                    className="h-6 w-6 text-gray-600 group-hover:text-red-600"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div>
-                  <a href={item.href} className="font-semibold text-gray-900">
-                    {item.name}
-                    <span className="absolute inset-0" />
-                  </a>
-                  <p className="mt-1 text-gray-600">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="bg-gray-50">
-            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
-              
-                {callsToAction.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="group flex items-center gap-x-2.5 p-3 px-6 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
-                  >
+        <div className="ml-2 block items-center sm:hidden">
+          <MobileNavigation />
+        </div>
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 -translate-y-1"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 translate-y-0"
+          leaveTo="opacity-0 -translate-y-1"
+        >
+          <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
+              {solutions.map((item) => (
+                <div
+                  key={item.name}
+                  className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-blue-50 sm:flex-col sm:p-6"
+                >
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                     <item.icon
-                      className="h-5 w-5 flex-none text-gray-400 group-hover:text-red-600"
+                      className="h-6 w-6 text-gray-600 group-hover:text-red-600"
                       aria-hidden="true"
                     />
-                    {item.name}
-                  </a>
-                ))}
+                  </div>
+                  <div>
+                    <a href={item.href} className="font-semibold text-gray-900">
+                      {item.name}
+                      <span className="absolute inset-0" />
+                    </a>
+                    <p className="mt-1 text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="bg-gray-50">
+              <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
+                  {callsToAction.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="group flex items-center gap-x-2.5 p-3 px-6 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
+                    >
+                      <item.icon
+                        className="h-5 w-5 flex-none text-gray-400 group-hover:text-red-600"
+                        aria-hidden="true"
+                      />
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          <div className ="block sm:hidden bg-gray-50 py-2 px-3">
-            <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
-            <Button href="https://app.chromelot.com/signin" color="blue" className="w-auto px-2">
-            Sign In
-            </Button>
+            <div className="block bg-gray-50 py-2 px-3 sm:hidden">
+              <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:border-x sm:border-gray-900/5">
+                <Button
+                  href="https://app.chromelot.com/signin"
+                  color="blue"
+                  className="w-auto px-2"
+                >
+                  Sign In
+                </Button>
+              </div>
             </div>
-          </div>
-        </Popover.Panel>
-      </Transition>
-    </Popover>
+          </Popover.Panel>
+        </Transition>
+      </Popover>
     </nav>
   )
 }

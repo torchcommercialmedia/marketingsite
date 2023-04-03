@@ -6,14 +6,14 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { Pricing } from '@/components/Pricing'
-import { PrimaryFeatures } from '@/components/PrimaryFeatures'
-import { SecondaryFeatures } from '@/components/SecondaryFeatures'
+import { SecondaryFeatures } from '@/components/Main/ReconditioningIntro'
 import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
-import { PhotographerManagement } from '@/components/PhotographerManagement'
-import { EditingManagement } from '@/components/EditingManagement'
-import { RobustSupport } from '@/components/RobustSupport'
+import { PhotographerManagement } from '@/components/Merchandising/PhotographerManagement'
+import { EditingManagement } from '@/components/Merchandising/EditingManagement'
+import { RobustSupport } from '@/components/Merchandising/RobustSupport'
+import { Gallery } from '@/components/Merchandising/Gallery'
 
 export default function Products() {
   return (
@@ -27,9 +27,9 @@ export default function Products() {
       </Head>
       <ProductMenu />
       <main>
-        <PrimaryFeatures />
         <PhotographerManagement />
         <EditingManagement />
+        <Gallery />
         <RobustSupport />
         <Faqs />
         <Pricing />
