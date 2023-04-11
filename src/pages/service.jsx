@@ -12,7 +12,6 @@ import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
 import { ServiceHeader } from '@/components/ServiceCompany/ServiceHeader'
 import { CustomerSupport } from '@/components/ServiceCompany/CustomerSupport'
-import { ServiceTestimonials } from '@/components/ServiceCompany/ServiceTestimonials'
 import { FullBusinessManagement } from '@/components/ServiceCompany/FullBusinessManagement'
 import { JobManagement } from '@/components/ServiceCompany/JobManagement'
 import { CustomerManagement } from '@/components/ServiceCompany/CustomerManagement'
@@ -21,7 +20,9 @@ export default function Service() {
   return (
     <>
       <Head>
-        <title>Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management</title>
+        <title>
+          Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management
+        </title>
         <meta
           name="description"
           content="Vehicle photos, reconditioning and more."
@@ -34,7 +35,6 @@ export default function Service() {
         <JobManagement />
         <CustomerManagement />
         <CustomerSupport />
-        <ServiceTestimonials />
         <LaunchForm />
       </main>
       <Footer />

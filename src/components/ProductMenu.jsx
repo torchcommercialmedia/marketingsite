@@ -1,18 +1,8 @@
 import { Fragment } from 'react'
 import { Popover, Transition, Disclosure } from '@headlessui/react'
+import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-  RectangleGroupIcon,
-} from '@heroicons/react/20/solid'
-import {
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   BoltIcon,
-  ChevronDoubleDownIcon,
   ArrowDownCircleIcon,
   CameraIcon,
   WrenchScrewdriverIcon,
@@ -143,7 +133,7 @@ function MobileNavigation() {
 export function ProductMenu() {
   return (
     <nav>
-      <Popover className="relative z-50 flex w-full justify-around py-5 px-10 shadow">
+      <Popover className="relative z-50 flex w-full justify-around bg-white py-5 px-10 shadow">
         <Link href="/" aria-label="Home">
           <Logo className="h-10 w-auto" />
         </Link>

@@ -16,6 +16,7 @@ export function CircleBackground({
       fill="none"
       aria-hidden="true"
       {...props}
+      className={props.className}
     >
       <defs>
         <linearGradient

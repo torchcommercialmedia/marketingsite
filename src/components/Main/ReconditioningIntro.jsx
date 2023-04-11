@@ -2,7 +2,7 @@ import { useId } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-
+import Link from 'next/link'
 import { Container } from '@/components/Container'
 import screenshotContacts from '@/images/screenshots/contacts.png'
 import screenshotInventory from '@/images/screenshots/inventory.png'
@@ -45,8 +45,7 @@ const features = [
   },
   {
     name: 'Custom Widget Dashboard',
-    summary:
-      'Each user sees exactly what they need to do their jobs',
+    summary: 'Each user sees exactly what they need to do their jobs',
     description:
       'Drag and drop, customizable widgets allow you to build a dashboard that shows you what you need, when you need it',
     image: screenshotInventory,
@@ -73,8 +72,7 @@ const features = [
   },
   {
     name: 'Custom Vehicle Preperation Reports',
-    summary:
-      'Rapid, thorogh, and totally customized inspections every time',
+    summary: 'Rapid, thorogh, and totally customized inspections every time',
     description:
       'Utilize Conditional Logic, Custom Variables, and Custom Steps to model your exact business process, and get each vehicle prepared',
     image: screenshotContacts,
@@ -219,7 +217,11 @@ export function SecondaryFeatures() {
             Vehicle Reconditioning Made Simple
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our powerful, cutsomizable vehicle recon system is easy to use, and easily integrates with third party service providers.  <span className ="font-bold text-sky-600 leading-6 hover:underline"><a href="/merchandising">Learn More →</a></span>
+            Our powerful, cutsomizable vehicle recon system is easy to use, and
+            easily integrates with third party service providers.{' '}
+            <span className="font-bold leading-6 text-sky-600 hover:underline">
+              <Link href="/merchandising">Learn More →</Link>
+            </span>
           </p>
         </div>
         <FeaturesMobile />

@@ -12,13 +12,15 @@ import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
 import { ServiceCompanies } from '@/components/Main/ServiceCompanies'
-
+import { FirstTips } from '@/components/Main/FirstTips'
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management</title>
+        <title>
+          Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management
+        </title>
         <meta
           name="description"
           content="Vehicle photos, reconditioning and more."
@@ -34,6 +36,7 @@ export default function Home() {
         <Faqs />
         <Pricing />
         <LaunchForm />
+        <FirstTips />
       </main>
       <Footer />
     </>
