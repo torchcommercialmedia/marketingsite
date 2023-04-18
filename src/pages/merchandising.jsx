@@ -14,12 +14,15 @@ import { PhotographerManagement } from '@/components/Merchandising/PhotographerM
 import { EditingManagement } from '@/components/Merchandising/EditingManagement'
 import { RobustSupport } from '@/components/Merchandising/RobustSupport'
 import { Gallery } from '@/components/Merchandising/Gallery'
+import { MerchandisingHeader } from '@/components/Merchandising/MerchandisingHeader'
 
 export default function Products() {
   return (
     <>
       <Head>
-        <title>Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management</title>
+        <title>
+          Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management
+        </title>
         <meta
           name="description"
           content="Vehicle photos, reconditioning and more."
@@ -27,6 +30,7 @@ export default function Products() {
       </Head>
       <ProductMenu />
       <main>
+        <MerchandisingHeader />
         <PhotographerManagement />
         <EditingManagement />
         <Gallery />

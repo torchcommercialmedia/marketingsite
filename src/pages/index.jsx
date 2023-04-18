@@ -35,7 +35,6 @@ export default function Home() {
         <Testimonials />
         <Faqs />
         <Pricing />
-        <LaunchForm />
         <FirstTips />
       </main>
       <Footer />
