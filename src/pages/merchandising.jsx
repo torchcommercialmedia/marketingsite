@@ -33,10 +33,9 @@ export default function Products() {
         <MerchandisingHeader />
         <PhotographerManagement />
         <EditingManagement />
-        <Gallery />
+        {/* <Gallery /> */}
         <RobustSupport />
         <Faqs />
-        <Pricing />
         <LaunchForm />
       </main>
       <Footer />

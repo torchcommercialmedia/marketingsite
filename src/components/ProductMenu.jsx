@@ -16,8 +16,9 @@ import clsx from 'clsx'
 
 const solutions = [
   {
-    name: 'Merchandising Management',
-    description: 'Photography Program Management, Window Stickers, and More',
+    name: 'Merchandising Tools',
+    description:
+      'Photography Editing, Quality Control, Window Stickers, and More',
     href: '/merchandising',
     icon: CameraIcon,
   },
@@ -36,7 +37,8 @@ const solutions = [
   },
   {
     name: 'Design and Marketing Agency',
-    description: 'Advanced Support Customized to Your Dealership',
+    description:
+      'Photographer Management, Graphic Design, Marketing Management and More',
     href: '#',
     icon: BoltIcon,
   },
