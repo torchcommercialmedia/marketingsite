@@ -110,7 +110,8 @@ export function Pricing() {
             for everyone.
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Choose a plan that best fits your needs - you can even let us do the work for you if you would like.  
+            Choose a plan that best fits your needs - you can even let us do the
+            work for you if you would like.
           </p>
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
@@ -120,40 +121,40 @@ export function Pricing() {
             description="Good for anyone who is self-employed and just getting started."
             href="/register"
             features={[
-              'Send 10 quotes and invoices',
-              'Connect up to 2 bank accounts',
-              'Track up to 15 expenses per month',
-              'Manual payroll support',
-              'Export up to 3 reports',
+              'End-to-end photo editing',
+              'Cropping, straightening, and color correction',
+              'Background Replacement on the thunbnail image',
+              'Helpdesk support per car',
+              'Free photoshop support',
+              'QA feedback on every car',
             ]}
           />
           <Plan
             featured
-            name="Merchandising Management"
+            name="Merchandising Tookit"
             price="$299/mo"
-            description="Perfect for small / medium sized businesses."
+            description="Powerful tools for giving your customers a unique experience"
             href="/register"
             features={[
-              'Send 25 quotes and invoices',
-              'Connect up to 5 bank accounts',
-              'Track up to 50 expenses per month',
-              'Automated payroll support',
-              'Export up to 12 reports',
-              'Bulk reconcile transactions',
-              'Track in multiple currencies',
+              'Mobile app to capture photos and more',
+              'AI-Augmented Photo Editor',
+              'Custom Window Sticker Maker',
+              'Insert Images with Vehicle Data',
+              'Description Writer',
+              'QA step, with vehicle unlock',
             ]}
           />
           <Plan
             name="Inventory Management"
             price="$599/mo"
-            description="For even the biggest enterprise companies."
+            description="Vehicle Preperation and Task Management"
             href="/register"
             features={[
               'Includes Merchandising Management',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
+              'Custom vehicle preperation form',
+              'Custom Dashboard to view all vehicles',
+              'Task assignment with in-app notifications',
+              'Get quotes from local service companies',
             ]}
           />
         </div>

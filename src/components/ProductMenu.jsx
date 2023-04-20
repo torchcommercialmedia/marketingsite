@@ -39,7 +39,7 @@ const solutions = [
     name: 'Design and Marketing Agency',
     description:
       'Photographer Management, Graphic Design, Marketing Management and More',
-    href: '#',
+    href: '/agency',
     icon: BoltIcon,
   },
 ]

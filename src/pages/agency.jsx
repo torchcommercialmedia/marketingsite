@@ -6,8 +6,9 @@ import { SecondaryFeatures } from '@/components/Main/ReconditioningIntro'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
 import { InventoryFeatureGrid } from '@/components/Reconditioning/InventoryFeatureGrid'
+import { AgencyHeader } from '@/components/Agency/AgencyHeader'
 
-export default function Reconditioning() {
+export default function Agency() {
   return (
     <>
       <Head>
@@ -21,6 +22,7 @@ export default function Reconditioning() {
       </Head>
       <ProductMenu />
       <main>
+        <AgencyHeader />
         <SecondaryFeatures />
         <InventoryFeatureGrid />
         <Faqs />
