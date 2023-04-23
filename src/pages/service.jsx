@@ -33,7 +33,7 @@ export default function Service() {
         <ServiceHeader />
         <FullBusinessManagement />
         <JobManagement />
-        <CustomerManagement />
+        {/* <CustomerManagement /> */}
         <CustomerSupport />
         <LaunchForm />
       </main>

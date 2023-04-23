@@ -37,9 +37,9 @@ export function AgencyHeader() {
       <Image
         src={ServiceHeaderPic}
         alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-30 md:object-center"
+        className="absolute inset-0 -z-10 h-full w-full
+         object-cover object-right opacity-20 md:object-center"
       />
-
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">

@@ -18,7 +18,7 @@ const solutions = [
   {
     name: 'Merchandising Tools',
     description:
-      'Photography Editing, Quality Control, Window Stickers, and More',
+      'Photo Editing, Quality Control, Window Stickers, Description Writing Assistant',
     href: '/merchandising',
     icon: CameraIcon,
   },
@@ -31,7 +31,8 @@ const solutions = [
   },
   {
     name: 'For Service Companies',
-    description: 'Book Business with Dealers, Track Invoices and Repair Orders',
+    description:
+      'Book Business with Dealers, Perform Photo Service, Track Invoices and Repair Orders',
     href: '/service',
     icon: ClipboardDocumentCheckIcon,
   },

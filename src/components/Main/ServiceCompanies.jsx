@@ -8,21 +8,21 @@ import Link from 'next/link'
 
 const features = [
   {
-    name: 'Push to deploy.',
+    name: 'Automatic Invoicing',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Automatic rolling invoices aggregate all the services you perform for your dealer customers',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'SSL certificates.',
+    name: 'Schedule and Job Management',
     description:
-      'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+      'Get requests from dealers, and easily set up and work your own schedule',
     icon: LockClosedIcon,
   },
   {
-    name: 'Database backups.',
+    name: 'Custom Tookit',
     description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+      'Utilize our merchandising toolkit to provide top-notch photography services to your dealer customers',
     icon: ServerIcon,
   },
 ]
@@ -38,7 +38,8 @@ export function ServiceCompanies() {
                 Chrome Lot for Service Companies
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Run your schedule, run your business.{' '}
+                360 business management for shops and service business that
+                service dealers{' '}
                 <span className="font-bold leading-6 text-sky-600 hover:underline">
                   <Link href="/service">Learn More →</Link>
                 </span>

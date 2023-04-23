@@ -39,7 +39,7 @@ export function MerchandisingHeader() {
             Merchandising Management
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Let us take your photo program to the next level
+            Tools to take your photo program to the next level
           </p>
         </div>
       </div>
