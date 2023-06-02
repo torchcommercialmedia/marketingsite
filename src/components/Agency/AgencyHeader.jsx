@@ -10,6 +10,13 @@ import Link from 'next/link'
 
 const cards = [
   {
+    name: 'Photographer Management',
+    description:
+      'We can train your photographer, edit all your photos, and QA every car',
+    icon: NewspaperIcon,
+    href: '#supportcustomers',
+  },
+  {
     name: 'Design Support',
     description:
       'Graphic design for photo overlays, website elements, marketing materials, and more',
@@ -22,12 +29,6 @@ const cards = [
       'Professional, targeted, pay-per-click ads, with an experienced ad manager',
     icon: CurrencyDollarIcon,
     href: '#payandgetpaid',
-  },
-  {
-    name: 'Photography Program Support',
-    description: 'Photo Editing, QA, Photographer Management and Training',
-    icon: NewspaperIcon,
-    href: '#supportcustomers',
   },
 ]
 

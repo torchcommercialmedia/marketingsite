@@ -1,5 +1,35 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import {
+  LifebuoyIcon,
+  NewspaperIcon,
+  PhoneIcon,
+  CurrencyDollarIcon,
+} from '@heroicons/react/20/solid'
 import photographyHeader from '@/images/banners/photographyHeader.jpg'
+
+const cards = [
+  {
+    name: 'Image Capture',
+    description:
+      'App-Driven, as well as professional camera workflows supported',
+    icon: NewspaperIcon,
+    href: '#supportcustomers',
+  },
+  {
+    name: 'Image Processing',
+    description: 'AI-Powered Photo Editing, Quality Assurance',
+    icon: PhoneIcon,
+    href: '#customermanagement',
+  },
+  {
+    name: 'Even More Tools',
+    description:
+      'Manage multi-step workflows, use AI to write descriptions, and print custom window stickers',
+    icon: CurrencyDollarIcon,
+    href: '#payandgetpaid',
+  },
+]
 
 export function MerchandisingHeader() {
   return (
@@ -7,7 +37,7 @@ export function MerchandisingHeader() {
       <Image
         src={photographyHeader}
         alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-20"
       />
       <div
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -36,11 +66,29 @@ export function MerchandisingHeader() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-6xl">
-            Merchandising Management
+            Merchandising Tools
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Tools to take your photo program to the next level
+            Give your customers an extrodinary online shopping experience
           </p>
+        </div>
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+          {cards.map((card) => (
+            <Link
+              key={card.name}
+              href={card.href}
+              className="flex cursor-pointer gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:bg-white/20 hover:ring-white/70"
+            >
+              <card.icon
+                className="h-7 w-5 flex-none text-indigo-400"
+                aria-hidden="true"
+              />
+              <div className="text-base leading-7">
+                <h3 className="font-semibold text-white">{card.name}</h3>
+                <p className="mt-2 text-gray-300">{card.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

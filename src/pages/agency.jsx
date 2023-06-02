@@ -7,6 +7,8 @@ import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
 import { InventoryFeatureGrid } from '@/components/Reconditioning/InventoryFeatureGrid'
 import { AgencyHeader } from '@/components/Agency/AgencyHeader'
+import { RobustSupport } from '@/components/Agency/RobustSupport'
+import { PhotographerManagement } from '@/components/Agency/PhotographerManagement'
 
 export default function Agency() {
   return (
@@ -23,10 +25,8 @@ export default function Agency() {
       <ProductMenu />
       <main>
         <AgencyHeader />
-        <SecondaryFeatures />
-        <InventoryFeatureGrid />
-        <Faqs />
-        <Pricing />
+        <PhotographerManagement />
+        <RobustSupport />
         <LaunchForm />
       </main>
       <Footer />

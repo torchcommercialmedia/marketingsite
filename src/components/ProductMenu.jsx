@@ -18,14 +18,14 @@ const solutions = [
   {
     name: 'Merchandising Tools',
     description:
-      'Photo Editing, Quality Control, Window Stickers, Description Writing Assistant',
+      'Photo Capture App, AI-Powered Photo Editing, Dynamic Window Stickers & Insert Images, Description Writer, & QA Tools',
     href: '/merchandising',
     icon: CameraIcon,
   },
   {
     name: 'Reconditioning Software',
     description:
-      'Condition Reports, Task Assignments, Vehicle Preperation Systems, Repair Order Management',
+      'Condition Reports, Task Assignment, Repair Order Management, Parts & Cost Management',
     href: '/reconditioning',
     icon: WrenchScrewdriverIcon,
   },
@@ -37,9 +37,9 @@ const solutions = [
     icon: ClipboardDocumentCheckIcon,
   },
   {
-    name: 'Design and Marketing Agency',
+    name: 'Agency Services',
     description:
-      'Photographer Management, Graphic Design, Marketing Management and More',
+      'Photographer Training & QA, Graphic Design, Ad Buying and More',
     href: '/agency',
     icon: BoltIcon,
   },

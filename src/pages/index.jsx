@@ -13,6 +13,7 @@ import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
 import { ServiceCompanies } from '@/components/Main/ServiceCompanies'
 import { FirstTips } from '@/components/Main/FirstTips'
+import { SeamlessIntegration } from '@/components/Main/SeamlessIntegration'
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
       <ProductMenu />
       <main>
         <Hero />
-        <PrimaryFeatures />
+        <SeamlessIntegration />
         <SecondaryFeatures />
         <ServiceCompanies />
         <Testimonials />

@@ -116,17 +116,17 @@ export function Pricing() {
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
           <Plan
-            name="Chrome Lot Service Package"
-            price="$39/user"
-            description="Good for anyone who is self-employed and just getting started."
+            name="For Service Companies"
+            price="$49/user"
+            description="A complete toolkit to manage your dealer service business"
             href="/register"
             features={[
-              'End-to-end photo editing',
-              'Cropping, straightening, and color correction',
-              'Background Replacement on the thunbnail image',
-              'Helpdesk support per car',
-              'Free photoshop support',
-              'QA feedback on every car',
+              'Job Request and Scheduling Tools',
+              'Automatic Invoicing, Stripe Integrations to Recieve Online Payments',
+              'Access to Merchandising Toolkit to Provide Photo Service',
+              'Helpdesk system to manage support with your customers',
+              'Access to agency services for design, photo editing, QA, and more',
+              'White Labeled App',
             ]}
           />
           <Plan

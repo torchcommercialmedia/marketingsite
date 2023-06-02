@@ -1,28 +1,19 @@
 import Head from 'next/head'
-
-import { CallToAction } from '@/components/CallToAction'
-import { Faqs } from '@/components/Faqs'
 import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
-import { Hero } from '@/components/Hero'
-import { Pricing } from '@/components/Pricing'
-import { SecondaryFeatures } from '@/components/Main/ReconditioningIntro'
-import { Testimonials } from '@/components/Testimonials'
 import { LaunchForm } from '@/components/LaunchForm'
 import { ProductMenu } from '@/components/ProductMenu'
-import { PhotographerManagement } from '@/components/Merchandising/PhotographerManagement'
-import { EditingManagement } from '@/components/Merchandising/EditingManagement'
-import { RobustSupport } from '@/components/Merchandising/RobustSupport'
+import { PhotographerManagement } from '@/components/Agency/PhotographerManagement'
+import { PhotographyToolkit } from '@/components/Merchandising/PhotographyToolkit'
 import { Gallery } from '@/components/Merchandising/Gallery'
 import { MerchandisingHeader } from '@/components/Merchandising/MerchandisingHeader'
+import ImageProcessing from '@/components/Merchandising/ImageProcessing'
+import { OtherTools } from '@/components/Merchandising/OtherTools'
 
 export default function Products() {
   return (
     <>
       <Head>
-        <title>
-          Chrome Lot - Next-Gen Vehicle Merchandising & Recon Management
-        </title>
+        <title>Chrome Lot Merchadising Tools</title>
         <meta
           name="description"
           content="Vehicle photos, reconditioning and more."
@@ -31,11 +22,9 @@ export default function Products() {
       <ProductMenu />
       <main>
         <MerchandisingHeader />
-        <PhotographerManagement />
-        <EditingManagement />
-        {/* <Gallery /> */}
-        <RobustSupport />
-        <Faqs />
+        <PhotographyToolkit />
+        <ImageProcessing />
+        <OtherTools />
         <LaunchForm />
       </main>
       <Footer />
