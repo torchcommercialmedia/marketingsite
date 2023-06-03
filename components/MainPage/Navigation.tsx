@@ -62,12 +62,12 @@ const Navigation: React.FC<NavigationProps> = ({
   ];
 
   const AboutUs: DivArray[] = [
-    { icon: AiOutlinePaperClip, size: 24, text: "Classic & Exotic Dealers" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Mobile Repair Shops" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Wrap Shop" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Auto Photography" },
-    { icon: IoMdInformationCircleOutline, size: 24, text: "Mobile Detail" },
-    { icon: GiCarWheel, size: 24, text: "Wheel Refinishing" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Careers" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Agency Services" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Help Center" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Customer Reviews" },
+    { icon: IoMdInformationCircleOutline, size: 24, text: "About the Company" },
+    { icon: GiCarWheel, size: 24, text: "Blog" },
   ];
 
   const addedDivArray = (array: DivArray[]) => {
@@ -111,7 +111,33 @@ const Navigation: React.FC<NavigationProps> = ({
       </div>
     ),
     pricing: <div className="flex">{/* Content for Pricing */}</div>,
-    aboutus: <div className="flex">{/* Content for About Us */}</div>,
+    aboutus: (
+      <div className="w-screen max-w-sm rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl lg:flex block divide-x">
+        <div className="justify-between flex-1 pr-12">
+          {addedDivArray(AboutUs)}
+        </div>
+        <div className="flex-1 space-x-4 pl-12 flex">
+          <div className="h-[200px]">
+            <p className="mb-4">Recent Blogs</p>
+            <div className="flex space-x-4">
+              <div className="flex flex-col h-[150px]">
+                <div className="border border-neutral-900 rounded-lg px-8 py-2 flex-1">
+                  <p className="mb-4">Blog post 1</p>
+                  {/* <Image /> */}
+                </div>
+              </div>
+              <div className="flex flex-col h-[150px]">
+                <div className="border border-neutral-900 rounded-lg px-8 py-2 flex-1">
+                  <p className="mb-4">Blog post 2</p>
+                  {/* <Image /> */}
+                </div>
+              </div>
+            </div>
+            <p className="flex justify-end text-bl">View All...</p>
+          </div>
+        </div>
+      </div>
+    ),
   };
 
   const popoverContentToShow = popoverContent[href.replace("/", "")];
