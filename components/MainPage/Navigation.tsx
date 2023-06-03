@@ -8,9 +8,12 @@ import {
   MdOutlinePayments,
   MdOutlineInventory,
 } from "react-icons/md";
-import { BsArrowLeftRight, BsTools } from "react-icons/bs";
-import { GiAutoRepair } from "react-icons/gi";
-import { RiStoreFill } from "react-icons/ri";
+import { BsArrowLeftRight, BsTools, BsFillCameraFill } from "react-icons/bs";
+import { GiAutoRepair, GiCarWheel } from "react-icons/gi";
+import { RiStoreFill, RiToolsFill } from "react-icons/ri";
+import { IoCarSportSharp } from "react-icons/io5";
+import { IoMdInformationCircleOutline } from "react-icons/io";
+import { VscWand } from "react-icons/vsc";
 import { IconType } from "react-icons";
 
 type NavigationProps = {
@@ -50,44 +53,63 @@ const Navigation: React.FC<NavigationProps> = ({
   ];
 
   const UsesProduct: DivArray[] = [
-    { icon: AiOutlinePaperClip, size: 24, text: "Classic & Exotic Dealers" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Mobile Repair Shops" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Wheel Refinishing" },
+    { icon: IoCarSportSharp, size: 24, text: "Classic & Exotic Dealers" },
+    { icon: RiToolsFill, size: 24, text: "Mobile Repair Shops" },
+    { icon: VscWand, size: 24, text: "Wrap Shop" },
+    { icon: BsFillCameraFill, size: 24, text: "Auto Photography" },
+    { icon: IoMdInformationCircleOutline, size: 24, text: "Mobile Detail" },
+    { icon: GiCarWheel, size: 24, text: "Wheel Refinishing" },
   ];
 
-  const rows = [];
-  for (let i = 0; i < ProductArray.length; i += 2) {
-    const div1 = ProductArray[i];
-    const div2 = ProductArray[i + 1];
-    rows.push(
-      <div key={i} className="flex">
-        <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">
-          <div1.icon size={div1.size} />
-          <div className="text-gray-900">
-            {div1.text}
-            <span className="absolute inset-0" />
-          </div>
-        </div>
-        {div2 && (
+  const AboutUs: DivArray[] = [
+    { icon: AiOutlinePaperClip, size: 24, text: "Classic & Exotic Dealers" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Mobile Repair Shops" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Wrap Shop" },
+    { icon: AiOutlinePaperClip, size: 24, text: "Auto Photography" },
+    { icon: IoMdInformationCircleOutline, size: 24, text: "Mobile Detail" },
+    { icon: GiCarWheel, size: 24, text: "Wheel Refinishing" },
+  ];
+
+  const addedDivArray = (array: DivArray[]) => {
+    const rows = [];
+    for (let i = 0; i < array.length; i += 2) {
+      const div1 = array[i];
+      const div2 = array[i + 1];
+      rows.push(
+        <div key={i} className="flex">
           <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">
-            <div2.icon size={div2.size} />
+            <div1.icon size={div1.size} />
             <div className="text-gray-900">
-              {div2.text}
+              {div1.text}
               <span className="absolute inset-0" />
             </div>
           </div>
-        )}
-      </div>
-    );
-  }
+          {div2 && (
+            <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">
+              <div2.icon size={div2.size} />
+              <div className="text-gray-900">
+                {div2.text}
+                <span className="absolute inset-0" />
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+    return rows;
+  };
 
   const popoverContent: PopoverContent = {
     product: (
       <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 justify-between lg:max-w-lg">
-        {rows}
+        {addedDivArray(ProductArray)}
       </div>
     ),
-    uses: <div className="flex">{/* Content for Uses */}</div>,
+    uses: (
+      <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 justify-between lg:max-w-lg">
+        {addedDivArray(UsesProduct)}
+      </div>
+    ),
     pricing: <div className="flex">{/* Content for Pricing */}</div>,
     aboutus: <div className="flex">{/* Content for About Us */}</div>,
   };
