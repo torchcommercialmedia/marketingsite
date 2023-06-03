@@ -7,13 +7,20 @@ import {
   MdWrongLocation,
   MdOutlinePayments,
   MdOutlineInventory,
+  MdOutlineReviews,
 } from "react-icons/md";
 import { BsArrowLeftRight, BsTools, BsFillCameraFill } from "react-icons/bs";
-import { GiAutoRepair, GiCarWheel } from "react-icons/gi";
+import {
+  HiOutlineBuildingOffice2,
+  HiOutlineBuildingOffice,
+} from "react-icons/hi2";
+import { GiAutoRepair, GiCarWheel, GiGraduateCap } from "react-icons/gi";
 import { RiStoreFill, RiToolsFill } from "react-icons/ri";
 import { IoCarSportSharp } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { VscWand } from "react-icons/vsc";
+import { TbHelp } from "react-icons/tb";
+import { FaBlog } from "react-icons/fa";
 import { IconType } from "react-icons";
 
 type NavigationProps = {
@@ -62,12 +69,12 @@ const Navigation: React.FC<NavigationProps> = ({
   ];
 
   const AboutUs: DivArray[] = [
-    { icon: AiOutlinePaperClip, size: 24, text: "Careers" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Agency Services" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Help Center" },
-    { icon: AiOutlinePaperClip, size: 24, text: "Customer Reviews" },
-    { icon: IoMdInformationCircleOutline, size: 24, text: "About the Company" },
-    { icon: GiCarWheel, size: 24, text: "Blog" },
+    { icon: GiGraduateCap, size: 24, text: "Careers" },
+    { icon: HiOutlineBuildingOffice2, size: 24, text: "Agency Services" },
+    { icon: TbHelp, size: 24, text: "Help Center" },
+    { icon: MdOutlineReviews, size: 24, text: "Customer Reviews" },
+    { icon: HiOutlineBuildingOffice, size: 24, text: "About the Company" },
+    { icon: FaBlog, size: 24, text: "Blog" },
   ];
 
   const addedDivArray = (array: DivArray[]) => {
