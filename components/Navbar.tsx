@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   );
   return (
     <nav
-      className="flex items-center justify-between p-6 lg:px-8"
+      className="flex items-center justify-between p-6 lg:px-8 max-w-screen-2xl mx-auto"
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
