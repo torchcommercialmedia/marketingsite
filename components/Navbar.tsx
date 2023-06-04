@@ -8,7 +8,7 @@ import { HiBars3, HiXMark } from "react-icons/hi2";
 import Navigation from "./Navigation";
 import Link from "next/link";
 
-type NavbarProps = {};
+interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = ({}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

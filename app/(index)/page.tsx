@@ -1,9 +1,9 @@
 import Hero from "@/components/MainPage/Hero";
 import Tools from "@/components/MainPage/Tools";
 
-type IndexProp = {
+interface IndexProp {
   children: React.ReactNode;
-};
+}
 
 export default function Home({ children }: IndexProp) {
   return (

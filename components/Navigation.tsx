@@ -23,21 +23,21 @@ import { TbHelp } from "react-icons/tb";
 import { FaBlog } from "react-icons/fa";
 import { IconType } from "react-icons";
 
-type NavigationProps = {
+interface NavigationProps {
   label: string;
   active: boolean;
   href: string;
-};
+}
 
-type DivArray = {
+interface DivArray {
   icon: IconType;
   size: number;
   text: string;
-};
+}
 
-type PopoverContent = {
+interface PopoverContent {
   [key: string]: React.ReactNode;
-};
+}
 
 const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);

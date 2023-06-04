@@ -11,13 +11,13 @@ import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
 import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
 
-type Props = {};
+interface Props {}
 
-type ToolsForProfessional = {
+interface ToolsForProfessional {
   icon: IconType;
   size: number;
   text: string;
-};
+}
 
 const Tools = (props: Props) => {
   const [selectedTool, setSelectedTool] = useState<string>("");
