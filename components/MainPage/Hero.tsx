@@ -1,11 +1,14 @@
 "use client";
+import Link from "next/link";
 import React from "react";
+import { BsCameraFill } from "react-icons/bs";
+import { IoCarSportSharp } from "react-icons/io5";
+import { MdMiscellaneousServices } from "react-icons/md";
+import { VscTools } from "react-icons/vsc";
 
-type HeroProps = {};
-
-const Hero: React.FC<HeroProps> = ({}) => {
+const Hero: React.FC = () => {
   return (
-    <div className="relative isolate -z-10 w-full">
+    <div className="relative isolate w-full h-[calc(100vh-100px)]">
       <svg
         className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
         aria-hidden="true"
@@ -48,48 +51,56 @@ const Hero: React.FC<HeroProps> = ({}) => {
         />
       </div>
       <div className="overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-32 pt-10 sm:pt-10 lg:px-8 lg:pt-32">
+        <div className="mx-auto max-w-screen-2xl px-6 pb-32 pt-10 sm:pt-10 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-            <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+            <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-left text-center">
-                Next Generation Business Management Platform For:
+                Next Generation{" "}
+                <span className="text-red-500">Business Management</span>{" "}
+                Platform For:
               </h1>
               <div className="p-4"></div>
               <div className="">
-                <div className="flex justify-between p-4">
-                  <div className="border">
-                    <h1>Car</h1>
-                    <p>Dealers</p>
+                <div className="flex space-x-4 items-center">
+                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50">
+                    <div className="flex">
+                      <IoCarSportSharp size={72} />
+                    </div>
+                    <p className="h-12 flex items-center">Dealers</p>
                   </div>
-                  <div className="border">
-                    <h1>Car</h1>
-                    <p>Dealers</p>
+                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
+                    <div className="flex">
+                      <BsCameraFill size={72} />
+                    </div>
+                    <p className="h-12 flex items-center">
+                      Automotive Merchandising
+                    </p>
                   </div>
-                  <div className="border">
-                    <h1>Car</h1>
-                    <p>Dealers</p>
+                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
+                    <div className="flex">
+                      <VscTools size={72} />
+                    </div>
+                    <p className="h-12 flex items-center">Shops</p>
                   </div>
-                  <div className="border">
-                    <h1>Car</h1>
-                    <p>Dealers</p>
+                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
+                    <div className="flex">
+                      <MdMiscellaneousServices size={72} />
+                    </div>
+                    <p className="h-12 flex items-center">Mobile Service</p>
                   </div>
                 </div>
               </div>
               <div className="mt-10 flex items-center gap-x-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                <Link
+                  href="/"
+                  className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   Get started
-                </a>
-                <a
-                  href="#"
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Learn more <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </div>
             </div>
+
+            {/* To Change */}
             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
               <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative">
