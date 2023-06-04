@@ -6,6 +6,7 @@ import { Dialog } from "@headlessui/react";
 import Image from "next/image";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import Navigation from "./Navigation";
+import Link from "next/link";
 
 type NavbarProps = {};
 
@@ -40,20 +41,20 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   );
   return (
     <nav
-      className="flex items-center justify-between p-6 lg:px-8 max-w-screen-2xl mx-auto"
+      className="flex items-center justify-between p-6 lg:px-8 max-w-7xl mx-auto"
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
-        <a href="#" className="-m-1.5 p-1.5">
+        <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Chromelot</span>
           <Image
             src={"/logo/chromelotlogo.png"}
-            className="h-8 w-auto"
+            className="h-10 w-auto"
             width={100}
             height={100}
             alt={""}
           />
-        </a>
+        </Link>
       </div>
       <div className="flex lg:hidden">
         <button
@@ -76,12 +77,12 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         ))}
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-2">
-        <a
+        <Link
           href="#"
           className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
         >
           Request a Demo
-        </a>
+        </Link>
         <a
           href="#"
           className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
@@ -129,12 +130,18 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                   ></Navigation>
                 ))}
               </div>
-              <div className="py-6">
+              <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-2">
+                <Link
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Request a Demo
+                </Link>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                  Sign Up
                 </a>
               </div>
             </div>

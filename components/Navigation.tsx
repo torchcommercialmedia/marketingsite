@@ -81,7 +81,7 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
       const div1 = array[i];
       const div2 = array[i + 1];
       rows.push(
-        <div key={i} className="flex hover:cursor-pointer">
+        <div key={i} className="flex hover:cursor-pointer ">
           <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">
             <div1.icon size={div1.size} />
             <div className="text-gray-900">

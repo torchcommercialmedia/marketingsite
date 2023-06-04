@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
         />
       </div>
       <div className="overflow-hidden">
-        <div className="mx-auto max-w-screen-2xl px-6 pb-32 pt-10 sm:pt-10 lg:px-8 lg:pt-32">
+        <div className="mx-auto max-w-7xl px-6 pb-32 pt-10 sm:pt-10 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-left text-center">
@@ -61,39 +61,55 @@ const Hero: React.FC = () => {
               </h1>
               <div className="p-4"></div>
               <div className="">
-                <div className="flex space-x-4 items-center">
-                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50">
-                    <div className="flex">
-                      <IoCarSportSharp size={72} />
+                <div className="gap-2 grid grid-cols-2 sm:grid-cols-4 items-center">
+                  <div className="flex hover:scale-105 mx-auto w-14 sm:w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50">
+                    <div className="flex col-span-1">
+                      <IoCarSportSharp size={42} className="flex sm:hidden" />
+                      <IoCarSportSharp size={72} className="hidden sm:block" />
                     </div>
-                    <p className="h-12 flex items-center">Dealers</p>
+                    <p className="h-12 flex text-xs sm:text-md items-center">
+                      Dealers
+                    </p>
                   </div>
-                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
-                    <div className="flex">
-                      <BsCameraFill size={72} />
+                  <div className="flex hover:scale-105 mx-auto w-14 sm:w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
+                    <div className="flex col-span-1">
+                      <BsCameraFill size={42} className="flex sm:hidden" />
+                      <BsCameraFill size={72} className="hidden sm:block" />
                     </div>
-                    <p className="h-12 flex items-center">
+                    <p className="h-12 flex text-xs sm:text-md items-center">
                       Automotive Merchandising
                     </p>
                   </div>
-                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
-                    <div className="flex">
-                      <VscTools size={72} />
+                  <div className="flex hover:scale-105 mx-auto w-14 sm:w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
+                    <div className="flex col-span-1">
+                      <VscTools size={42} className="flex sm:hidden" />
+                      <VscTools size={72} className="hidden sm:block" />
                     </div>
-                    <p className="h-12 flex items-center">Shops</p>
+                    <p className="h-12 flex text-xs sm:text-md items-center">
+                      Shops
+                    </p>
                   </div>
-                  <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
-                    <div className="flex">
-                      <MdMiscellaneousServices size={72} />
+                  <div className="flex hover:scale-105 mx-auto w-14 sm:w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50 text-center">
+                    <div className="flex col-span-1">
+                      <MdMiscellaneousServices
+                        size={42}
+                        className="flex sm:hidden"
+                      />
+                      <MdMiscellaneousServices
+                        size={72}
+                        className="hidden sm:block"
+                      />
                     </div>
-                    <p className="h-12 flex items-center">Mobile Service</p>
+                    <p className="h-12 flex text-xs sm:text-md items-center">
+                      Mobile Service
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="mt-10 flex items-center gap-x-6">
                 <Link
                   href="/"
-                  className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                  className="rounded-md bg-red-500 px-3.5 py-2.5 mx-auto sm:mx-0 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   Get started
                 </Link>

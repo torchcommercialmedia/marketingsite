@@ -24,13 +24,13 @@ const Tools = (props: Props) => {
   const swiperRef = useRef<SwiperClass | undefined>();
 
   const ProductArray: ToolsForProfessional[] = [
-    { icon: RiToolsFill, size: 42, text: "Task Management" },
-    { icon: TfiAlarmClock, size: 42, text: "Time Tracking" },
-    { icon: BsGear, size: 42, text: "Ports Procurement" },
-    { icon: HiOutlineBuildingOffice2, size: 42, text: "Multi-Rooftop" },
-    { icon: FcInspection, size: 42, text: "QA Inspection" },
-    { icon: VscChecklist, size: 42, text: "Vehicle Inspections" },
-    { icon: TfiDashboard, size: 42, text: "Dashboard & Reports" },
+    { icon: RiToolsFill, size: 24, text: "Task Management" },
+    { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
+    { icon: BsGear, size: 24, text: "Ports Procurement" },
+    { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
+    { icon: FcInspection, size: 24, text: "QA Inspection" },
+    { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
+    { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
   ];
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
@@ -83,7 +83,7 @@ const Tools = (props: Props) => {
           setSelectedTool(ProductArray[nextIndex].text);
         }
       }
-    }, 4000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -92,10 +92,10 @@ const Tools = (props: Props) => {
   }, []);
 
   return (
-    <section className="relative isolate w-full max-w-screen-2xl mx-auto p-2 h-screen overflow-x-auto">
+    <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen overflow-x-auto">
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>
-        <h2 className="font-semibold mx-auto text-4xl">
+        <h2 className="font-semibold mx-auto text-2xl">
           Tools for All Auto Professionals
         </h2>
         <div className="p-6"></div>
