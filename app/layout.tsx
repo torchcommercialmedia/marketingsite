@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Figtree } from "next/font/google";
-import Navbar from "@/components/MainPage/Navbar";
+import Navbar from "@/components/Navbar";
 
 const font = Figtree({ subsets: ["latin"] });
 
@@ -16,8 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
-        <Navbar>{children}</Navbar>
+      <body className="bg-white/50">
+        <Navbar />
+        {children}
       </body>
     </html>
   );

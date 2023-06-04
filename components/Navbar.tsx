@@ -7,11 +7,9 @@ import Image from "next/image";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import Navigation from "./Navigation";
 
-type NavbarProps = {
-  children: React.ReactNode;
-};
+type NavbarProps = {};
 
-const Navbar: React.FC<NavbarProps> = ({ children }) => {
+const Navbar: React.FC<NavbarProps> = ({}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -74,9 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
             active={item.active}
             href={item.href}
             key={item.label}
-          >
-            {children}
-          </Navigation>
+          ></Navigation>
         ))}
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-2">
@@ -130,9 +126,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
                     active={item.active}
                     href={item.href}
                     key={item.label}
-                  >
-                    {children}
-                  </Navigation>
+                  ></Navigation>
                 ))}
               </div>
               <div className="py-6">
