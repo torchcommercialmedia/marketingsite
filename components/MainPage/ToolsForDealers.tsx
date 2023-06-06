@@ -1,15 +1,17 @@
 "use client";
 import React, { useMemo, useRef, useState } from "react";
 import { IconType } from "react-icons";
-import { SwiperClass } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 //Icons
-import { BsGear } from "react-icons/bs";
-import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
-import { RiToolsFill } from "react-icons/ri";
-import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
-import { FcInspection } from "react-icons/fc";
-import { VscChecklist } from "react-icons/vsc";
+import { BiStore } from "react-icons/bi";
+import { GiAutoRepair } from "react-icons/gi";
+import {
+  MdOutlineInventory2,
+  MdOutlineSell,
+  MdOutlineSwapHoriz,
+} from "react-icons/md";
+import { RiServiceLine } from "react-icons/ri";
 
 type Props = {};
 
@@ -25,20 +27,92 @@ const ToolsForDealers = (props: Props) => {
 
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => [
-      { icon: RiToolsFill, size: 24, text: "Task Management" },
-      { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
-      { icon: BsGear, size: 24, text: "Ports Procurement" },
-      { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
-      { icon: FcInspection, size: 24, text: "QA Inspection" },
-      { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
-      { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
+      { icon: GiAutoRepair, size: 24, text: "Recon Management" },
+      { icon: MdOutlineInventory2, size: 24, text: "Inventory Management" },
+      { icon: MdOutlineSell, size: 24, text: "Merchandising Management" },
+      { icon: RiServiceLine, size: 24, text: "Service Department" },
+      { icon: BiStore, size: 24, text: "Vendor Integration" },
+      { icon: MdOutlineSwapHoriz, size: 24, text: "Custom Workflows" },
     ],
     []
   );
+
+  const AddedDivArray = (array: ToolsForProfessional[]) => {
+    const rows = [];
+    for (let i = 0; i < array.length; i++) {
+      const div = array[i];
+      rows.push(
+        <div
+          className="flex"
+          key={i}
+          onClick={() => handleToolSelect(div.text)}
+        >
+          <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
+            <div className="flex">
+              <div.icon
+                size={div.size}
+                className={selectedTool === div.text ? "text-red-500" : ""}
+              />
+            </div>
+            <div className="p-2"></div>
+            <p
+              className={`h-12 flex items-start text-center ${
+                selectedTool === div.text ? "text-red-500" : ""
+              }`}
+            >
+              {div.text}
+            </p>
+          </div>
+        </div>
+      );
+    }
+    return rows;
+  };
+
+  const handleToolSelect = (toolText: string) => {
+    setSelectedTool(toolText);
+    const toolIndex = ProductArray.findIndex((tool) => tool.text === toolText);
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(toolIndex);
+    }
+  };
+
   return (
-    <div className="min-h-screen max-w-7xl w-full mx-auto border">
-      ToolsForDealers
-    </div>
+    <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen">
+      <div className="flex justify-center w-full flex-col">
+        <div className="p-10"></div>
+        <h2 className="font-semibold mx-auto text-2xl text-center">
+          Tools for Dealers
+        </h2>
+        <div className="p-2"></div>
+        <div className="flex justify-center space-x-4">
+          {AddedDivArray(ProductArray)}
+        </div>
+      </div>
+      <div className="lg:p-4"></div>
+      <div className="h-auto">
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}
+          onSlideChange={(swiper) => {
+            const toolText = ProductArray[swiper.activeIndex].text;
+            setSelectedTool(toolText);
+          }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+        >
+          {ProductArray.map((tool, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex border justify-center w-full rounded-2xl h-[400px]">
+                <p className="mt-40 w-24">Image here</p>
+                <p className="mt-40 w-24">Slide {index + 1}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
