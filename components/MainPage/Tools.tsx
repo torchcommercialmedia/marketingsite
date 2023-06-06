@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperClass, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { icons, IconType } from "react-icons";
@@ -23,15 +23,18 @@ const Tools = (props: Props) => {
   const [selectedTool, setSelectedTool] = useState<string>("");
   const swiperRef = useRef<SwiperClass | undefined>();
 
-  const ProductArray: ToolsForProfessional[] = [
-    { icon: RiToolsFill, size: 24, text: "Task Management" },
-    { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
-    { icon: BsGear, size: 24, text: "Ports Procurement" },
-    { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
-    { icon: FcInspection, size: 24, text: "QA Inspection" },
-    { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
-    { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
-  ];
+  const ProductArray: ToolsForProfessional[] = useMemo(
+    () => [
+      { icon: RiToolsFill, size: 24, text: "Task Management" },
+      { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
+      { icon: BsGear, size: 24, text: "Ports Procurement" },
+      { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
+      { icon: FcInspection, size: 24, text: "QA Inspection" },
+      { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
+      { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
+    ],
+    []
+  );
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
@@ -39,11 +42,11 @@ const Tools = (props: Props) => {
       const div = array[i];
       rows.push(
         <div
-          className="flex space-x-4"
+          className="flex"
           key={i}
           onClick={() => handleToolSelect(div.text)}
         >
-          <div className="flex hover:scale-105 w-[150px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl hover:bg-gray-100/50">
+          <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
             <div className="flex">
               <div.icon
                 size={div.size}
@@ -88,21 +91,22 @@ const Tools = (props: Props) => {
     return () => {
       clearInterval(interval);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [ProductArray, setSelectedTool]);
 
   return (
-    <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen overflow-x-auto">
+    <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen">
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>
-        <h2 className="font-semibold mx-auto text-2xl">
+        <h2 className="font-semibold mx-auto text-2xl text-center">
           Tools for All Auto Professionals
         </h2>
-        <div className="p-6"></div>
-        <div className="flex justify-center">{AddedDivArray(ProductArray)}</div>
+        <div className="p-2"></div>
+        <div className="flex justify-center space-x-4">
+          {AddedDivArray(ProductArray)}
+        </div>
       </div>
-      <div className="p-4"></div>
-      <div className="h-auto border">
+      <div className="lg:p-4"></div>
+      <div className="h-auto">
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
@@ -116,9 +120,9 @@ const Tools = (props: Props) => {
         >
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
-              <div className="flex justify-center w-full border">
-                <p>Slide to go to the nextslide</p>
-                Slide {index + 1}
+              <div className="flex border justify-center w-full rounded-2xl h-[400px]">
+                <p className="mt-40 w-24">Image here</p>
+                <p className="mt-40 w-24">Slide {index + 1}</p>
               </div>
             </SwiperSlide>
           ))}
