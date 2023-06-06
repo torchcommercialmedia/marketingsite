@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           <span className="sr-only">Chromelot</span>
           <Image
             src={"/logo/chromelotlogo.png"}
-            className="h-10 w-auto"
+            className="h-6 w-auto sm:h-10"
             width={100}
             height={100}
             alt={""}
