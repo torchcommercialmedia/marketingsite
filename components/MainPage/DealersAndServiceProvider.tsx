@@ -37,7 +37,7 @@ const DealersAndServiceProvider = (props: Props) => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-10 flex w-full space-x-8 justify-start">
+              <div className="mt-10 sm:flex w-full sm:space-x-8 justify-start">
                 <div className="flex space-x-4">
                   <p>Dealers:</p>
                   <a
