@@ -2,6 +2,9 @@
 import React, { useMemo, useRef, useState } from "react";
 import { IconType } from "react-icons";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 //Icons
 import { BiStore } from "react-icons/bi";
@@ -23,7 +26,8 @@ interface ToolsForProfessional {
 
 const ToolsForDealers = (props: Props) => {
   const [selectedTool, setSelectedTool] = useState<string>("");
-  const swiperRef = useRef<SwiperClass | undefined>();
+  const swiperRefTool = useRef<SwiperClass | undefined>();
+  const swiperRefToolGate = useRef<SwiperClass | undefined>();
 
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => [
@@ -71,9 +75,11 @@ const ToolsForDealers = (props: Props) => {
 
   const handleToolSelect = (toolText: string) => {
     setSelectedTool(toolText);
+    console.log(toolText);
     const toolIndex = ProductArray.findIndex((tool) => tool.text === toolText);
-    if (swiperRef.current) {
-      swiperRef.current.slideTo(toolIndex);
+    console.log(toolIndex);
+    if (swiperRefTool.current) {
+      swiperRefTool.current.slideTo(toolIndex);
     }
   };
 
@@ -90,21 +96,50 @@ const ToolsForDealers = (props: Props) => {
         </div>
       </div>
       <div className="lg:p-4"></div>
-      <div className="h-auto">
+      <div className="h-auto w-full hidden lg:block">
         <Swiper
           spaceBetween={50}
+          slidesOffsetAfter={100}
+          slidesOffsetBefore={100}
+          width={1080}
           slidesPerView={1}
           onSlideChange={(swiper) => {
             const toolText = ProductArray[swiper.activeIndex].text;
             setSelectedTool(toolText);
           }}
           onSwiper={(swiper) => {
-            swiperRef.current = swiper;
+            swiperRefTool.current = swiper;
           }}
         >
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
               <div className="flex border justify-center w-full rounded-2xl h-[400px]">
+                <p className="mt-40 w-24">Image here</p>
+                <p className="mt-40 w-24">Slide {index + 1}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className="h-auto w-full block lg:hidden p-4">
+        <Swiper
+          spaceBetween={20}
+          centeredSlides={true}
+          watchOverflow
+          slidesPerView={1}
+          onSlideChange={(swiper) => {
+            const toolText = ProductArray[swiper.activeIndex].text;
+            setSelectedTool(toolText);
+          }}
+          onSwiper={(swiper) => {
+            swiperRefToolGate.current = swiper;
+          }}
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+        >
+          {ProductArray.map((tool, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex border flex-shrink justify-center rounded-2xl h-[400px]">
                 <p className="mt-40 w-24">Image here</p>
                 <p className="mt-40 w-24">Slide {index + 1}</p>
               </div>
