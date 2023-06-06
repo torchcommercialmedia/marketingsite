@@ -75,7 +75,6 @@ const ToolsForDealers = (props: Props) => {
 
   const handleToolSelect = (toolText: string) => {
     setSelectedTool(toolText);
-    console.log(toolText);
     const toolIndex = ProductArray.findIndex((tool) => tool.text === toolText);
     console.log(toolIndex);
     if (swiperRefTool.current) {
@@ -140,8 +139,8 @@ const ToolsForDealers = (props: Props) => {
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
               <div className="flex border flex-shrink justify-center rounded-2xl h-[400px]">
-                <p className="mt-40 w-24">Image here</p>
-                <p className="mt-40 w-24">Slide {index + 1}</p>
+                <p className="mt-40 w-24">Image Here</p>
+                <p className="mt-40 w-24">Content Here, Slide: {index + 1}</p>
               </div>
             </SwiperSlide>
           ))}
