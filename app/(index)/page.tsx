@@ -1,3 +1,4 @@
+import BuiltWithAi from "@/components/MainPage/BuiltWithAi";
 import DealersAndServiceProvider from "@/components/MainPage/DealersAndServiceProvider";
 import ExampleUses from "@/components/MainPage/ExampleUses";
 import Hero from "@/components/MainPage/Hero";
@@ -14,6 +15,7 @@ export default function Home() {
       <ToolsForDealers />
       <ServiceCompany />
       <ExampleUses />
+      <BuiltWithAi />
     </main>
   );
 }
