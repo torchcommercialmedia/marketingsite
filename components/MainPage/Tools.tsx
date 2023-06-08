@@ -20,7 +20,6 @@ interface ToolsForProfessional {
 }
 
 const Tools = (props: Props) => {
-  const [selectedTool, setSelectedTool] = useState<string>("");
   const swiperRef = useRef<SwiperClass | undefined>();
 
   const ProductArray: ToolsForProfessional[] = useMemo(
@@ -34,6 +33,10 @@ const Tools = (props: Props) => {
       { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
     ],
     []
+  );
+
+  const [selectedTool, setSelectedTool] = useState<string>(
+    ProductArray[0].text
   );
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
