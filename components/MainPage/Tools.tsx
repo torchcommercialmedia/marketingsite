@@ -94,7 +94,10 @@ const Tools = (props: Props) => {
   }, [ProductArray, setSelectedTool]);
 
   return (
-    <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen">
+    <section
+      id="tools"
+      className="relative isolate w-full p-4 max-w-7xl mx-auto min-h-screen"
+    >
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>
         <h2 className="font-semibold mx-auto text-2xl text-center">
