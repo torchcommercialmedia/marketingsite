@@ -13,7 +13,7 @@ const Integration = (props: Props) => {
   };
 
   return (
-    <div className="w-full mx-auto h-auto mt-24 mb-24 justify-center items-center max-w-7xl text-center sm:mt-0">
+    <div className="w-full mx-auto h-auto pt-24 pb-24 justify-center items-center max-w-7xl text-center sm:mt-0">
       <h2 className="font-bold text-2xl">Integrations</h2>
       <p>Native Integrations with the tools you already use</p>
       <div className="sm:p-8 p-4"></div>
