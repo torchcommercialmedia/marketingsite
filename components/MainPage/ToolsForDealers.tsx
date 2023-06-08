@@ -25,10 +25,6 @@ interface ToolsForProfessional {
 }
 
 const ToolsForDealers = (props: Props) => {
-  const [selectedTool, setSelectedTool] = useState<string>("");
-  const swiperRefTool = useRef<SwiperClass | undefined>();
-  const swiperRefToolGate = useRef<SwiperClass | undefined>();
-
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => [
       { icon: GiAutoRepair, size: 24, text: "Recon Management" },
@@ -40,6 +36,12 @@ const ToolsForDealers = (props: Props) => {
     ],
     []
   );
+
+  const [selectedTool, setSelectedTool] = useState<string>(
+    ProductArray[0]?.text || ""
+  );
+  const swiperRefTool = useRef<SwiperClass | undefined>();
+  const swiperRefToolGate = useRef<SwiperClass | undefined>();
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
