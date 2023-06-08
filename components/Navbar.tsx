@@ -4,16 +4,189 @@ import React, { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Dialog } from "@headlessui/react";
 import Image from "next/image";
-import { HiBars3, HiXMark } from "react-icons/hi2";
+import {
+  HiBars3,
+  HiXMark,
+  HiChevronDown,
+  HiOutlineBuildingOffice2,
+  HiOutlineBuildingOffice,
+} from "react-icons/hi2";
+import { AiOutlinePaperClip } from "react-icons/ai";
 import Navigation from "./Navigation";
 import Link from "next/link";
+import { GiAutoRepair, GiCarWheel, GiGraduateCap } from "react-icons/gi";
+import {
+  MdOutlineInventory,
+  MdOutlinePayments,
+  MdOutlineReviews,
+  MdWrongLocation,
+} from "react-icons/md";
+import { BsArrowLeftRight, BsTools, BsFillCameraFill } from "react-icons/bs";
+import { RiStoreFill, RiToolsFill } from "react-icons/ri";
+import { IoCarSportSharp } from "react-icons/io5";
+import { VscWand } from "react-icons/vsc";
+import { IoMdInformationCircleOutline } from "react-icons/io";
+import { TbHelp } from "react-icons/tb";
+import { FaBlog } from "react-icons/fa";
 
 interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = ({}) => {
+  const [selectedMenu, setSelectedMenu] = useState<string>(null || "");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const menuItems = [
+    {
+      label: "Product",
+      active: pathname === "/search",
+      href: "/product",
+      subMenuItems: [
+        {
+          icon: AiOutlinePaperClip,
+          size: 18,
+          label: "Repair Orders",
+          href: "#",
+        },
+        { icon: GiAutoRepair, size: 18, label: "2 Way SMS", href: "#" },
+        {
+          icon: MdWrongLocation,
+          size: 18,
+          label: "Mobile Dispatch",
+          href: "#",
+        },
+        {
+          icon: BsArrowLeftRight,
+          size: 18,
+          label: "Vendor/Dealer Integration",
+          href: "#",
+        },
+        {
+          icon: BsTools,
+          size: 18,
+          label: "Reconditioning Management",
+          href: "#",
+        },
+        {
+          icon: MdOutlinePayments,
+          size: 18,
+          label: "Invoice & Payments",
+          href: "#",
+        },
+        {
+          icon: RiStoreFill,
+          size: 18,
+          label: "Merchandising Tools",
+          href: "#",
+        },
+        {
+          icon: MdOutlineInventory,
+          size: 18,
+          label: "Inventory Management",
+          href: "#",
+        },
+        { icon: BsTools, size: 18, label: "Parts Procurement", href: "#" },
+        {
+          icon: MdOutlinePayments,
+          size: 18,
+          label: "Dashboard & Reporting",
+          href: "#",
+        },
+      ],
+    },
+    {
+      label: "Uses",
+      active: pathname === "/search",
+      href: "/uses",
+      subMenuItems: [
+        {
+          icon: IoCarSportSharp,
+          size: 18,
+          label: "Classic & Exotic Dealers",
+          href: "#",
+        },
+        {
+          icon: RiToolsFill,
+          size: 18,
+          label: "Mobile Repair Shops",
+          href: "#",
+        },
+        {
+          icon: VscWand,
+          size: 18,
+          label: "Wrap Shop",
+          href: "#",
+        },
+        {
+          icon: BsFillCameraFill,
+          size: 18,
+          label: "Auto Photography",
+          href: "#",
+        },
+        {
+          icon: IoMdInformationCircleOutline,
+          size: 18,
+          label: "Mobile Detail",
+          href: "#",
+        },
+        {
+          icon: GiCarWheel,
+          size: 18,
+          label: "Wheel Refinishing",
+          href: "#",
+        },
+      ],
+    },
+    {
+      label: "Pricing",
+      active: pathname === "/search",
+      href: "/pricing",
+      subMenuItems: [],
+    },
+    {
+      label: "About Us",
+      active: pathname === "/search",
+      href: "/aboutus",
+      subMenuItems: [
+        {
+          icon: GiGraduateCap,
+          size: 18,
+          label: "Careers",
+          href: "#",
+        },
+        {
+          icon: HiOutlineBuildingOffice2,
+          size: 18,
+          label: "Agency Services",
+          href: "#",
+        },
+        {
+          icon: TbHelp,
+          size: 18,
+          label: "Help Center",
+          href: "#",
+        },
+        {
+          icon: MdOutlineReviews,
+          size: 18,
+          label: "Customer Reviews",
+          href: "#",
+        },
+        {
+          icon: HiOutlineBuildingOffice,
+          size: 18,
+          label: "About the Company",
+          href: "#",
+        },
+        {
+          icon: FaBlog,
+          size: 18,
+          label: "Blog",
+          href: "#",
+        },
+      ],
+    },
+  ];
   const routes = useMemo(
     () => [
       {
@@ -120,15 +293,55 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {routes.map((item) => (
-                  <Navigation
-                    label={item.label}
-                    active={item.active}
-                    href={item.href}
-                    key={item.label}
-                  ></Navigation>
-                ))}
+              <div className=" py-6 justify-between flex flex-col">
+                <div className="space-y-2 py-6">
+                  {menuItems.map((item) => (
+                    <div key={item.label}>
+                      <button
+                        type="button"
+                        className={`flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-base font-semibold leading-7 text-gray-900 ${
+                          selectedMenu === item.label
+                            ? "bg-gray-100"
+                            : "hover:bg-gray-50"
+                        }`}
+                        onClick={() =>
+                          setSelectedMenu(
+                            selectedMenu === item.label ? "" : item.label
+                          )
+                        }
+                      >
+                        {item.label}
+                        {item.subMenuItems.length > 0 && (
+                          <HiChevronDown
+                            className={`h-6 w-6 transform ${
+                              selectedMenu === item.label ? "rotate-180" : ""
+                            }`}
+                            aria-hidden="true"
+                          />
+                        )}
+                      </button>
+                      {selectedMenu === item.label && (
+                        <div className="pl-6 mt-2">
+                          {/* Render sub-menu items here */}
+                          {item.subMenuItems.map((subItem) => (
+                            <div
+                              key={subItem.label}
+                              className="flex items-center space-x-1"
+                            >
+                              <subItem.icon size={subItem.size} />
+                              <Link
+                                href={subItem.href}
+                                className="-mx-3 block rounded-lg px-3 py-2.5 font-normal text-base leading-7 text-gray-900 hover:bg-gray-50"
+                              >
+                                {subItem.label}
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
               <Link
                 href="#"
