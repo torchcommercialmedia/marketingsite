@@ -10,6 +10,8 @@ import { RiToolsFill } from "react-icons/ri";
 import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
 import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
+import ImageForTools4Professional from "@/public/images/tools4professional/taskmanagement.jpg";
+import Image from "next/image";
 
 interface Props {}
 
@@ -127,7 +129,12 @@ const Tools = (props: Props) => {
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
               <div className="flex border justify-center w-full rounded-2xl h-[400px]">
-                <p className="mt-40 w-24">Image here</p>
+                <Image
+                  src={ImageForTools4Professional}
+                  width={500}
+                  height={500}
+                  alt=""
+                />
                 <p className="mt-40 w-24">Slide {index + 1}</p>
               </div>
             </SwiperSlide>
