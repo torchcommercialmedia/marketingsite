@@ -22,6 +22,7 @@ import { VscWand } from "react-icons/vsc";
 import { TbHelp } from "react-icons/tb";
 import { FaBlog } from "react-icons/fa";
 import { IconType } from "react-icons";
+import Link from "next/link";
 
 interface NavigationProps {
   label: string;
@@ -115,7 +116,11 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
         {addedDivArray(UsesProduct)}
       </div>
     ),
-    pricing: <div className="flex">{/* Content for Pricing */}</div>,
+    pricing: (
+      <Link href="/pricing">
+        {/* <a className="flex">Content for Pricing</a> */}
+      </Link>
+    ),
     aboutus: (
       <div className="w-screen max-w-sm rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl lg:flex block divide-x">
         <div className="justify-between flex-1 pr-8">

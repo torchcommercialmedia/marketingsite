@@ -35,7 +35,7 @@ const Footer = () => {
       { name: "Photographer Training Program", href: "#" },
     ],
     legal: [
-      { name: "Pricing", href: "#" },
+      { name: "Pricing", href: "/pricing" },
       { name: "About Us", href: "#" },
       { name: "Careers", href: "#" },
       { name: "Referral Program", href: "#" },
