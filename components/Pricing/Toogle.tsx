@@ -2,14 +2,16 @@
 import { Switch } from "@headlessui/react";
 import React, { useState } from "react";
 
-type Props = {};
+type Props = {
+  setEnabled: (enabled: boolean) => void;
+  enabled: boolean;
+};
 
 const classNames = (...classes: any[]) => {
   return classes.filter(Boolean).join(" ");
 };
 
-const Toogle = (props: Props) => {
-  const [enabled, setEnabled] = useState<boolean>(true);
+const Toogle = ({ setEnabled, enabled }: Props) => {
   return (
     <Switch
       checked={enabled}
