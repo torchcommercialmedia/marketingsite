@@ -17,8 +17,10 @@ const HeroAbout = (props: Props) => {
         </h1>
         <h3 className="text-6xl mt-10">
           we exist to help{" "}
-          <span className="text-red-500">automotive professionals</span> succeed
-          in their business, and react their dreams.
+          <span className="text-red-500 font-semibold">
+            automotive professionals
+          </span>{" "}
+          succeed in their business, and react their dreams.
         </h3>
         <div className="mt-14 flex items-center gap-x-6">
           <Link
