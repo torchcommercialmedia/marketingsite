@@ -1,32 +1,56 @@
 "use client";
 import Toogle from "@/components/Pricing/Toogle";
-import { RadioGroup } from "@headlessui/react";
 import React, { useState } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import { BsCamera2, BsTools } from "react-icons/bs";
+import { BiMessageCheck } from "react-icons/bi";
+import { BsCamera, BsCamera2, BsRobot, BsSendCheck } from "react-icons/bs";
+import { FaRegImages } from "react-icons/fa";
+import { IoNewspaperOutline } from "react-icons/io5";
 import { MdCheckCircleOutline } from "react-icons/md";
+import { SiInteractiondesignfoundation } from "react-icons/si";
+import { VscTools } from "react-icons/vsc";
 
 type Props = {};
 
 const Pricing = (props: Props) => {
+  const [showAdditionalFeatures, setShowAdditionalFeatures] =
+    useState<boolean>(false);
   const [merchandisingSelected, setMerchandisingSelected] =
-    useState<boolean>(false);
+    useState<boolean>(true);
   const [serviceToolsSelected, setServiceToolsSelected] =
-    useState<boolean>(false);
+    useState<boolean>(true);
 
   const tiers = [
     {
       name: "Dealer Toolkit",
       id: "delaer-toolkit",
       href: "#",
-      priceMonthly: "$299",
-      description: "Includes 5 users, additional users at $29/month",
-      features: [
+      priceMonthly:
+        merchandisingSelected && serviceToolsSelected
+          ? "$299"
+          : merchandisingSelected && !serviceToolsSelected
+          ? "$249"
+          : !merchandisingSelected && serviceToolsSelected
+          ? "$249"
+          : "$199",
+      description:
+        "Includes 5 users, additional users at " +
+        (merchandisingSelected && serviceToolsSelected
+          ? "$29"
+          : merchandisingSelected && !serviceToolsSelected
+          ? "$24"
+          : !merchandisingSelected && serviceToolsSelected
+          ? "$24"
+          : "$19") +
+        "/month",
+      initialFeatures: [
         "Inventory Management System",
         "Reconditioning System",
         "Custom Inspection Forms",
         "Time Tracking",
         "Task Tracking",
+      ],
+      additionalFeatures: [
         "User Pay Reports",
         "Schedule Builder",
         "Photo Sync",
@@ -45,9 +69,25 @@ const Pricing = (props: Props) => {
       name: "Full ToolKit",
       id: "full-toolkit",
       href: "#",
-      priceMonthly: "$499",
-      description: "Dedicated support and infrastructure for your company.",
-      features: [
+      priceMonthly:
+        merchandisingSelected && serviceToolsSelected
+          ? "$499"
+          : merchandisingSelected && !serviceToolsSelected
+          ? "$399"
+          : !merchandisingSelected && serviceToolsSelected
+          ? "$399"
+          : "$299",
+      description:
+        "Includes 5 users, additional users at " +
+        (merchandisingSelected && serviceToolsSelected
+          ? "$49"
+          : merchandisingSelected && !serviceToolsSelected
+          ? "$39"
+          : !merchandisingSelected && serviceToolsSelected
+          ? "$39"
+          : "$29") +
+        "/month",
+      initialFeatures: [
         "All Dealer Features",
         "All Service Features",
         "One Integrated Features",
@@ -58,14 +98,32 @@ const Pricing = (props: Props) => {
       name: "Service Toolkit",
       id: "service-toolkit",
       href: "#",
-      priceMonthly: "$299",
-      description: "Includes 5 users, additional users at $29/month.",
-      features: [
+      priceMonthly:
+        merchandisingSelected && serviceToolsSelected
+          ? "$299"
+          : merchandisingSelected && !serviceToolsSelected
+          ? "$249"
+          : !merchandisingSelected && serviceToolsSelected
+          ? "$249"
+          : "$199",
+      description:
+        "Includes 5 users, additional users at " +
+        (merchandisingSelected && serviceToolsSelected
+          ? "$29"
+          : merchandisingSelected && !serviceToolsSelected
+          ? "$24"
+          : !merchandisingSelected && serviceToolsSelected
+          ? "$24"
+          : "$19") +
+        "/month",
+      initialFeatures: [
         "Inventory Management System",
         "Reconditioning System",
         "Custom Inspection Forms",
         "Time Tracking",
         "Task Tracking",
+      ],
+      additionalFeatures: [
         "User Pay Reports",
         "Schedule Builder",
         "Photo Sync",
@@ -87,9 +145,6 @@ const Pricing = (props: Props) => {
   };
 
   const toggleMerchandising = () => {
-    tiers[0].features = [];
-    tiers[1].features = [];
-    tiers[2].features = [];
     setMerchandisingSelected(!merchandisingSelected);
   };
 
@@ -101,7 +156,7 @@ const Pricing = (props: Props) => {
 
   return (
     <div className="w-full min-h-screen max-w-7xl mx-auto justify-center">
-      <div className="bg-white py-24 sm:py-32">
+      <div className="bg-white py-24 lg:py-8 xl:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-base font-semibold leading-7 text-red-600">
@@ -118,22 +173,36 @@ const Pricing = (props: Props) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div
-                className={` ${
-                  merchandisingSelected ? "border-green-500 border" : ""
-                } border-green-500 h-auto rounded-xl p-4 `}
+                className="border-green-500 h-auto rounded-xl p-4 cursor-pointer"
+                onClick={() => toggleMerchandising()}
               >
                 <div
                   className={`border h-56 rounded-xl p-4 ${
-                    merchandisingSelected ? "border-red-500" : "border-gray-500"
+                    merchandisingSelected
+                      ? "border-green-500"
+                      : "border-gray-500"
                   }`}
-                  onClick={() => toggleMerchandising()}
                 >
                   <BsCamera2 className="h-12 w-12" />
-                  <h3 className="font-bold text-lg">Merchandising Tools</h3>
-                  <p className="text-sm">In App Photography</p>
-                  <p className="text-sm">AI Editing</p>
-                  <p className="text-sm">Advanced window stickers</p>
-                  <p className="text-sm">Dynamic Insert Images</p>
+                  <h3 className="font-bold text-lg text-red-600">
+                    Merchandising Tools
+                  </h3>
+                  <div className="flex items-center space-x-2">
+                    <BsCamera width={20} height={20} />
+                    <p className="text-sm">In App Photography</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <BsRobot width={20} height={20} />
+                    <p className="text-sm">AI Editing</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <SiInteractiondesignfoundation width={20} height={20} />
+                    <p className="text-sm">Advanced window stickers</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <FaRegImages width={20} height={20} />
+                    <p className="text-sm">Dynamic Insert Images</p>
+                  </div>
                 </div>
                 <div className="p-2"></div>
                 <div className="flex space-x-2 items-center justify-center">
@@ -147,23 +216,33 @@ const Pricing = (props: Props) => {
               </div>
 
               <div
-                className={` ${
-                  serviceToolsSelected ? "border-green-500 border" : ""
-                } border-green-500 h-auto rounded-xl p-4 `}
+                className="border-green-500 h-auto rounded-xl p-4 cursor-pointer"
+                onClick={() => toggleServiceTools()}
               >
                 <div
                   className={`border h-56 rounded-xl p-4 ${
                     serviceToolsSelected
-                      ? "border-red-500"
+                      ? "border-green-500"
                       : "border-neutral-500"
                   }`}
                   onClick={() => toggleServiceTools()}
                 >
-                  <BsTools className="h-12 w-12" />
-                  <h3 className="font-bold text-lg">Advance Service Tools</h3>
-                  <p className="text-sm">Dispatching</p>
-                  <p className="text-sm">Bidrectional SMS</p>
-                  <p className="text-sm">Lead Forms</p>
+                  <VscTools className="h-12 w-12" />
+                  <h3 className="font-bold text-lg text-red-600">
+                    Advance Service Tools
+                  </h3>
+                  <div className="flex items-center space-x-2">
+                    <BsSendCheck width={20} height={20} />
+                    <p className="text-sm">Dispatching</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <BiMessageCheck width={20} height={20} />
+                    <p className="text-sm">Bidrectional SMS</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <IoNewspaperOutline width={20} height={20} />
+                    <p className="text-sm">Lead Forms</p>
+                  </div>
                 </div>
                 <div className="p-2"></div>
                 <div className="flex space-x-2 items-center justify-center">
@@ -226,7 +305,7 @@ const Pricing = (props: Props) => {
                     role="list"
                     className="mt-8 space-y-3 text-sm leading-6 text-gray-600"
                   >
-                    {tier.features?.map((feature) => (
+                    {tier?.initialFeatures?.map((feature) => (
                       <li key={feature} className="flex gap-x-3">
                         <MdCheckCircleOutline
                           className="h-6 w-5 flex-none text-red-600"
@@ -236,6 +315,45 @@ const Pricing = (props: Props) => {
                       </li>
                     ))}
                   </ul>
+                  {tier.additionalFeatures &&
+                    tier.additionalFeatures.length > 0 &&
+                    !showAdditionalFeatures && (
+                      <div className="mt-2 text-center">
+                        <button
+                          className="text-red-600 font-semibold underline"
+                          onClick={() => setShowAdditionalFeatures(true)}
+                        >
+                          View more
+                        </button>
+                      </div>
+                    )}
+
+                  {showAdditionalFeatures && tier.additionalFeatures && (
+                    <>
+                      <ul
+                        role="list"
+                        className={`mt-4 space-y-3 text-sm leading-6 text-gray-600`}
+                      >
+                        {tier.additionalFeatures.map((feature) => (
+                          <li key={feature} className="flex gap-x-3">
+                            <MdCheckCircleOutline
+                              className="h-6 w-5 flex-none text-red-600"
+                              aria-hidden="true"
+                            />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-2 text-center">
+                        <button
+                          className="text-red-600 font-semibold underline"
+                          onClick={() => setShowAdditionalFeatures(false)}
+                        >
+                          Hide
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
                 <a
                   href={tier.href}
