@@ -15,7 +15,7 @@ const HeroAbout = (props: Props) => {
         <h1 className="font-bold tracking-tight text-gray-900 text-xl md:text-left text-center">
           About Us
         </h1>
-        <h3 className="text-6xl mt-10">
+        <h3 className="text-4xl sm:text-left text-center sm:text-6xl mt-10">
           we exist to help{" "}
           <span className="text-red-500 font-semibold">
             automotive professionals
