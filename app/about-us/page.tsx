@@ -1,11 +1,14 @@
-import React from 'react'
+import HeroAbout from "@/components/AboutUs/HeroAbout";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="flex w-full flex-col">
+      <HeroAbout />
+    </div>
+  );
+};
 
-export default page
+export default page;
