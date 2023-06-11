@@ -284,7 +284,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Chrome Lot</span>
               <Image
                 src={"/logo/chromelotlogo.png"}
                 className="h-8 w-auto"
@@ -321,7 +321,13 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                           )
                         }
                       >
-                        {item.label}
+                        {item.label === "Pricing" ? (
+                          <Link href="/pricing">
+                            <span>{item.label}</span>
+                          </Link>
+                        ) : (
+                          item.label
+                        )}
                         {item.subMenuItems.length > 0 && (
                           <HiChevronDown
                             className={`h-6 w-6 transform ${
