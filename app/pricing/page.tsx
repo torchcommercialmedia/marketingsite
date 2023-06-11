@@ -14,8 +14,6 @@ const Pricing = (props: Props) => {
   const [serviceToolsSelected, setServiceToolsSelected] =
     useState<boolean>(false);
 
- 
-
   const tiers = [
     {
       name: "Dealer Toolkit",
@@ -84,7 +82,6 @@ const Pricing = (props: Props) => {
     },
   ];
 
-
   const classNames = (...classes: any) => {
     return classes.filter(Boolean).join(" ");
   };
@@ -100,7 +97,7 @@ const Pricing = (props: Props) => {
     setServiceToolsSelected(!serviceToolsSelected);
   };
 
-  console.log(tiers)
+  console.log(tiers);
 
   return (
     <div className="w-full min-h-screen max-w-7xl mx-auto justify-center">
@@ -121,12 +118,16 @@ const Pricing = (props: Props) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div
-                className={`border h-auto rounded-xl p-4 `}
-                
+                className={` ${
+                  merchandisingSelected ? "border-green-500 border" : ""
+                } border-green-500 h-auto rounded-xl p-4 `}
               >
-                <div className={`border h-56 rounded-xl p-4 ${
-                  merchandisingSelected ? "border-red-500" : "border-gray-500"
-                }`} onClick={() => toggleMerchandising()}>
+                <div
+                  className={`border h-56 rounded-xl p-4 ${
+                    merchandisingSelected ? "border-red-500" : "border-gray-500"
+                  }`}
+                  onClick={() => toggleMerchandising()}
+                >
                   <BsCamera2 className="h-12 w-12" />
                   <h3 className="font-bold text-lg">Merchandising Tools</h3>
                   <p className="text-sm">In App Photography</p>
@@ -146,12 +147,18 @@ const Pricing = (props: Props) => {
               </div>
 
               <div
-                className={`border h-auto rounded-xl p-4 `}
-                
+                className={` ${
+                  serviceToolsSelected ? "border-green-500 border" : ""
+                } border-green-500 h-auto rounded-xl p-4 `}
               >
-                <div className={`border h-56 rounded-xl p-4 ${
-                  serviceToolsSelected ? "border-red-500" : "border-neutral-500" 
-                }`} onClick={() => toggleServiceTools()}>
+                <div
+                  className={`border h-56 rounded-xl p-4 ${
+                    serviceToolsSelected
+                      ? "border-red-500"
+                      : "border-neutral-500"
+                  }`}
+                  onClick={() => toggleServiceTools()}
+                >
                   <BsTools className="h-12 w-12" />
                   <h3 className="font-bold text-lg">Advance Service Tools</h3>
                   <p className="text-sm">Dispatching</p>
