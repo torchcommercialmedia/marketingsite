@@ -10,8 +10,8 @@ type Props = {};
 
 const HeroAbout = (props: Props) => {
   return (
-    <div className="relative isolate w-full h-[calc(100vh-100px)] border">
-      <div className="w-full p-24 max-w-7xl mx-auto">
+    <div className="relative isolate w-full h-[calc(100vh-100px)] flex items-center justify-center border">
+      <div className="w-full max-w-7xl mx-auto">
         <h1 className="font-bold tracking-tight text-gray-900 text-xl md:text-left text-center">
           About Us
         </h1>
