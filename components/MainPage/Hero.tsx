@@ -6,7 +6,8 @@ import { BsCameraFill } from "react-icons/bs";
 import { IoCarSportSharp } from "react-icons/io5";
 import { MdMiscellaneousServices } from "react-icons/md";
 import { VscTools } from "react-icons/vsc";
-import landingImage1 from "@/public/images/avatars/landing-page1.jpg";
+import landingImage1 from "@/public/images/avatars/hero.png";
+import { motion } from "framer-motion";
 import avatarImage1 from "@/public/images/avatars/avatar-1.png";
 
 const Hero: React.FC = () => {
@@ -57,14 +58,24 @@ const Hero: React.FC = () => {
         <div className="mx-auto max-w-7xl px-6 pb-32 pt-10 sm:pt-10 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mx-auto">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-left text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-left text-center"
+              >
                 Next Generation{" "}
                 <span className="text-red-500">Business Management</span>{" "}
                 Platform For:
-              </h1>
+              </motion.h1>
               <div className="p-4"></div>
               <div className="sm:flex">
-                <div className="gap-2 grid grid-cols-2 sm:grid-cols-4 items-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6 }}
+                  className="gap-2 grid grid-cols-2 sm:grid-cols-4 items-center"
+                >
                   <div className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl">
                     <div className="flex col-span-1">
                       <IoCarSportSharp size={42} className="flex sm:hidden" />
@@ -107,22 +118,46 @@ const Hero: React.FC = () => {
                       Mobile Service
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
-              <div className="mt-10 flex items-center gap-x-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="mt-10 flex items-center gap-x-6"
+              >
                 <Link
                   href="/"
                   className="rounded-md bg-red-500 px-3.5 py-2.5 mx-auto sm:mx-0 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   Get started
                 </Link>
-              </div>
+              </motion.div>
             </div>
 
             {/* To Change */}
-            <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
-              <Image src={landingImage1} height={1080} width={1920} alt={""} />
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className=""
+              >
+                <Image
+                  width={1920}
+                  height={1080}
+                  src={landingImage1}
+                  alt={""}
+                  className="object-contain"
+                />
+                <div className="" />
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>
