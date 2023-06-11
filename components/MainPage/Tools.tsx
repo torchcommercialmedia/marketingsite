@@ -129,12 +129,12 @@ const Tools = (props: Props) => {
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
               <div className="flex border justify-center w-full rounded-2xl h-[400px]">
-                <Image
+                {/* <Image
                   src={ImageForTools4Professional}
                   width={500}
                   height={500}
                   alt=""
-                />
+                /> */}
                 <p className="mt-40 w-24">Slide {index + 1}</p>
               </div>
             </SwiperSlide>
