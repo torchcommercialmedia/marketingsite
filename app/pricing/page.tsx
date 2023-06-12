@@ -333,12 +333,12 @@ const Pricing = (props: Props) => {
                       <div className="mt-24 text-center">
                         <Link
                           href="/pricing#full-feature"
-                          className="text-red-600 font-semibold underline"
+                          className="text-red-600 text-xs font-semibold underline"
                           onClick={() => {
                             setShowAdditionalFeatures(true);
                           }}
                         >
-                          View full feature comparison
+                          View Full Feature Comparison
                         </Link>
                       </div>
                     )}
