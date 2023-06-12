@@ -1,8 +1,11 @@
-import React from "react";
-import { AiOutlineCheck, AiOutlineCloseCircle } from "react-icons/ai";
+"use client";
+import React, { RefObject } from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsCheck2Circle } from "react-icons/bs";
 
-type Props = {};
+type Props = {
+  ref: RefObject<HTMLDivElement>;
+};
 
 type Feature = {
   name: string;
@@ -135,7 +138,11 @@ const FullFeature = (props: Props) => {
   ];
 
   return (
-    <section className="min-h-screen w-full py-8" id="full-feature">
+    <section
+      ref={props.ref}
+      className="min-h-screen w-full py-8"
+      id="full-feature"
+    >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
