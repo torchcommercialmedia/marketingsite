@@ -245,6 +245,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
             return (
               <Link
                 href={item.href}
+                key={item.label}
                 className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 outline-none"
               >
                 Pricing
