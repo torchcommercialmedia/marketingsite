@@ -384,7 +384,8 @@ const Pricing = (props: Props) => {
                     ))}
                   </ul>
                 </div>
-                {tier.additionalFeatures && !showAdditionalFeatures && (
+                <div className="p-4"></div>
+                {!showAdditionalFeatures && (
                   <div className="text-center">
                     <button
                       className="text-red-600 text-xs font-semibold underline"
