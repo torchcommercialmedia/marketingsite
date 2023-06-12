@@ -386,21 +386,21 @@ const Pricing = (props: Props) => {
             ))}
           </div>
           <div className="p-8"></div>
-          {!annualSavingsEnabled && (
-            <div className="text-center">
-              <h3 className="font-semibold">Ready to Get Started?</h3>
-              <p>
-                Set up a call with us to learn about your business, and get you
-                set up with a demo account
-              </p>
-              <div className="p-8"></div>
-              <button className="rounded-xl border bg-red-600 text-white px-4 py-2">
-                <span>Request a Demo</span>
-              </button>
-            </div>
-          )}
         </div>
         {showAdditionalFeatures && <FullFeature />}
+        {!annualSavingsEnabled && (
+          <div className="text-center py-8">
+            <h3 className="font-semibold">Ready to Get Started?</h3>
+            <p>
+              Set up a call with us to learn about your business, and get you
+              set up with a demo account
+            </p>
+            <div className="p-8"></div>
+            <button className="rounded-xl border bg-red-600 text-white px-4 py-2">
+              <span>Request a Demo</span>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
