@@ -1,16 +1,14 @@
 "use client";
+import AddOnToggle from "@/components/Pricing/AddOnToggle";
 import FullFeature from "@/components/Pricing/FullFeature";
+import InfoPopover from "@/components/Pricing/InfoPopover";
 import Toogle from "@/components/Pricing/Toogle";
-import Link from "next/link";
-import React, { useState } from "react";
-import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import { BiMessageCheck } from "react-icons/bi";
-import { BsCamera, BsCamera2, BsRobot, BsSendCheck } from "react-icons/bs";
+import { Tier } from "@/utils/types/types";
+import React, { useRef, useState } from "react";
+import { BsCamera, BsRobot } from "react-icons/bs";
 import { FaRegImages } from "react-icons/fa";
-import { IoNewspaperOutline } from "react-icons/io5";
 import { MdCheckCircleOutline } from "react-icons/md";
 import { SiInteractiondesignfoundation } from "react-icons/si";
-import { VscTools } from "react-icons/vsc";
 
 type Props = {};
 
@@ -19,40 +17,27 @@ const Pricing = (props: Props) => {
     useState<boolean>(true);
   const [showAdditionalFeatures, setShowAdditionalFeatures] =
     useState<boolean>(false);
-  const [merchandisingSelected, setMerchandisingSelected] =
-    useState<boolean>(true);
-  const [serviceToolsSelected, setServiceToolsSelected] =
-    useState<boolean>(true);
+  const [dealerkitMerchToolsToggle, setDealerKitMerchToolsToggle] =
+    useState(false);
+  const [servkitMercTools, setServkitMerchtools] = useState(false);
+  const [servkitAdvServicePackage, setServkitAdvServPackage] = useState(false);
+  const [fullkitDealerMerchToolsToggle, setFullkitDealerMerchToolsToggle] =
+    useState(false);
+  const [fullkitServMerchToolsToggle, setFullkitServMerchToolsToggle] =
+    useState(false);
+  const [fullkitAdvServPackage, setFullkitAdvServPackage] = useState(false);
 
-  const tiers = [
+  const [tiers, setTiers] = useState<Tier[]>([
     {
       name: "Dealer Toolkit",
-      id: "delaer-toolkit",
+      id: "delear-toolkit",
       href: "#",
-      priceMonthly:
-        merchandisingSelected && serviceToolsSelected
-          ? 299
-          : merchandisingSelected && !serviceToolsSelected
-          ? 249
-          : !merchandisingSelected && serviceToolsSelected
-          ? 249
-          : 199,
-      description:
-        "Includes 5 users, additional users at " +
-        (merchandisingSelected && serviceToolsSelected
-          ? "$29"
-          : merchandisingSelected && !serviceToolsSelected
-          ? "$24"
-          : !merchandisingSelected && serviceToolsSelected
-          ? "$24"
-          : "$19") +
-        "/month",
+      priceMonthly: 199,
+      description: "Includes 5 users, additional users at " + "$19" + "/month",
       initialFeatures: [
-        "Inventory Management System",
-        "Reconditioning System",
-        "Custom Inspection Forms",
-        "Time Tracking",
-        "Task Tracking",
+        "Vehicle Management",
+        "Reconditioning",
+        "Vendor Integration",
       ],
       additionalFeatures: [
         "User Pay Reports",
@@ -66,6 +51,30 @@ const Pricing = (props: Props) => {
         "Customizable Dashboard",
         "Full Reporting Features",
         "Multi-Rooftop Support",
+      ],
+      addOnsFeature: [
+        {
+          name: "Merchandising Tools",
+          isChecked: false,
+          tooltip: [
+            {
+              icon: BsCamera,
+              name: "In App Photography",
+            },
+            {
+              icon: BsRobot,
+              name: "AI Editing",
+            },
+            {
+              icon: SiInteractiondesignfoundation,
+              name: "Advanced window stickers",
+            },
+            {
+              icon: FaRegImages,
+              name: "Dynamic Insert Images",
+            },
+          ],
+        },
       ],
       mostPopular: false,
     },
@@ -73,30 +82,12 @@ const Pricing = (props: Props) => {
       name: "Service Toolkit",
       id: "service-toolkit",
       href: "#",
-      priceMonthly:
-        merchandisingSelected && serviceToolsSelected
-          ? 299
-          : merchandisingSelected && !serviceToolsSelected
-          ? 249
-          : !merchandisingSelected && serviceToolsSelected
-          ? 249
-          : 199,
-      description:
-        "Includes 5 users, additional users at " +
-        (merchandisingSelected && serviceToolsSelected
-          ? "$29"
-          : merchandisingSelected && !serviceToolsSelected
-          ? "$24"
-          : !merchandisingSelected && serviceToolsSelected
-          ? "$24"
-          : "$19") +
-        "/month",
+      priceMonthly: 199,
+      description: "Includes 5 users, additional users at " + "$19" + "/month",
       initialFeatures: [
-        "Inventory Management System",
+        "Repair Order Management",
         "Reconditioning System",
         "Custom Inspection Forms",
-        "Time Tracking",
-        "Task Tracking",
       ],
       additionalFeatures: [
         "User Pay Reports",
@@ -111,156 +102,204 @@ const Pricing = (props: Props) => {
         "Full Reporting Features",
         "Multi-Rooftop Support",
       ],
+      addOnsFeature: [
+        {
+          name: "Merchandising Tools",
+          isChecked: false,
+          tooltip: [
+            {
+              icon: BsCamera,
+              name: "In App Photography",
+            },
+            {
+              icon: BsRobot,
+              name: "AI Editing",
+            },
+            {
+              icon: SiInteractiondesignfoundation,
+              name: "Advanced window stickers",
+            },
+            {
+              icon: FaRegImages,
+              name: "Dynamic Insert Images",
+            },
+          ],
+        },
+        {
+          name: "Advance Service Package",
+          isChecked: false,
+          tooltip: [
+            {
+              icon: BsCamera,
+              name: "Dispatching",
+            },
+            {
+              icon: BsRobot,
+              name: "Bidirectional SMS",
+            },
+            {
+              icon: SiInteractiondesignfoundation,
+              name: "Lead Forms",
+            },
+          ],
+        },
+      ],
       mostPopular: true,
     },
     {
       name: "Full ToolKit",
       id: "full-toolkit",
       href: "#",
-      priceMonthly:
-        merchandisingSelected && serviceToolsSelected
-          ? 499
-          : merchandisingSelected && !serviceToolsSelected
-          ? 399
-          : !merchandisingSelected && serviceToolsSelected
-          ? 399
-          : 299,
-      description:
-        "Includes 5 users, additional users at " +
-        (merchandisingSelected && serviceToolsSelected
-          ? "$49"
-          : merchandisingSelected && !serviceToolsSelected
-          ? "$39"
-          : !merchandisingSelected && serviceToolsSelected
-          ? "$39"
-          : "$29") +
-        "/month",
+      priceMonthly: 299,
+      description: "Includes 5 users, additional users at " + "$29" + "/month",
       initialFeatures: [
         "All Dealer Features",
         "All Service Features",
         "One Integrated Features",
       ],
+      addOnsFeature: [
+        {
+          name: "Dealer Merchandising Tools",
+          isChecked: false,
+          tooltip: [
+            {
+              icon: BsCamera,
+              name: "In App Photography",
+            },
+            {
+              icon: BsRobot,
+              name: "AI Editing",
+            },
+            {
+              icon: SiInteractiondesignfoundation,
+              name: "Advanced window stickers",
+            },
+            {
+              icon: FaRegImages,
+              name: "Dynamic Insert Images",
+            },
+          ],
+        },
+        {
+          name: "Service Merchandising Tools",
+          isChecked: false,
+          tooltip: [
+            {
+              icon: BsCamera,
+              name: "Dispatching",
+            },
+            {
+              icon: BsRobot,
+              name: "Bidirectional SMS",
+            },
+            {
+              icon: SiInteractiondesignfoundation,
+              name: "Lead Forms",
+            },
+          ],
+        },
+        {
+          name: "Advance Service Package",
+          isChecked: false,
+          tooltip: [
+            {
+              icon: BsCamera,
+              name: "Dispatching",
+            },
+            {
+              icon: BsRobot,
+              name: "Bidirectional SMS",
+            },
+            {
+              icon: SiInteractiondesignfoundation,
+              name: "Lead Forms",
+            },
+          ],
+        },
+      ],
       mostPopular: false,
     },
-  ];
+  ]);
+
+  const handleAddOnToggle = (tierIdx: number, addOnIdx: number) => {
+    const updatedTiers = [...tiers];
+    tiers[tierIdx].addOnsFeature[addOnIdx].isChecked =
+      !tiers[tierIdx].addOnsFeature[addOnIdx].isChecked;
+    if (tierIdx === 0) {
+      if (dealerkitMerchToolsToggle) {
+        updatedTiers[tierIdx].priceMonthly -= 100;
+      } else {
+        updatedTiers[tierIdx].priceMonthly += 100;
+      }
+      setDealerKitMerchToolsToggle(!dealerkitMerchToolsToggle);
+    } else if (tierIdx === 1) {
+      if (addOnIdx === 0) {
+        if (servkitMercTools) {
+          updatedTiers[tierIdx].priceMonthly -= 100;
+        } else {
+          updatedTiers[tierIdx].priceMonthly += 100;
+        }
+        setServkitMerchtools(!servkitMercTools);
+      } else {
+        if (servkitAdvServicePackage) {
+          updatedTiers[tierIdx].priceMonthly -= 100;
+        } else {
+          updatedTiers[tierIdx].priceMonthly += 100;
+        }
+        setServkitAdvServPackage(!servkitAdvServicePackage);
+      }
+    } else if (tierIdx === 2) {
+      if (addOnIdx === 0) {
+        if (fullkitDealerMerchToolsToggle) {
+          updatedTiers[tierIdx].priceMonthly -= 100;
+        } else {
+          updatedTiers[tierIdx].priceMonthly += 100;
+        }
+        setFullkitDealerMerchToolsToggle(!fullkitDealerMerchToolsToggle);
+      } else if (addOnIdx === 1) {
+        if (fullkitServMerchToolsToggle) {
+          updatedTiers[tierIdx].priceMonthly -= 100;
+        } else {
+          updatedTiers[tierIdx].priceMonthly += 100;
+        }
+        setFullkitServMerchToolsToggle(!fullkitServMerchToolsToggle);
+      } else {
+        if (fullkitAdvServPackage) {
+          updatedTiers[tierIdx].priceMonthly -= 100;
+        } else {
+          updatedTiers[tierIdx].priceMonthly += 100;
+        }
+        setFullkitAdvServPackage(!fullkitAdvServPackage);
+      }
+    }
+  };
 
   const classNames = (...classes: any) => {
     return classes.filter(Boolean).join(" ");
   };
 
-  const toggleMerchandising = () => {
-    setMerchandisingSelected(!merchandisingSelected);
-  };
+  const additionalFeaturesRef = useRef<HTMLDivElement>(null);
 
-  const toggleServiceTools = () => {
-    setServiceToolsSelected(!serviceToolsSelected);
+  const handleLinkClick = () => {
+    setShowAdditionalFeatures(true);
+    if (additionalFeaturesRef.current) {
+      additionalFeaturesRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   };
-
-  console.log(tiers);
 
   return (
     <div className="w-full min-h-screen max-w-7xl mx-auto justify-center">
-      <div className="bg-white py-24 lg:py-8 xl:py-32">
+      <div className="bg-white lg:py-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-base font-semibold leading-7 text-red-600">
               Pricing
             </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              How much power do you need?
-            </p>
           </div>
           <div className="flex justify-center items-center mx-auto flex-col">
             <div className="p-2"></div>
-            <p className="text-sm">Click to toogle off advanced features</p>
-            <div className="p-2"></div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div
-                className="border-green-500 h-auto rounded-xl p-4 cursor-pointer"
-                onClick={() => toggleMerchandising()}
-              >
-                <div
-                  className={`border h-56 rounded-xl p-4 ${
-                    merchandisingSelected
-                      ? "border-green-500"
-                      : "border-gray-500"
-                  }`}
-                >
-                  <BsCamera2 className="h-12 w-12" />
-                  <h3 className="font-bold text-lg text-red-600">
-                    Merchandising Tools
-                  </h3>
-                  <div className="flex items-center space-x-2">
-                    <BsCamera width={20} height={20} />
-                    <p className="text-sm">In App Photography</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <BsRobot width={20} height={20} />
-                    <p className="text-sm">AI Editing</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <SiInteractiondesignfoundation width={20} height={20} />
-                    <p className="text-sm">Advanced window stickers</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <FaRegImages width={20} height={20} />
-                    <p className="text-sm">Dynamic Insert Images</p>
-                  </div>
-                </div>
-                <div className="p-2"></div>
-                <div className="flex space-x-2 items-center justify-center">
-                  {merchandisingSelected ? (
-                    <AiOutlineCheckCircle className="h-8 w-8 text-green-500" />
-                  ) : (
-                    <AiOutlineCloseCircle className="h-8 w-8 text-red-500" />
-                  )}
-                  <p>{merchandisingSelected ? "Included" : "Not Included"}</p>
-                </div>
-              </div>
-
-              <div
-                className="border-green-500 h-auto rounded-xl p-4 cursor-pointer"
-                onClick={() => toggleServiceTools()}
-              >
-                <div
-                  className={`border h-56 rounded-xl p-4 ${
-                    serviceToolsSelected
-                      ? "border-green-500"
-                      : "border-neutral-500"
-                  }`}
-                  onClick={() => toggleServiceTools()}
-                >
-                  <VscTools className="h-12 w-12" />
-                  <h3 className="font-bold text-lg text-red-600">
-                    Advance Service Tools
-                  </h3>
-                  <div className="flex items-center space-x-2">
-                    <BsSendCheck width={20} height={20} />
-                    <p className="text-sm">Dispatching</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <BiMessageCheck width={20} height={20} />
-                    <p className="text-sm">Bidrectional SMS</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <IoNewspaperOutline width={20} height={20} />
-                    <p className="text-sm">Lead Forms</p>
-                  </div>
-                </div>
-                <div className="p-2"></div>
-                <div className="flex space-x-2 items-center justify-center">
-                  {serviceToolsSelected ? (
-                    <AiOutlineCheckCircle className="h-8 w-8 text-green-500" />
-                  ) : (
-                    <AiOutlineCloseCircle className="h-8 w-8 text-red-500" />
-                  )}
-                  <p>{serviceToolsSelected ? "Included" : "Not Included"}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-8"></div>
             <div className="p-2 flex space-x-2 justify-center">
               <Toogle
                 setAnnualSavingsEnabled={setAnnualSavingsEnabled}
@@ -281,7 +320,7 @@ const Pricing = (props: Props) => {
                   "flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10"
                 )}
               >
-                <div>
+                <div className="flex-1">
                   <div className="flex items-center justify-between gap-x-4">
                     <h3
                       id={tier.id}
@@ -292,11 +331,6 @@ const Pricing = (props: Props) => {
                     >
                       {tier.name}
                     </h3>
-                    {/* {tier.mostPopular ? (
-                        <p className="rounded-full bg-red-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-red-600">
-                          Most popular
-                        </p>
-                      ) : null} */}
                   </div>
                   <p className="mt-4 text-sm leading-6 text-gray-600">
                     {tier.description}
@@ -306,8 +340,9 @@ const Pricing = (props: Props) => {
                       $
                       {annualSavingsEnabled
                         ? tier.priceMonthly
-                        : (tier.priceMonthly +=
-                            tier.priceMonthly * 0.15).toFixed()}
+                        : Math.round(
+                            tier.priceMonthly + tier.priceMonthly * 0.15
+                          )}
                     </span>
                     <span className="text-sm font-semibold leading-6 text-gray-600">
                       /month
@@ -327,49 +362,40 @@ const Pricing = (props: Props) => {
                       </li>
                     ))}
                   </ul>
-                  {tier.additionalFeatures &&
-                    tier.additionalFeatures.length > 0 &&
-                    !showAdditionalFeatures && (
-                      <div className="mt-24 text-center">
-                        <Link
-                          href="/pricing#full-feature"
-                          className="text-red-600 text-xs font-semibold underline"
-                          onClick={() => {
-                            setShowAdditionalFeatures(true);
-                          }}
-                        >
-                          View Full Feature Comparison
-                        </Link>
+                  <p className="mt-8 space-y-3 text-sm leading-6 text-gray-600">
+                    Add-Ons:
+                  </p>
+                  <ul
+                    role="list"
+                    className="space-y-3 text-sm leading-6 text-gray-600"
+                  >
+                    {tier.addOnsFeature?.map((addOn, index) => (
+                      <div className="flex space-x-2 items-center" key={index}>
+                        <AddOnToggle
+                          isChecked={addOn.isChecked}
+                          toggleOnOff={() => handleAddOnToggle(tierIdx, index)}
+                        />
+                        <p className="text-sm">{addOn.name}</p>
+                        <InfoPopover
+                          name={addOn.name}
+                          tooltip={addOn.tooltip}
+                        />
                       </div>
-                    )}
-
-                  {/* {showAdditionalFeatures && tier.additionalFeatures && (
-                      <>
-                        <ul
-                          role="list"
-                          className={`mt-4 space-y-3 text-sm leading-6 text-gray-600`}
-                        >
-                          {tier.additionalFeatures.map((feature) => (
-                            <li key={feature} className="flex gap-x-3">
-                              <MdCheckCircleOutline
-                                className="h-6 w-5 flex-none text-red-600"
-                                aria-hidden="true"
-                              />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="mt-2 text-center">
-                          <button
-                            className="text-red-600 font-semibold underline"
-                            onClick={() => setShowAdditionalFeatures(false)}
-                          >
-                            Hide
-                          </button>
-                        </div>
-                      </>
-                    )} */}
+                    ))}
+                  </ul>
                 </div>
+                {tier.additionalFeatures && !showAdditionalFeatures && (
+                  <div className="text-center">
+                    <button
+                      className="text-red-600 text-xs font-semibold underline"
+                      onClick={() => {
+                        handleLinkClick();
+                      }}
+                    >
+                      View Full Feature Comparison
+                    </button>
+                  </div>
+                )}
                 <a
                   href={tier.href}
                   aria-describedby={tier.id}
@@ -387,7 +413,7 @@ const Pricing = (props: Props) => {
           </div>
           <div className="p-8"></div>
         </div>
-        {showAdditionalFeatures && <FullFeature />}
+        {showAdditionalFeatures && <FullFeature ref={additionalFeaturesRef} />}
         {!annualSavingsEnabled && (
           <div className="text-center py-8">
             <h3 className="font-semibold">Ready to Get Started?</h3>
