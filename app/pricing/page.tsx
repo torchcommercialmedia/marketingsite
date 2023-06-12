@@ -298,6 +298,9 @@ const Pricing = (props: Props) => {
               Pricing
             </h2>
           </div>
+          <div className="p-4"></div>
+          <hr />
+
           <div className="flex justify-center items-center mx-auto flex-col">
             <div className="p-2"></div>
             <div className="p-2 flex space-x-2 justify-center">
