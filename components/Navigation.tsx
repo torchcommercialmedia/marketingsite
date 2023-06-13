@@ -8,6 +8,7 @@ import {
   MdOutlinePayments,
   MdOutlineInventory,
   MdOutlineReviews,
+  MdOutlineHomeRepairService,
 } from "react-icons/md";
 import { BsArrowLeftRight, BsTools, BsFillCameraFill } from "react-icons/bs";
 import {
@@ -20,7 +21,7 @@ import { IoCarSportSharp } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { VscWand } from "react-icons/vsc";
 import { TbHelp } from "react-icons/tb";
-import { FaBlog } from "react-icons/fa";
+import { FaBlog, FaUserCog } from "react-icons/fa";
 import { IconType } from "react-icons";
 import Link from "next/link";
 
@@ -45,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
   const timeoutDuration = 200;
   let timeout: any;
 
-  const ProductArray: DivArray[] = [
+  const Features: DivArray[] = [
     { icon: AiOutlinePaperClip, size: 24, text: "Repair Orders" },
     { icon: GiAutoRepair, size: 24, text: "2 Way SMS" },
     { icon: MdWrongLocation, size: 24, text: "Mobile Dispatch" },
@@ -58,13 +59,23 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
     { icon: MdOutlinePayments, size: 24, text: "Dashboard & Reporting" },
   ];
 
-  const UsesProduct: DivArray[] = [
+  const Uses: DivArray[] = [
     { icon: IoCarSportSharp, size: 24, text: "Classic & Exotic Dealers" },
     { icon: RiToolsFill, size: 24, text: "Mobile Repair Shops" },
     { icon: VscWand, size: 24, text: "Wrap Shop" },
     { icon: BsFillCameraFill, size: 24, text: "Auto Photography" },
     { icon: IoMdInformationCircleOutline, size: 24, text: "Mobile Detail" },
     { icon: GiCarWheel, size: 24, text: "Wheel Refinishing" },
+    {
+      icon: MdOutlineHomeRepairService,
+      size: 24,
+      text: "Dent Repair",
+    },
+    {
+      icon: FaUserCog,
+      size: 24,
+      text: "Independent Dealers",
+    },
   ];
 
   const AboutUs: DivArray[] = [
@@ -106,14 +117,14 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
   };
 
   const popoverContent: PopoverContent = {
-    product: (
+    features: (
       <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 justify-between lg:max-w-lg">
-        {addedDivArray(ProductArray)}
+        {addedDivArray(Features)}
       </div>
     ),
     uses: (
       <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 justify-between lg:max-w-lg">
-        {addedDivArray(UsesProduct)}
+        {addedDivArray(Uses)}
       </div>
     ),
     pricing: (

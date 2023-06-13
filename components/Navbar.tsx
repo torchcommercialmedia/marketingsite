@@ -16,6 +16,7 @@ import Navigation from "./Navigation";
 import Link from "next/link";
 import { GiAutoRepair, GiCarWheel, GiGraduateCap } from "react-icons/gi";
 import {
+  MdOutlineHomeRepairService,
   MdOutlineInventory,
   MdOutlinePayments,
   MdOutlineReviews,
@@ -27,7 +28,7 @@ import { IoCarSportSharp } from "react-icons/io5";
 import { VscWand } from "react-icons/vsc";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { TbHelp } from "react-icons/tb";
-import { FaBlog } from "react-icons/fa";
+import { FaBlog, FaUserCog } from "react-icons/fa";
 
 interface NavbarProps {}
 
@@ -38,9 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   const menuItems = [
     {
-      label: "Product",
+      label: "Features",
       active: pathname === "/search",
-      href: "/product",
+      href: "/features",
       subMenuItems: [
         {
           icon: AiOutlinePaperClip,
@@ -135,6 +136,18 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           label: "Wheel Refinishing",
           href: "#",
         },
+        {
+          icon: MdOutlineHomeRepairService,
+          size: 18,
+          label: "Dent Repair",
+          href: "#",
+        },
+        {
+          icon: FaUserCog,
+          size: 18,
+          label: "Independent Dealers",
+          href: "#",
+        },
       ],
     },
     {
@@ -190,9 +203,9 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   const routes = useMemo(
     () => [
       {
-        label: "Product",
+        label: "Features",
         active: pathname === "/search",
-        href: "/product",
+        href: "/features",
       },
       {
         label: "Uses",
@@ -261,18 +274,18 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           );
         })}
       </div>
-      <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-2">
+      <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
         <Link
           href="https://app.chromelot.com/signin"
-          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 bg-red-500 text-white"
         >
           Request a Demo
         </Link>
         <Link
-          href="https://app.chromelot.com/signup"
-          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+          href="https://app.chromelot.com/signin"
+          className="-mx-3 block rounded-lg px-2 py-1.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
         >
-          Sign Up
+          Log In
         </Link>
       </div>
       <Dialog
@@ -340,7 +353,6 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                       </button>
                       {selectedMenu === item.label && (
                         <div className="pl-6 mt-2">
-                          {/* Render sub-menu items here */}
                           {item.subMenuItems.map((subItem) => (
                             <div
                               key={subItem.label}
