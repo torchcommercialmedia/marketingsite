@@ -7,7 +7,7 @@ type Props = {};
 
 const DealersAndServiceProvider = (props: Props) => {
   const benefits: string[] = [
-    "task Assignment & Reoair Orders",
+    "Task Assignment & Repair Orders",
     "Appointment Scheduling",
     "Products and Invoicing",
     "Helpdesk & Communication",
