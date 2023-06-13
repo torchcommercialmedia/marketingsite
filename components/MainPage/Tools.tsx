@@ -10,7 +10,7 @@ import { RiToolsFill } from "react-icons/ri";
 import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
 import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
-import ImageForTools4Professional from "@/public/images/tools4professional/taskmanagement.jpg";
+// import ImageForTools4Professional from "@/public/images/tools4professional/task-management.png";
 import Image from "next/image";
 
 interface Props {}
@@ -28,9 +28,9 @@ const Tools = (props: Props) => {
     () => [
       { icon: RiToolsFill, size: 24, text: "Task Management" },
       { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
-      { icon: BsGear, size: 24, text: "Ports Procurement" },
+      { icon: BsGear, size: 24, text: "Parts Procurement" },
       { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
-      { icon: FcInspection, size: 24, text: "QA Inspection" },
+      { icon: FcInspection, size: 24, text: "QA Inspections" },
       { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
       { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
     ],
@@ -101,7 +101,7 @@ const Tools = (props: Props) => {
   return (
     <section
       id="tools"
-      className="relative isolate w-full p-4 max-w-7xl mx-auto min-h-screen"
+      className="relative isolate w-full p-4 max-w-7xl mx-auto"
     >
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>

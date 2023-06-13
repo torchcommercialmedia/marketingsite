@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         {
           icon: VscWand,
           size: 18,
-          label: "Wrap Shop",
+          label: "Wrap Shops",
           href: "#",
         },
         {
@@ -182,13 +182,13 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         {
           icon: MdOutlineReviews,
           size: 18,
-          label: "Customer Reviews",
+          label: "Reviews",
           href: "#",
         },
         {
           icon: HiOutlineBuildingOffice,
           size: 18,
-          label: "About the Company",
+          label: "About Us",
           href: "#",
         },
         {

@@ -10,6 +10,7 @@ import { RiToolsFill } from "react-icons/ri";
 import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
 import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
+import { FaWpforms } from "react-icons/fa";
 
 type Props = {};
 
@@ -26,13 +27,13 @@ const ServiceCompany = (props: Props) => {
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => [
       { icon: RiToolsFill, size: 24, text: "Repair Orders" },
-      { icon: TfiAlarmClock, size: 24, text: "Product" },
-      { icon: BsGear, size: 24, text: "Dispatching & Scheduling" },
+      { icon: TfiAlarmClock, size: 24, text: "Products" },
+      { icon: BsGear, size: 24, text: "Dispatching" },
       { icon: HiOutlineBuildingOffice2, size: 24, text: "Merchandising Tools" },
       { icon: FcInspection, size: 24, text: "Dealer Integration" },
       { icon: VscChecklist, size: 24, text: "2-Way SMS" },
       { icon: TfiDashboard, size: 24, text: "Invoice & Payments" },
-      { icon: TfiDashboard, size: 24, text: "Lead Forms" },
+      { icon: FaWpforms, size: 24, text: "Lead Forms" },
     ],
     []
   );
@@ -102,7 +103,7 @@ const ServiceCompany = (props: Props) => {
           Tools for All Auto Professionals
         </h2>
         <div className="p-2"></div>
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-2">
           {AddedDivArray(ProductArray)}
         </div>
       </div>

@@ -51,7 +51,7 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
     { icon: GiAutoRepair, size: 24, text: "2 Way SMS" },
     { icon: MdWrongLocation, size: 24, text: "Mobile Dispatch" },
     { icon: BsArrowLeftRight, size: 22, text: "Vendor/Dealer Integration" },
-    { icon: BsTools, size: 22, text: "Reconditioning Management" },
+    { icon: BsTools, size: 22, text: "Reconditioning" },
     { icon: MdOutlinePayments, size: 24, text: "Invoice & Payments" },
     { icon: RiStoreFill, size: 22, text: "Merchandising Tools" },
     { icon: MdOutlineInventory, size: 24, text: "Inventory Management" },
@@ -62,7 +62,7 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
   const Uses: DivArray[] = [
     { icon: IoCarSportSharp, size: 24, text: "Classic & Exotic Dealers" },
     { icon: RiToolsFill, size: 24, text: "Mobile Repair Shops" },
-    { icon: VscWand, size: 24, text: "Wrap Shop" },
+    { icon: VscWand, size: 24, text: "Wrap Shops" },
     { icon: BsFillCameraFill, size: 24, text: "Auto Photography" },
     { icon: IoMdInformationCircleOutline, size: 24, text: "Mobile Detail" },
     { icon: GiCarWheel, size: 24, text: "Wheel Refinishing" },
@@ -82,8 +82,8 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
     { icon: GiGraduateCap, size: 24, text: "Careers" },
     { icon: HiOutlineBuildingOffice2, size: 24, text: "Agency Services" },
     { icon: TbHelp, size: 24, text: "Help Center" },
-    { icon: MdOutlineReviews, size: 24, text: "Customer Reviews" },
-    { icon: HiOutlineBuildingOffice, size: 24, text: "About the Company" },
+    { icon: MdOutlineReviews, size: 24, text: "Reviews" },
+    { icon: HiOutlineBuildingOffice, size: 24, text: "About Us" },
     { icon: FaBlog, size: 24, text: "Blog" },
   ];
 

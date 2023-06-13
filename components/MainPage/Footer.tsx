@@ -11,9 +11,9 @@ const Footer = () => {
     features: [
       { name: "Repair Orders", href: "#tools" },
       { name: "Mobile Dispatch", href: "#tools" },
-      { name: "Reconditioning Management", href: "#tools" },
+      { name: "Reconditioning", href: "#tools" },
       { name: "Merchandising Tools", href: "#tools" },
-      { name: "Ports Procurement", href: "#tools" },
+      { name: "Parts Procurement", href: "#tools" },
       { name: "2 Way SMS", href: "#tools" },
       { name: "Vendor/Dealer Integration", href: "#tools" },
       { name: "Invoice & Payments", href: "#tools" },
