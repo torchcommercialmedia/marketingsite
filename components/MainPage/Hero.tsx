@@ -63,9 +63,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="text-2xl font-bold tracking-tight flex text-gray-900 sm:text-4xl md:text-left text-center"
               >
-                <span className="text-red-500 mr-2">
-                  Streamlined Operations
-                </span>
+                <span className=" mr-2">Streamlined Operations</span>
                 Tools For:
               </motion.h1>
               <div className="p-4"></div>
