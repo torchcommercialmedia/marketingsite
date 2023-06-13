@@ -8,7 +8,6 @@ import { MdMiscellaneousServices } from "react-icons/md";
 import { VscTools } from "react-icons/vsc";
 import landingImage1 from "@/public/images/avatars/hero.png";
 import { motion } from "framer-motion";
-import avatarImage1 from "@/public/images/avatars/avatar-1.png";
 
 const Hero: React.FC = () => {
   return (
@@ -62,11 +61,12 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-left text-center"
+                className="text-2xl font-bold tracking-tight flex text-gray-900 sm:text-4xl md:text-left text-center"
               >
-                Next Generation{" "}
-                <span className="text-red-500">Business Management</span>{" "}
-                Platform For:
+                <span className="text-red-500 mr-2">
+                  Streamlined Operations
+                </span>
+                Tools For:
               </motion.h1>
               <div className="p-4"></div>
               <div className="sm:flex">
@@ -120,6 +120,12 @@ const Hero: React.FC = () => {
                   </div>
                 </motion.div>
               </div>
+              <div className="p-2"></div>
+              <div className="flex text-xl">
+                All-in-one reconditioning, shop management, and vehicle
+                marketing platform. It&apos;s powerful, without being
+                overpowering.
+              </div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -130,7 +136,7 @@ const Hero: React.FC = () => {
                   href="/"
                   className="rounded-md bg-red-500 px-3.5 py-2.5 mx-auto sm:mx-0 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
-                  Get started
+                  Get a Demo
                 </Link>
               </motion.div>
             </div>
