@@ -22,7 +22,7 @@ const DealersAndServiceProvider = (props: Props) => {
             </div>
             <div className="w-full flex-auto">
               <h2 className="text-3xl font-bold tracking-tight text-neutral-700 sm:text-4xl">
-                Seamless Integration with Dealers and Service Providers
+                Seamless Integration between Dealers and Service Providers
               </h2>
 
               <ul
