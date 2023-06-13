@@ -388,18 +388,18 @@ const Pricing = (props: Props) => {
                   </ul>
                 </div>
                 <div className="p-4"></div>
-                {!showAdditionalFeatures && (
-                  <div className="text-center">
-                    <button
-                      className="text-red-600 text-xs font-semibold underline"
-                      onClick={() => {
-                        handleLinkClick();
-                      }}
-                    >
-                      View Full Feature Comparison
-                    </button>
-                  </div>
-                )}
+
+                <div className="text-center">
+                  <button
+                    className="text-red-600 text-xs font-semibold underline"
+                    onClick={() => {
+                      handleLinkClick();
+                    }}
+                  >
+                    View Full Feature Comparison
+                  </button>
+                </div>
+
                 <a
                   href={tier.href}
                   aria-describedby={tier.id}
@@ -417,7 +417,7 @@ const Pricing = (props: Props) => {
           </div>
           <div className="p-8"></div>
         </div>
-        {showAdditionalFeatures && <FullFeature ref={additionalFeaturesRef} />}
+        <FullFeature innerRef={additionalFeaturesRef} />
         {!annualSavingsEnabled && (
           <div className="text-center py-8">
             <h3 className="font-semibold">Ready to Get Started?</h3>

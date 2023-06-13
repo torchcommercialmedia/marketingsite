@@ -4,7 +4,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsCheck2Circle } from "react-icons/bs";
 
 type Props = {
-  ref: RefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 };
 
 type Feature = {
@@ -139,7 +139,7 @@ const FullFeature = (props: Props) => {
 
   return (
     <section
-      ref={props.ref}
+      ref={props.innerRef}
       className="min-h-screen w-full py-8"
       id="full-feature"
     >
@@ -199,21 +199,21 @@ const FullFeature = (props: Props) => {
                           {feat.serviceToolkit ? (
                             <BsCheck2Circle className="h-8 w-8 mx-auto text-green-500" />
                           ) : (
-                            <AiOutlineCloseCircle className="h-8 w-8 mx-auto text-red-500" />
+                            <div className="text-gray-500">-</div>
                           )}
                         </td>
                         <td className="whitespace-nowrap py-4 text-center text-sm">
                           {feat.dealerToolkit ? (
                             <BsCheck2Circle className="h-8 w-8 mx-auto text-green-500" />
                           ) : (
-                            <AiOutlineCloseCircle className="h-8 w-8 mx-auto text-red-500" />
+                            <div className="text-gray-500">-</div>
                           )}
                         </td>
                         <td className="whitespace-nowrap py-4 text-center text-sm">
                           {feat.completeToolkit ? (
                             <BsCheck2Circle className="h-8 w-8 mx-auto text-green-500" />
                           ) : (
-                            <AiOutlineCloseCircle className="h-8 w-8 mx-auto text-red-500" />
+                            <div className="text-gray-500">-</div>
                           )}
                         </td>
                       </tr>
