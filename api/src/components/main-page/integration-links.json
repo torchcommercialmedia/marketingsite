@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_main_page_integration_links",
+  "info": {
+    "displayName": "integrationLinks"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

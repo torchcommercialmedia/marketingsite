@@ -6,10 +6,30 @@ import { BsCameraFill } from "react-icons/bs";
 import { IoCarSportSharp } from "react-icons/io5";
 import { MdMiscellaneousServices } from "react-icons/md";
 import { VscTools } from "react-icons/vsc";
-import landingImage1 from "@/public/images/avatars/hero.png";
 import { motion } from "framer-motion";
+import { HeroData, HeroList } from "@/utils/types/types";
+import { IconType } from "react-icons";
 
-const Hero: React.FC = () => {
+interface Props {
+  hero: HeroData;
+}
+
+const Hero = ({ hero }: Props) => {
+  const getIconComponent = (iconName: string): IconType | null => {
+    switch (iconName) {
+      case "IoCarSportSharp":
+        return IoCarSportSharp;
+      case "BsCameraFill":
+        return BsCameraFill;
+      case "VscTools":
+        return VscTools;
+      case "MdMiscellaneousServices":
+        return MdMiscellaneousServices;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="relative isolate w-full h-[calc(100vh-100px)]">
       <svg
@@ -63,8 +83,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="text-2xl font-bold tracking-tight flex text-gray-900 sm:text-4xl md:text-left text-center"
               >
-                <span className=" mr-2">Streamlined Operations</span>
-                Tools For:
+                <span className=" mr-2">{hero.title}</span>
               </motion.h1>
               <div className="p-4"></div>
               <div className="sm:flex">
@@ -74,56 +93,36 @@ const Hero: React.FC = () => {
                   transition={{ duration: 0.6 }}
                   className="gap-2 grid grid-cols-2 sm:grid-cols-4 items-center"
                 >
-                  <div className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl">
-                    <div className="flex col-span-1">
-                      <IoCarSportSharp size={42} className="flex sm:hidden" />
-                      <IoCarSportSharp size={52} className="hidden sm:block" />
-                    </div>
-                    <p className="h-12 flex text-xs sm:text-md items-center">
-                      Dealers
-                    </p>
-                  </div>
-                  <div className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl">
-                    <div className="flex col-span-1">
-                      <BsCameraFill size={42} className="flex sm:hidden" />
-                      <BsCameraFill size={52} className="hidden sm:block" />
-                    </div>
-                    <p className="h-12 flex text-xs sm:text-md items-center">
-                      Automotive Merchandising
-                    </p>
-                  </div>
-                  <div className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl">
-                    <div className="flex col-span-1">
-                      <VscTools size={42} className="flex sm:hidden" />
-                      <VscTools size={52} className="hidden sm:block" />
-                    </div>
-                    <p className="h-12 flex text-xs sm:text-md items-center">
-                      Shops
-                    </p>
-                  </div>
-                  <div className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl">
-                    <div className="flex col-span-1">
-                      <MdMiscellaneousServices
-                        size={42}
-                        className="flex sm:hidden"
-                      />
-                      <MdMiscellaneousServices
-                        size={52}
-                        className="hidden sm:block"
-                      />
-                    </div>
-                    <p className="h-12 flex text-xs sm:text-md items-center">
-                      Mobile Service
-                    </p>
-                  </div>
+                  {hero.listHeroIcon.map((item: HeroList) => {
+                    const IconComponent = getIconComponent(item.icon);
+                    if (IconComponent) {
+                      return (
+                        <div
+                          className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl"
+                          key={item.title}
+                        >
+                          <div className="flex col-span-1">
+                            {React.createElement(IconComponent, {
+                              size: 42,
+                              className: "flex sm:hidden",
+                            })}
+                            {React.createElement(IconComponent, {
+                              size: 52,
+                              className: "hidden sm:block",
+                            })}
+                          </div>
+                          <p className="h-12 flex text-xs sm:text-md items-center">
+                            {item.title}
+                          </p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
                 </motion.div>
               </div>
               <div className="p-2"></div>
-              <div className="flex text-xl">
-                All-in-one reconditioning, shop management, and vehicle
-                marketing platform. It&apos;s powerful, without being
-                overpowering.
-              </div>
+              <div className="flex text-xl">{hero?.desc}</div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -134,11 +133,10 @@ const Hero: React.FC = () => {
                   href="/"
                   className="rounded-md bg-red-500 px-3.5 py-2.5 mx-auto sm:mx-0 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
-                  Get a Demo
+                  {hero?.btn}
                 </Link>
               </motion.div>
             </div>
-
             {/* To Change */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -153,12 +151,19 @@ const Hero: React.FC = () => {
                 className=""
               >
                 <Image
+                  src={"http://localhost:1337" + hero.img.data.attributes.url}
+                  alt={""}
+                  width={1920}
+                  height={1080}
+                  className="object-contain"
+                />
+                {/* <Image
                   width={1920}
                   height={1080}
                   src={landingImage1}
                   alt={""}
                   className="object-contain"
-                />
+                /> */}
                 <div className="" />
               </motion.div>
             </motion.div>

@@ -1,3 +1,4 @@
+"use client";
 import BuiltWithAi from "@/components/MainPage/BuiltWithAi";
 import DealersAndServiceProvider from "@/components/MainPage/DealersAndServiceProvider";
 import Uses from "@/components/MainPage/Uses";
@@ -8,12 +9,18 @@ import Testimonials from "@/components/MainPage/Testimonials";
 import ServiceCompany from "@/components/MainPage/ServiceCompany";
 import Tools from "@/components/MainPage/Tools";
 import ToolsForDealers from "@/components/MainPage/ToolsForDealers";
+import { fetchDataFromApi } from "@/utils/fetch/fetchIndex";
 
-export default function Home() {
+export default async function Home() {
+  const hero = await fetchDataFromApi("/main-pages?populate[hero][populate]=*");
+  const tools = await fetchDataFromApi(
+    "/main-pages?populate[professional][populate]=*"
+  );
+
   return (
     <main className="flex w-full flex-col">
-      <Hero />
-      <Tools />
+      {hero && <Hero hero={hero.data[0].attributes.hero!} />}
+      {/* <Tools tools={tools.data[0].attributes.tools} /> */}
       <DealersAndServiceProvider />
       <ToolsForDealers />
       <ServiceCompany />

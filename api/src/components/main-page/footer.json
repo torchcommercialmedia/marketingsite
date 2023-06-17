@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_main_page_footers",
+  "info": {
+    "displayName": "footer"
+  },
+  "options": {},
+  "attributes": {
+    "contactNo": {
+      "type": "string"
+    }
+  }
+}

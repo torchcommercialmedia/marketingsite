@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Dialog } from "@headlessui/react";
@@ -375,7 +374,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               </div>
               <Link
                 href="#"
-                className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="-mx-3 block rounded-lg px-3 py-1 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Request a Demo
               </Link>

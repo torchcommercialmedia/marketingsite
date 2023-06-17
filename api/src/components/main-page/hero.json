@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_main_page_heroes",
+  "info": {
+    "displayName": "hero",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "btn": {
+      "type": "string"
+    },
+    "listHeroIcon": {
+      "displayName": "listHeroIcon",
+      "type": "component",
+      "repeatable": true,
+      "component": "main-page.list-hero-icon"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -12,8 +12,11 @@ import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
 // import ImageForTools4Professional from "@/public/images/tools4professional/task-management.png";
 import Image from "next/image";
+import { ProfessionalData } from "@/utils/types/types";
 
-interface Props {}
+interface Props {
+  tools: ProfessionalData;
+}
 
 interface ToolsForProfessional {
   icon: IconType;
@@ -21,7 +24,8 @@ interface ToolsForProfessional {
   text: string;
 }
 
-const Tools = (props: Props) => {
+const Tools = ({ tools }: Props) => {
+  console.log(tools);
   const swiperRef = useRef<SwiperClass | undefined>();
 
   const ProductArray: ToolsForProfessional[] = useMemo(

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_main_page_list_hero_icons",
+  "info": {
+    "displayName": "listHeroIcon"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
