@@ -29,19 +29,6 @@ const Tools = ({ tools }: Props) => {
     tools.professionalTools[0].title
   );
 
-  // const ProductArray: ToolsForProfessional[] = useMemo(
-  //   () => [
-  //     { icon: RiToolsFill, size: 24, text: "Task Management" },
-  //     { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
-  //     { icon: BsGear, size: 24, text: "Parts Procurement" },
-  //     { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
-  //     { icon: FcInspection, size: 24, text: "QA Inspections" },
-  //     { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
-  //     { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
-  //   ],
-  //   []
-  // );
-
   const getIconComponent = (iconName: string): IconType | null => {
     switch (iconName) {
       case "RiToolsFill":
@@ -124,8 +111,6 @@ const Tools = ({ tools }: Props) => {
       clearInterval(interval);
     };
   }, [ProductArray, setSelectedTool]);
-
-  console.log(ProductArray);
 
   return (
     <section

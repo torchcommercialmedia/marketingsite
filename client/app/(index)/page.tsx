@@ -12,12 +12,10 @@ import ToolsForDealers from "@/components/MainPage/ToolsForDealers";
 import { fetchDataFromApi } from "@/utils/fetch/fetchIndex";
 
 export default async function Home() {
-  const [hero, tools] = await Promise.all([
-    fetchDataFromApi("/main-pages?populate[hero][populate]=*"),
-    fetchDataFromApi(
-      "/main-pages?populate[professional][populate]=professionalTools.image"
-    ),
-  ]);
+  const hero = await fetchDataFromApi("/main-pages?populate[hero][populate]=*");
+  const tools = await fetchDataFromApi(
+    "/main-pages?populate[professional][populate]=professionalTools.img"
+  );
 
   return (
     <main className="flex w-full flex-col">
