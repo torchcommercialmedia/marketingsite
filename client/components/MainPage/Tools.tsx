@@ -10,76 +10,99 @@ import { RiToolsFill } from "react-icons/ri";
 import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
 import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
-// import ImageForTools4Professional from "@/public/images/tools4professional/task-management.png";
 import Image from "next/image";
-import { ProfessionalData } from "@/utils/types/types";
+import { Professional, ProfessionalData } from "@/utils/types/types";
 
 interface Props {
   tools: ProfessionalData;
 }
 
-interface ToolsForProfessional {
-  icon: IconType;
-  size: number;
-  text: string;
-}
-
 const Tools = ({ tools }: Props) => {
-  console.log(tools);
   const swiperRef = useRef<SwiperClass | undefined>();
 
-  const ProductArray: ToolsForProfessional[] = useMemo(
-    () => [
-      { icon: RiToolsFill, size: 24, text: "Task Management" },
-      { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
-      { icon: BsGear, size: 24, text: "Parts Procurement" },
-      { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
-      { icon: FcInspection, size: 24, text: "QA Inspections" },
-      { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
-      { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
-    ],
-    []
+  const ProductArray: Professional[] = useMemo(
+    () => tools.professionalTools,
+    [tools.professionalTools]
   );
 
   const [selectedTool, setSelectedTool] = useState<string>(
-    ProductArray[0].text
+    tools.professionalTools[0].title
   );
 
-  const AddedDivArray = (array: ToolsForProfessional[]) => {
+  // const ProductArray: ToolsForProfessional[] = useMemo(
+  //   () => [
+  //     { icon: RiToolsFill, size: 24, text: "Task Management" },
+  //     { icon: TfiAlarmClock, size: 24, text: "Time Tracking" },
+  //     { icon: BsGear, size: 24, text: "Parts Procurement" },
+  //     { icon: HiOutlineBuildingOffice2, size: 24, text: "Multi-Rooftop" },
+  //     { icon: FcInspection, size: 24, text: "QA Inspections" },
+  //     { icon: VscChecklist, size: 24, text: "Vehicle Inspections" },
+  //     { icon: TfiDashboard, size: 24, text: "Dashboard & Reports" },
+  //   ],
+  //   []
+  // );
+
+  const getIconComponent = (iconName: string): IconType | null => {
+    switch (iconName) {
+      case "RiToolsFill":
+        return RiToolsFill;
+      case "TfiAlarmClock":
+        return TfiAlarmClock;
+      case "BsGear":
+        return BsGear;
+      case "HiOutlineBuildingOffice2":
+        return HiOutlineBuildingOffice2;
+      case "FcInspection":
+        return FcInspection;
+      case "VscChecklist":
+        return VscChecklist;
+      case "TfiDashboard":
+        return TfiDashboard;
+      default:
+        return null;
+    }
+  };
+
+  const AddedDivArray = (array: Professional[]) => {
     const rows = [];
     for (let i = 0; i < array.length; i++) {
       const div = array[i];
-      rows.push(
-        <div
-          className="flex"
-          key={i}
-          onClick={() => handleToolSelect(div.text)}
-        >
-          <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
-            <div className="flex">
-              <div.icon
-                size={div.size}
-                className={selectedTool === div.text ? "text-red-500" : ""}
-              />
+      const IconComponent = getIconComponent(array[i].icon);
+      if (IconComponent) {
+        rows.push(
+          <div
+            className="flex"
+            key={i}
+            onClick={() => handleToolSelect(div.title)}
+          >
+            <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
+              <div className="flex">
+                {React.createElement(IconComponent, {
+                  size: 42,
+                  className: `${
+                    selectedTool === div.title ? "text-red-500" : ""
+                  }`,
+                })}
+              </div>
+              <div className="p-2"></div>
+              <p
+                className={`h-12 flex items-start text-center ${
+                  selectedTool === div.title ? "text-red-500" : ""
+                }`}
+              >
+                {div.title}
+              </p>
             </div>
-            <div className="p-2"></div>
-            <p
-              className={`h-12 flex items-start text-center ${
-                selectedTool === div.text ? "text-red-500" : ""
-              }`}
-            >
-              {div.text}
-            </p>
           </div>
-        </div>
-      );
+        );
+      }
     }
     return rows;
   };
 
   const handleToolSelect = (toolText: string) => {
     setSelectedTool(toolText);
-    const toolIndex = ProductArray.findIndex((tool) => tool.text === toolText);
+    const toolIndex = ProductArray.findIndex((tool) => tool.title === toolText);
     if (swiperRef.current) {
       swiperRef.current.slideTo(toolIndex);
     }
@@ -92,7 +115,7 @@ const Tools = ({ tools }: Props) => {
         if (swiper) {
           const nextIndex = (swiper.activeIndex + 1) % ProductArray.length;
           swiper.slideTo(nextIndex);
-          setSelectedTool(ProductArray[nextIndex].text);
+          setSelectedTool(ProductArray[nextIndex].title);
         }
       }
     }, 5000);
@@ -101,6 +124,8 @@ const Tools = ({ tools }: Props) => {
       clearInterval(interval);
     };
   }, [ProductArray, setSelectedTool]);
+
+  console.log(ProductArray);
 
   return (
     <section
@@ -123,7 +148,7 @@ const Tools = ({ tools }: Props) => {
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={(swiper) => {
-            const toolText = ProductArray[swiper.activeIndex].text;
+            const toolText = ProductArray[swiper.activeIndex].title;
             setSelectedTool(toolText);
           }}
           onSwiper={(swiper) => {
@@ -133,12 +158,16 @@ const Tools = ({ tools }: Props) => {
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
               <div className="flex border justify-center w-full rounded-2xl h-[400px]">
-                {/* <Image
-                  src={ImageForTools4Professional}
-                  width={500}
-                  height={500}
-                  alt=""
-                /> */}
+                {tool?.img?.data?.attributes?.url && (
+                  <Image
+                    src={
+                      "http://localhost:1337" + tool.img?.data?.attributes?.url
+                    }
+                    width={500}
+                    height={500}
+                    alt=""
+                  />
+                )}
                 <p className="mt-40 w-24">Slide {index + 1}</p>
               </div>
             </SwiperSlide>

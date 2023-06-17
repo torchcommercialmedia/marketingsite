@@ -74,13 +74,14 @@ export type HeroData = {
 export type ProfessionalData = {
   id: number;
   title: string;
-  professional: Professional;
+  professionalTools: Professional[];
 };
 
 export type Professional = {
   id: number;
   title: string;
   icon: string;
+  img: ImageData;
   content?: string;
 };
 
@@ -88,7 +89,7 @@ export interface Attributes extends BuiltInDates {
   title?: string;
   desc?: string;
   hero?: HeroData;
-  tools?: ProfessionalData;
+  professional?: ProfessionalData;
 }
 
 export type TypedColumn =
