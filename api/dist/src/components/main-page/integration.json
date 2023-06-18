@@ -1,0 +1,35 @@
+{
+    "collectionName": "components_main_page_integrations",
+    "info": {
+        "displayName": "integration",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "integrationChecklist": {
+            "displayName": "integrationChecklist",
+            "type": "component",
+            "repeatable": true,
+            "component": "main-page.integration-checklist"
+        },
+        "img": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        },
+        "integrationLinks": {
+            "displayName": "integrationLinks",
+            "type": "component",
+            "repeatable": true,
+            "component": "main-page.integration-links"
+        }
+    }
+}

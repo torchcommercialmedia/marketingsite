@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_main_page_uses",
+    "info": {
+        "displayName": "uses",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "usesList": {
+            "displayName": "usesList",
+            "type": "component",
+            "repeatable": true,
+            "component": "main-page.uses-list"
+        }
+    }
+}

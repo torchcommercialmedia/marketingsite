@@ -1,0 +1,62 @@
+{
+    "kind": "collectionType",
+    "collectionName": "main_pages",
+    "info": {
+        "singularName": "main-page",
+        "pluralName": "main-pages",
+        "displayName": "main_page",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "desc": {
+            "type": "text"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.hero"
+        },
+        "professional": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.professional"
+        },
+        "integration": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.integration"
+        },
+        "dealers": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.dealers"
+        },
+        "uses": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.uses"
+        },
+        "ai": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.ai"
+        },
+        "nativeIntegration": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.native-integration"
+        },
+        "testimonials": {
+            "type": "component",
+            "repeatable": false,
+            "component": "main-page.testimonials"
+        }
+    }
+}

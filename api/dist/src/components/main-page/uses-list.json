@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_main_page_uses_lists",
+    "info": {
+        "displayName": "usesList"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "img": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": true
+        }
+    }
+}
