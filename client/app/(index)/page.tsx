@@ -10,6 +10,7 @@ import ServiceCompany from "@/components/MainPage/ServiceCompany";
 import Tools from "@/components/MainPage/Tools";
 import ToolsForDealers from "@/components/MainPage/ToolsForDealers";
 import { fetchDataFromApi } from "@/utils/fetch/fetchIndex";
+import ContactUs from "@/components/MainPage/ContactUs";
 
 export default async function Home() {
   const hero = await fetchDataFromApi("/main-pages?populate[hero][populate]=*");
@@ -28,6 +29,7 @@ export default async function Home() {
       <BuiltWithAi />
       <Integration />
       <Testimonials />
+      <ContactUs />
       <Footer />
     </main>
   );

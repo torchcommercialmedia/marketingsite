@@ -100,7 +100,7 @@ const ServiceCompany = (props: Props) => {
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>
         <h2 className="font-semibold mx-auto text-2xl text-center">
-          Tools for All Auto Professionals
+          Tools for Service Companies & Dealer Service Departments
         </h2>
         <div className="p-2"></div>
         <div className="flex justify-center space-x-2">

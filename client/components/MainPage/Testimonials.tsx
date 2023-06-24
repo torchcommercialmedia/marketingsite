@@ -73,7 +73,7 @@ const Testimonials = (props: Props) => {
       aria-label="What our customers are saying"
       className="bg-slate-50 py-20 sm:py-32"
     >
-      <div className="w-full max-w-7xl min-h-screen mx-auto p-4">
+      <div className="w-full max-w-7xl mx-auto p-4">
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
             What our customers are saying
