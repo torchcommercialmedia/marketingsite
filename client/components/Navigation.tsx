@@ -35,6 +35,7 @@ interface DivArray {
   icon: IconType;
   size: number;
   text: string;
+  href?: string;
 }
 
 interface PopoverContent {
@@ -83,7 +84,12 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
     { icon: HiOutlineBuildingOffice2, size: 24, text: "Agency Services" },
     { icon: TbHelp, size: 24, text: "Help Center" },
     { icon: MdOutlineReviews, size: 24, text: "Reviews" },
-    { icon: HiOutlineBuildingOffice, size: 24, text: "About Us" },
+    {
+      icon: HiOutlineBuildingOffice,
+      size: 24,
+      text: "About Us",
+      href: "about-us",
+    },
     { icon: FaBlog, size: 24, text: "Blog" },
   ];
 
@@ -96,10 +102,9 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
         <div key={i} className="flex hover:cursor-pointer ">
           <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">
             <div1.icon size={div1.size} />
-            <div className="text-gray-900">
-              {div1.text}
-              <span className="absolute inset-0" />
-            </div>
+            <Link href={div1.href || "#"} className="text-gray-900">
+              <span>{div1.text}</span> <span className="absolute inset-0" />
+            </Link>
           </div>
           {div2 && (
             <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">

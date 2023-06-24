@@ -158,7 +158,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     {
       label: "About Us",
       active: pathname === "/search",
-      href: "/aboutus",
+      href: "/about-us",
       subMenuItems: [
         {
           icon: GiGraduateCap,
