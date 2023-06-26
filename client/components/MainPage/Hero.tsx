@@ -9,6 +9,7 @@ import { VscTools } from "react-icons/vsc";
 import { motion } from "framer-motion";
 import { HeroData, HeroList } from "@/utils/types/types";
 import { IconType } from "react-icons";
+import { env } from "process";
 
 interface Props {
   hero: HeroData;
@@ -151,7 +152,9 @@ const Hero = ({ hero }: Props) => {
                 className=""
               >
                 <Image
-                  src={"http://localhost:1337" + hero.img.data.attributes.url}
+                  src={
+                    process.env.PUBLIC_URL + hero?.img?.data?.attributes?.url
+                  }
                   alt={""}
                   width={1920}
                   height={1080}
