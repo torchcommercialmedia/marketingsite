@@ -17,7 +17,6 @@ export default async function Home() {
   const tools = await fetchDataFromApi(
     "/main-pages?populate[professional][populate]=professionalTools.img"
   );
-  console.log(hero);
   return (
     <main className="flex w-full flex-col">
       {hero && <Hero hero={hero.data[0].attributes.hero!} />}
