@@ -153,7 +153,8 @@ const Hero = ({ hero }: Props) => {
               >
                 <Image
                   src={
-                    process.env.PUBLIC_URL + hero?.img?.data?.attributes?.url
+                    process.env.NEXT_PUBLIC_API_URL +
+                    hero?.img?.data?.attributes?.url
                   }
                   alt={""}
                   width={1920}
