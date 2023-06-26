@@ -6,7 +6,7 @@ export default [
     config: {
       enabled: true,
       headers: "*",
-      origin: "*",
+      origin: ["*"],
     },
   },
   "strapi::poweredBy",
