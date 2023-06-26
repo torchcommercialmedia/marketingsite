@@ -14,13 +14,13 @@ import ContactUs from "@/components/MainPage/ContactUs";
 
 export default async function Home() {
   const hero = await fetchDataFromApi("/main-pages?populate[hero][populate]=*");
-  const tools = await fetchDataFromApi(
-    "/main-pages?populate[professional][populate]=professionalTools.img"
-  );
+  // const tools = await fetchDataFromApi(
+  //   "/main-pages?populate[professional][populate]=professionalTools.img"
+  // );
   return (
     <main className="flex w-full flex-col">
       {hero && <Hero hero={hero.data[0].attributes.hero!} />}
-      {tools && <Tools tools={tools.data[0].attributes.professional!} />}
+      {/* {tools && <Tools tools={tools.data[0].attributes.professional!} />} */}
       <DealersAndServiceProvider />
       <ToolsForDealers />
       <ServiceCompany />
