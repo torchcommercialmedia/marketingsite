@@ -1,4 +1,3 @@
-"use client";
 import BuiltWithAi from "@/components/MainPage/BuiltWithAi";
 import DealersAndServiceProvider from "@/components/MainPage/DealersAndServiceProvider";
 import Uses from "@/components/MainPage/Uses";
@@ -11,16 +10,32 @@ import Tools from "@/components/MainPage/Tools";
 import ToolsForDealers from "@/components/MainPage/ToolsForDealers";
 import { fetchDataFromApi } from "@/utils/fetch/fetchIndex";
 import ContactUs from "@/components/MainPage/ContactUs";
+import { ResponseData } from "@/utils/types/types";
+import { Suspense } from "react";
+
+// async function getHero() {
+//   return await
+// }
+
+// async function getTools() {
+//   return await
+// }
 
 export default async function Home() {
-  const hero = await fetchDataFromApi("/main-pages?populate[hero][populate]=*");
-  const tools = await fetchDataFromApi(
-    "/main-pages?populate[professional][populate]=professionalTools.img"
-  );
+  const [hero, tools] = await Promise.all([
+    fetchDataFromApi("/main-pages?populate[hero][populate]=*"),
+    fetchDataFromApi(
+      "/main-pages?populate[professional][populate]=professionalTools.img"
+    ),
+  ]);
   return (
     <main className="flex w-full flex-col">
-      <Hero hero={hero.data[0].attributes.hero!} />
-      <Tools tools={tools.data[0].attributes.professional!} />
+      <Suspense fallback={<p>Loading hero...</p>}>
+        <Hero hero={hero.data[0].attributes.hero!} />
+      </Suspense>
+      <Suspense fallback={<p>Loading tools...</p>}>
+        <Tools tools={tools.data[0].attributes.professional!} />
+      </Suspense>
       <DealersAndServiceProvider />
       <ToolsForDealers />
       <ServiceCompany />
