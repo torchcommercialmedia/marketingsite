@@ -161,13 +161,6 @@ const Hero = ({ hero }: Props) => {
                   height={1080}
                   className="object-contain"
                 />
-                {/* <Image
-                  width={1920}
-                  height={1080}
-                  src={landingImage1}
-                  alt={""}
-                  className="object-contain"
-                /> */}
                 <div className="" />
               </motion.div>
             </motion.div>
