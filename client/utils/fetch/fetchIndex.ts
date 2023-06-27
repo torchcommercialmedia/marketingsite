@@ -1,6 +1,8 @@
 import { ResponseData } from "@/utils/types/types";
 
-export const fetchDataFromApi = async (endpoint: string) => {
+export const fetchDataFromApi = async (
+  endpoint: string
+): Promise<ResponseData> => {
   const options = {
     method: "GET",
     headers: {
@@ -12,6 +14,10 @@ export const fetchDataFromApi = async (endpoint: string) => {
     `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`,
     options
   );
-  const data: ResponseData = await res.json();
-  return data;
+
+  if (res.status === 200) {
+    return res.json();
+  } else {
+    throw new Error();
+  }
 };

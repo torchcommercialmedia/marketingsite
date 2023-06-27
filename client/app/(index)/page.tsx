@@ -19,8 +19,8 @@ export default async function Home() {
   );
   return (
     <main className="flex w-full flex-col">
-      {hero && <Hero hero={hero.data[0].attributes.hero!} />}
-      {tools && <Tools tools={tools.data[0].attributes.professional!} />}
+      <Hero hero={hero.data[0].attributes.hero!} />
+      <Tools tools={tools.data[0].attributes.professional!} />
       <DealersAndServiceProvider />
       <ToolsForDealers />
       <ServiceCompany />
