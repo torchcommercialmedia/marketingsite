@@ -13,14 +13,6 @@ import ContactUs from "@/components/MainPage/ContactUs";
 import { ResponseData } from "@/utils/types/types";
 import { Suspense } from "react";
 
-// async function getHero() {
-//   return await
-// }
-
-// async function getTools() {
-//   return await
-// }
-
 export default async function Home() {
   const [hero, tools] = await Promise.all([
     fetchDataFromApi("/main-pages?populate[hero][populate]=*"),
