@@ -11,7 +11,7 @@ import { postContactUs } from "@/utils/fetch/postContact";
 type Props = {};
 
 const ContactUs = (props: Props) => {
-  const [agreed, setAgreed] = useState(false);
+  const [agreed, setAgreed] = useState(true);
   const [isSubmitting, setOnSubmit] = useState(false);
 
   function classNames(...classes: any[]) {
@@ -234,7 +234,10 @@ const ContactUs = (props: Props) => {
             {!isSubmitting && (
               <button
                 type="submit"
-                className="block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className={`block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 ${
+                  agreed ? "hover:bg-red-500 " : "bg-red-200"
+                }`}
+                disabled={!agreed}
               >
                 Request a Demo
               </button>
