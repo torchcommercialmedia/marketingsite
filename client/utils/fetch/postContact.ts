@@ -17,13 +17,13 @@ export const postContactUs = async (
     body: JSON.stringify({
       data: formData,
     }),
-  })
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+  });
+  // .then((response) => response.json())
+  // .then((data) => this.router);
 
-  // if (res.status === 201) {
-  //   return "Successfuly Submitted!";
-  // } else {
-  //   throw new Error(res.statusText);
-  // }
+  if (!res.ok) {
+    return undefined;
+  } else {
+    return res.json;
+  }
 };

@@ -2,15 +2,17 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-
 import { Switch } from "@headlessui/react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
 import { ContactForm } from "@/utils/types/types";
 import { postContactUs } from "@/utils/fetch/postContact";
+import { useRouter } from "next/navigation";
+import Router from "next/router";
 
 type Props = {};
 
 const ContactUs = (props: Props) => {
+  const router = useRouter();
   const [agreed, setAgreed] = useState(true);
   const [isSubmitting, setOnSubmit] = useState(false);
 
@@ -25,8 +27,14 @@ const ContactUs = (props: Props) => {
   } = useForm<ContactForm>();
   const onSubmit: SubmitHandler<ContactForm> = (formData) => {
     setOnSubmit(true);
-    const response = postContactUs("/contact-uses?populate=*", formData);
-    console.log(response);
+
+    try {
+      postContactUs("/contact-uses?populate=*", formData);
+      router.push("https://calendly.com/chromelot");
+    } catch {
+      throw new Error("Error");
+    }
+    // console.log('res', response);
     // window.location.href = `mailto:devjrl.programmer@gmail?subject=${formData.companyName}&body=Hi, my name is ${formData.firstName} ${formData.lastName}, ${formData.message} (${formData.email})`;
   };
   return (
