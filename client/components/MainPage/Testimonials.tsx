@@ -27,43 +27,6 @@ const QuoteIcon = (props: Props) => {
 };
 
 const Testimonials = ({ testimonial }: Props) => {
-  console.log(testimonial);
-  // const testimonials = testimonial.testimonialContent;
-  // [
-  //   [
-  //     {
-  //       content:
-  //         "Chrome Lot is so easy to use that I can&apos;t help but love it",
-  //       author: {
-  //         name: "Sheryl Berge",
-  //         role: "CEO at Lynch LLC",
-  //         image: avatarImage1,
-  //       },
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       content:
-  //         "We have struggled to manage our photography program for years, going through many vendors and employees.  With Chrome Lot, our high standards are met, and we can focus on other parts of our business.",
-  //       author: {
-  //         name: "Erin Powlowski",
-  //         role: "COO at Armstrong Inc",
-  //         image: avatarImage2,
-  //       },
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       content: "Chrome Lot has made it simple to run my business.",
-  //       author: {
-  //         name: "Amy Hahn",
-  //         role: "Director at Velocity Industries",
-  //         image: avatarImage4,
-  //       },
-  //     },
-  //   ],
-  // ];
-
   const [index, setIndex] = useState<number>(0);
   const total = 5;
 

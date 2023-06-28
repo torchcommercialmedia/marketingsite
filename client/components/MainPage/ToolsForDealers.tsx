@@ -40,7 +40,6 @@ const ToolsForDealers = ({ dealers }: Props) => {
   );
   const swiperRefTool = useRef<SwiperClass | undefined>();
   const swiperRefToolGate = useRef<SwiperClass | undefined>();
-  console.log(dealers);
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
     for (let i = 0; i < array.length; i++) {
@@ -76,7 +75,6 @@ const ToolsForDealers = ({ dealers }: Props) => {
   const handleToolSelect = (toolText: string) => {
     setSelectedTool(toolText);
     const toolIndex = ProductArray.findIndex((tool) => tool.title === toolText);
-    console.log(toolIndex);
     if (swiperRefTool.current) {
       swiperRefTool.current.slideTo(toolIndex);
     }

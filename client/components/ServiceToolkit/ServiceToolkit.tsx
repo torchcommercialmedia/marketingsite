@@ -75,7 +75,6 @@ const ServiceToolkit = (props: Props) => {
   const handleToolSelect = (toolText: string) => {
     setSelectedTool(toolText);
     const toolIndex = ProductArray.findIndex((tool) => tool.text === toolText);
-    console.log(toolIndex);
     if (swiperRefTool.current) {
       swiperRefTool.current.slideTo(toolIndex);
     }

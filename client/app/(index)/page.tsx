@@ -36,7 +36,6 @@ export default async function Home() {
     fetchDataFromApi("/main-pages?populate[nativeIntegration][populate]=*"),
     fetchDataFromApi("/main-pages?populate[testimonials][populate]=*"),
   ]);
-  console.log(nativeIntegration);
   return (
     <main className="flex w-full flex-col">
       <Suspense fallback={<p>Loading hero...</p>}>
