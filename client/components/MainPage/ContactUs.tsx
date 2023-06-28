@@ -66,7 +66,7 @@ const ContactUs = (props: Props) => {
                   type="text"
                   name="firstName"
                   id="firstName"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -84,7 +84,7 @@ const ContactUs = (props: Props) => {
                   type="text"
                   name="lastName"
                   id="lastName"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ const ContactUs = (props: Props) => {
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 ffocus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -122,11 +122,10 @@ const ContactUs = (props: Props) => {
                   <select
                     id="country"
                     name="country"
-                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-2 pr-2 text-gray-400 focus:ring-0   focus:ring-inset focus:ring-red-600 sm:text-sm"
+                    disabled
+                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-2 pr-2 text-gray-400 sm:text-sm"
                   >
                     <option>US</option>
-                    <option>CA</option>
-                    <option>EU</option>
                   </select>
                 </div>
                 <input
@@ -135,7 +134,7 @@ const ContactUs = (props: Props) => {
                   type="tel"
                   name="phoneNumber"
                   id="phoneNumber"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 pl-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 pl-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -153,7 +152,7 @@ const ContactUs = (props: Props) => {
                   type="text"
                   name="companyName"
                   id="companyName"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -165,7 +164,7 @@ const ContactUs = (props: Props) => {
                 Company Type
               </label>
               <div className="relative mt-2.5">
-                <div className="block w-full rounded-md border-0 pr-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+                <div className="block w-full rounded-md border-0 pr-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6">
                   <label htmlFor="company-type" className="sr-only">
                     Company Type
                   </label>
@@ -204,12 +203,12 @@ const ContactUs = (props: Props) => {
                   name="message"
                   id="message"
                   rows={4}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                   defaultValue={""}
                 />
               </div>
             </div>
-            <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
+            {/* <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
               <div className="flex h-6 items-center">
                 <Switch
                   checked={agreed}
@@ -236,15 +235,16 @@ const ContactUs = (props: Props) => {
                 </a>
                 .
               </Switch.Label>
-            </Switch.Group>
+            </Switch.Group> */}
           </div>
           <div className="mt-10">
             {!isSubmitting && (
               <button
                 type="submit"
-                className={`block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 ${
-                  agreed ? "hover:bg-red-500 " : "bg-red-200"
-                }`}
+                className={classNames(
+                  agreed ? "hover:bg-red-500 " : "bg-red-200",
+                  "block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                )}
                 disabled={!agreed}
               >
                 Request a Demo
