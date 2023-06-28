@@ -18,6 +18,6 @@ export const fetchDataFromApi = async (
   if (res.status === 200) {
     return res.json();
   } else {
-    throw new Error();
+    throw new Error("err");
   }
 };
