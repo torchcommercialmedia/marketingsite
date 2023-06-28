@@ -211,3 +211,13 @@ export type Testimonial = {
     company: string;
   }[];
 };
+
+export type ContactForm = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  companyName: string;
+  companyType: string;
+  message?: string;
+};
