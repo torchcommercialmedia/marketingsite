@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["strapi.turbogear.com"],
+    domains: ["admin.strapi.turbogear.com"],
   },
 };
 
