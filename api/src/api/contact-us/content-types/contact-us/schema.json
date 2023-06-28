@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_uses",
+  "info": {
+    "singularName": "contact-us",
+    "pluralName": "contact-uses",
+    "displayName": "Contact-Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "companyType": {
+      "type": "enumeration",
+      "enum": [
+        "Franchise Dealer",
+        "Independent Dealer",
+        "RV Dealer",
+        "Repair Shop",
+        "Tire Shop",
+        "Photography Company",
+        "Wrap Company",
+        "Mobile Detail Company",
+        "Others"
+      ]
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}
