@@ -6,8 +6,11 @@ import avatarImage2 from "@/public/images/avatars/avatar-2.png";
 import avatarImage4 from "@/public/images/avatars/avatar-4.png";
 import avatarImage5 from "@/public/images/avatars/avatar-5.png";
 import Image from "next/image";
+import { Testimonial } from "@/utils/types/types";
 
-type Props = {};
+type Props = {
+  testimonial: Testimonial;
+};
 
 const QuoteIcon = (props: Props) => {
   return (
@@ -23,41 +26,43 @@ const QuoteIcon = (props: Props) => {
   );
 };
 
-const Testimonials = (props: Props) => {
-  const testimonials = [
-    [
-      {
-        content:
-          "Chrome Lot is so easy to use that I can&apos;t help but love it",
-        author: {
-          name: "Sheryl Berge",
-          role: "CEO at Lynch LLC",
-          image: avatarImage1,
-        },
-      },
-    ],
-    [
-      {
-        content:
-          "We have struggled to manage our photography program for years, going through many vendors and employees.  With Chrome Lot, our high standards are met, and we can focus on other parts of our business.",
-        author: {
-          name: "Erin Powlowski",
-          role: "COO at Armstrong Inc",
-          image: avatarImage2,
-        },
-      },
-    ],
-    [
-      {
-        content: "Chrome Lot has made it simple to run my business.",
-        author: {
-          name: "Amy Hahn",
-          role: "Director at Velocity Industries",
-          image: avatarImage4,
-        },
-      },
-    ],
-  ];
+const Testimonials = ({ testimonial }: Props) => {
+  console.log(testimonial);
+  // const testimonials = testimonial.testimonialContent;
+  // [
+  //   [
+  //     {
+  //       content:
+  //         "Chrome Lot is so easy to use that I can&apos;t help but love it",
+  //       author: {
+  //         name: "Sheryl Berge",
+  //         role: "CEO at Lynch LLC",
+  //         image: avatarImage1,
+  //       },
+  //     },
+  //   ],
+  //   [
+  //     {
+  //       content:
+  //         "We have struggled to manage our photography program for years, going through many vendors and employees.  With Chrome Lot, our high standards are met, and we can focus on other parts of our business.",
+  //       author: {
+  //         name: "Erin Powlowski",
+  //         role: "COO at Armstrong Inc",
+  //         image: avatarImage2,
+  //       },
+  //     },
+  //   ],
+  //   [
+  //     {
+  //       content: "Chrome Lot has made it simple to run my business.",
+  //       author: {
+  //         name: "Amy Hahn",
+  //         role: "Director at Velocity Industries",
+  //         image: avatarImage4,
+  //       },
+  //     },
+  //   ],
+  // ];
 
   const [index, setIndex] = useState<number>(0);
   const total = 5;
@@ -76,48 +81,49 @@ const Testimonials = (props: Props) => {
       <div className="w-full max-w-7xl mx-auto p-4">
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            What our customers are saying
+            {/* {testimonial.title} */}
           </h2>
         </div>
         <ul
           role="list"
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
         >
-          {testimonials.map((column, columnIndex) => (
-            <li key={columnIndex}>
-              <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
-                {column.map((testimonial, testimonialIndex) => (
-                  <li key={testimonialIndex}>
-                    <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
-                      <QuoteIcon />
-                      <blockquote className="relative">
-                        <p className="text-lg tracking-tight text-slate-900">
-                          {testimonial.content}
-                        </p>
-                      </blockquote>
-                      <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
-                        <div>
-                          <div className="font-display text-base text-slate-900">
-                            {testimonial.author.name}
-                          </div>
-                          <div className="mt-1 text-sm text-slate-500">
-                            {testimonial.author.role}
-                          </div>
-                        </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
-                          <Image
-                            className="h-14 w-14 object-cover"
-                            src={testimonial.author.image}
-                            alt=""
-                            width={56}
-                            height={56}
-                          />
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </li>
-                ))}
-              </ul>
+          {testimonial.testimonialContent.map((test) => (
+            <li key={test.id}>
+              <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
+                <QuoteIcon
+                  testimonial={{
+                    id: 0,
+                    title: "",
+                    desc: undefined,
+                    testimonialContent: [],
+                  }}
+                />
+                <blockquote className="relative">
+                  <p className="text-lg tracking-tight text-slate-900">
+                    {test.comment}
+                  </p>
+                </blockquote>
+                <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
+                  <div>
+                    <div className="font-display text-base text-slate-900">
+                      {test.name}
+                    </div>
+                    <div className="mt-1 text-sm text-slate-500">
+                      {test.company}
+                    </div>
+                  </div>
+                  <div className="overflow-hidden rounded-full bg-slate-50">
+                    {/* <Image
+                        className="h-14 w-14 object-cover"
+                        src={test.company}
+                        alt=""
+                        width={56}
+                        height={56}
+                      /> */}
+                  </div>
+                </figcaption>
+              </figure>
             </li>
           ))}
         </ul>
