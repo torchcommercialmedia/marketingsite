@@ -12,6 +12,7 @@ type Props = {};
 
 const ContactUs = (props: Props) => {
   const [agreed, setAgreed] = useState(false);
+  const [isSubmitting, setOnSubmit] = useState(false);
 
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(" ");
@@ -23,7 +24,9 @@ const ContactUs = (props: Props) => {
     formState: { errors },
   } = useForm<ContactForm>();
   const onSubmit: SubmitHandler<ContactForm> = (formData) => {
-    postContactUs("/contact-us?populate=*", formData);
+    setOnSubmit(true);
+    const response = postContactUs("/contact-uses?populate=*", formData);
+    console.log(response);
     // window.location.href = `mailto:devjrl.programmer@gmail?subject=${formData.companyName}&body=Hi, my name is ${formData.firstName} ${formData.lastName}, ${formData.message} (${formData.email})`;
   };
   return (
@@ -189,6 +192,7 @@ const ContactUs = (props: Props) => {
               </label>
               <div className="mt-2.5">
                 <textarea
+                  {...register("message")}
                   name="message"
                   id="message"
                   rows={4}
@@ -227,12 +231,14 @@ const ContactUs = (props: Props) => {
             </Switch.Group>
           </div>
           <div className="mt-10">
-            <button
-              type="submit"
-              className="block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-            >
-              Request a Demo
-            </button>
+            {!isSubmitting && (
+              <button
+                type="submit"
+                className="block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              >
+                Request a Demo
+              </button>
+            )}
           </div>
         </form>
       </div>
