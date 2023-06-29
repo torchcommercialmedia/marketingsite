@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_pricing_add_on_features",
+  "info": {
+    "displayName": "addOnFeature"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isChecked": {
+      "type": "boolean"
+    },
+    "tooltip": {
+      "type": "json"
+    }
+  }
+}
