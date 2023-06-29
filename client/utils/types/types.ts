@@ -90,6 +90,12 @@ export interface Attributes extends BuiltInDates {
   desc?: string;
   hero?: HeroData;
   professional?: ProfessionalData;
+  integration?: IntegrationData;
+  dealers?: DealersData;
+  uses?: UsesData;
+  ai?: AIData;
+  nativeIntegration?: NativeIntegration;
+  testimonials: Testimonial;
 }
 
 export type TypedColumn =
@@ -136,4 +142,82 @@ type StrapiImageFormat = {
   height: number;
   size: number;
   url: string;
+};
+
+export type IntegrationData = {
+  title: string;
+  integrationChecklist: {
+    id: number;
+    title: string;
+    icon: string;
+  }[];
+  img?: StrapiImage;
+  integrationLinks: {
+    title: string;
+    link?: string;
+  }[];
+};
+
+export type DealersData = {
+  id: number;
+  title: string;
+  dealersTool: {
+    id: number;
+    title: string;
+    icon: IconType;
+    content?: string;
+  }[];
+};
+
+export type UsesData = {
+  id: number;
+  title: string;
+  usesList: {
+    id: number;
+    title: string;
+  }[];
+};
+
+export type AIData = {
+  id: number;
+  title: string;
+  desc: string;
+  aiContents: {
+    id: number;
+    title: string;
+    img?: ImageData;
+    content?: string;
+  }[];
+};
+
+export type NativeIntegration = {
+  id: number;
+  title: string;
+  desc: string;
+  nativeIntContent: {
+    id: number;
+    img: ImageData;
+  }[];
+};
+
+export type Testimonial = {
+  id: number;
+  title: string;
+  desc?: string;
+  testimonialContent: {
+    id: number;
+    name: string;
+    comment: string;
+    company: string;
+  }[];
+};
+
+export type ContactForm = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  companyName: string;
+  companyType: string;
+  message?: string;
 };

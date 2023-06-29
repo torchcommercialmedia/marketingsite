@@ -2,24 +2,19 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-
 import { Switch } from "@headlessui/react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
+import { ContactForm } from "@/utils/types/types";
+import { postContactUs } from "@/utils/fetch/postContact";
+import { useRouter } from "next/navigation";
+import Router from "next/router";
 
 type Props = {};
 
-type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  companyName: string;
-  companyType: string;
-  message?: string;
-};
-
 const ContactUs = (props: Props) => {
-  const [agreed, setAgreed] = useState(false);
+  const router = useRouter();
+  const [agreed, setAgreed] = useState(true);
+  const [isSubmitting, setOnSubmit] = useState(false);
 
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(" ");
@@ -29,26 +24,25 @@ const ContactUs = (props: Props) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    console.log(formData);
+  } = useForm<ContactForm>();
+  const onSubmit: SubmitHandler<ContactForm> = (formData) => {
+    setOnSubmit(true);
+
+    try {
+      postContactUs("/contact-uses?populate=*", formData);
+      router.push("https://calendly.com/chromelot");
+    } catch {
+      throw new Error("Error");
+    }
+    // console.log('res', response);
     // window.location.href = `mailto:devjrl.programmer@gmail?subject=${formData.companyName}&body=Hi, my name is ${formData.firstName} ${formData.lastName}, ${formData.message} (${formData.email})`;
   };
   return (
-    <section className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <section
+      className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8"
+      id="contact-us"
+    >
       <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 relative">
-        <div
-          className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-          aria-hidden="true"
-        >
-          <div
-            className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-          />
-        </div>
         <div className="mx-auto max-w-2xl text-left">
           <h2 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
             Request a Demo
@@ -75,7 +69,7 @@ const ContactUs = (props: Props) => {
                   type="text"
                   name="firstName"
                   id="firstName"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -93,7 +87,7 @@ const ContactUs = (props: Props) => {
                   type="text"
                   name="lastName"
                   id="lastName"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -112,7 +106,7 @@ const ContactUs = (props: Props) => {
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 ffocus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -131,11 +125,10 @@ const ContactUs = (props: Props) => {
                   <select
                     id="country"
                     name="country"
-                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-2 pr-2 text-gray-400 focus:ring-0   focus:ring-inset focus:ring-red-600 sm:text-sm"
+                    disabled
+                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-2 pr-2 text-gray-400 sm:text-sm"
                   >
                     <option>US</option>
-                    <option>CA</option>
-                    <option>EU</option>
                   </select>
                 </div>
                 <input
@@ -144,7 +137,7 @@ const ContactUs = (props: Props) => {
                   type="tel"
                   name="phoneNumber"
                   id="phoneNumber"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 pl-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 pl-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -162,7 +155,7 @@ const ContactUs = (props: Props) => {
                   type="text"
                   name="companyName"
                   id="companyName"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -174,7 +167,7 @@ const ContactUs = (props: Props) => {
                 Company Type
               </label>
               <div className="relative mt-2.5">
-                <div className="block w-full rounded-md border-0 pr-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+                <div className="block w-full rounded-md border-0 pr-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6">
                   <label htmlFor="company-type" className="sr-only">
                     Company Type
                   </label>
@@ -209,15 +202,16 @@ const ContactUs = (props: Props) => {
               </label>
               <div className="mt-2.5">
                 <textarea
+                  {...register("message")}
                   name="message"
                   id="message"
                   rows={4}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset sm:text-sm sm:leading-6"
                   defaultValue={""}
                 />
               </div>
             </div>
-            <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
+            {/* <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
               <div className="flex h-6 items-center">
                 <Switch
                   checked={agreed}
@@ -244,15 +238,21 @@ const ContactUs = (props: Props) => {
                 </a>
                 .
               </Switch.Label>
-            </Switch.Group>
+            </Switch.Group> */}
           </div>
           <div className="mt-10">
-            <button
-              type="submit"
-              className="block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-            >
-              Request a Demo
-            </button>
+            {!isSubmitting && (
+              <button
+                type="submit"
+                className={classNames(
+                  agreed ? "hover:bg-red-500 " : "bg-red-200",
+                  "block w-full rounded-md bg-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                )}
+                disabled={!agreed}
+              >
+                Request a Demo
+              </button>
+            )}
           </div>
         </form>
       </div>

@@ -15,34 +15,31 @@ import {
   MdOutlineSwapHoriz,
 } from "react-icons/md";
 import { RiServiceLine } from "react-icons/ri";
+import { DealersData } from "@/utils/types/types";
 
-type Props = {};
+type Props = {
+  dealers: DealersData;
+};
 
 interface ToolsForProfessional {
+  id: number;
   icon: IconType;
-  size: number;
-  text: string;
+  // size: number;
+  title: string;
+  content?: string;
 }
 
-const ToolsForDealers = (props: Props) => {
+const ToolsForDealers = ({ dealers }: Props) => {
   const ProductArray: ToolsForProfessional[] = useMemo(
-    () => [
-      { icon: GiAutoRepair, size: 24, text: "Recon Management" },
-      { icon: MdOutlineInventory2, size: 24, text: "Inventory Management" },
-      { icon: MdOutlineSell, size: 24, text: "Merchandising Management" },
-      { icon: RiServiceLine, size: 24, text: "Service Department" },
-      { icon: BiStore, size: 24, text: "Vendor Integration" },
-      { icon: MdOutlineSwapHoriz, size: 24, text: "Custom Workflows" },
-    ],
-    []
+    () => dealers.dealersTool,
+    [dealers.dealersTool]
   );
 
   const [selectedTool, setSelectedTool] = useState<string>(
-    ProductArray[0]?.text || ""
+    ProductArray[0]?.title || ""
   );
   const swiperRefTool = useRef<SwiperClass | undefined>();
   const swiperRefToolGate = useRef<SwiperClass | undefined>();
-
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
     for (let i = 0; i < array.length; i++) {
@@ -51,22 +48,22 @@ const ToolsForDealers = (props: Props) => {
         <div
           className="flex"
           key={i}
-          onClick={() => handleToolSelect(div.text)}
+          onClick={() => handleToolSelect(div.title)}
         >
           <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
             <div className="flex">
               <div.icon
-                size={div.size}
-                className={selectedTool === div.text ? "text-red-500" : ""}
+                size={24}
+                className={selectedTool === div.title ? "text-red-500" : ""}
               />
             </div>
             <div className="p-2"></div>
             <p
               className={`h-12 flex items-start text-center ${
-                selectedTool === div.text ? "text-red-500" : ""
+                selectedTool === div.title ? "text-red-500" : ""
               }`}
             >
-              {div.text}
+              {div.title}
             </p>
           </div>
         </div>
@@ -77,8 +74,7 @@ const ToolsForDealers = (props: Props) => {
 
   const handleToolSelect = (toolText: string) => {
     setSelectedTool(toolText);
-    const toolIndex = ProductArray.findIndex((tool) => tool.text === toolText);
-    console.log(toolIndex);
+    const toolIndex = ProductArray.findIndex((tool) => tool.title === toolText);
     if (swiperRefTool.current) {
       swiperRefTool.current.slideTo(toolIndex);
     }
@@ -89,7 +85,7 @@ const ToolsForDealers = (props: Props) => {
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>
         <h2 className="font-semibold mx-auto text-2xl text-center">
-          Tools for Dealers
+          {dealers.title}
         </h2>
         <div className="p-2"></div>
         <div className="flex justify-center space-x-4">
@@ -105,7 +101,7 @@ const ToolsForDealers = (props: Props) => {
           width={1080}
           slidesPerView={1}
           onSlideChange={(swiper) => {
-            const toolText = ProductArray[swiper.activeIndex].text;
+            const toolText = ProductArray[swiper.activeIndex].title;
             setSelectedTool(toolText);
           }}
           onSwiper={(swiper) => {
@@ -129,7 +125,7 @@ const ToolsForDealers = (props: Props) => {
           watchOverflow
           slidesPerView={1}
           onSlideChange={(swiper) => {
-            const toolText = ProductArray[swiper.activeIndex].text;
+            const toolText = ProductArray[swiper.activeIndex].title;
             setSelectedTool(toolText);
           }}
           onSwiper={(swiper) => {

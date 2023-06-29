@@ -10,10 +10,10 @@ export const fetchDataFromApi = async (
       Authorization: "Bearer " + process.env.NEXT_PUBLIC_STRAPI_API_TOKEN,
     },
   };
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`,
-    options
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
+    cache: "no-store",
+    ...options,
+  });
 
   if (res.status === 200) {
     return res.json();

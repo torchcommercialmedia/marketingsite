@@ -27,6 +27,7 @@
       "type": "string"
     },
     "companyType": {
+<<<<<<< HEAD
       "type": "enumeration",
       "enum": [
         "Franchise Dealer",
@@ -39,6 +40,9 @@
         "Mobile Detail Company",
         "Others"
       ]
+=======
+      "type": "string"
+>>>>>>> c558ffc920a17c0f3719c762602438e7bad3e262
     },
     "message": {
       "type": "text"
