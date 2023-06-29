@@ -3,14 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = [
     "strapi::errors",
     "strapi::security",
-    {
-        name: "strapi::cors",
-        config: {
-            enabled: true,
-            headers: "*",
-            origin: ["*"],
-        },
-    },
+    "strapi::cors",
     "strapi::poweredBy",
     "strapi::logger",
     "strapi::query",

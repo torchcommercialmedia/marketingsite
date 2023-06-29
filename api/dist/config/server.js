@@ -6,7 +6,7 @@ exports.default = ({ env }) => ({
     app: {
         keys: env.array("APP_KEYS"),
     },
-    url: env("PUBLIC_URL", "https://strapi.turbogear.com"),
+    // url: env("PUBLIC_URL", "https://admin.strapi.turbogear.com"),
     webhooks: {
         populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
     },
