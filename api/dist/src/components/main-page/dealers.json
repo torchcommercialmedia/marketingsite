@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_main_page_dealers",
+    "info": {
+        "displayName": "dealers",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "dealersTool": {
+            "displayName": "dealersTool",
+            "type": "component",
+            "repeatable": true,
+            "component": "main-page.dealers-tool"
+        }
+    }
+}

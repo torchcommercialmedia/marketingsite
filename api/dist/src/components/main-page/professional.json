@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_main_page_professionals",
+    "info": {
+        "displayName": "professional",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "professionalTools": {
+            "displayName": "professionalTools",
+            "type": "component",
+            "repeatable": true,
+            "component": "main-page.professional-tools"
+        }
+    }
+}

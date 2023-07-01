@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_main_page_native_integrations",
+    "info": {
+        "displayName": "nativeIntegration",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "desc": {
+            "type": "text"
+        },
+        "nativeIntContent": {
+            "displayName": "nativeIntContent",
+            "type": "component",
+            "repeatable": true,
+            "component": "main-page.native-int-content"
+        }
+    }
+}

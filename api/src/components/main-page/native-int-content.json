@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_main_page_native_int_contents",
+  "info": {
+    "displayName": "nativeIntContent"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

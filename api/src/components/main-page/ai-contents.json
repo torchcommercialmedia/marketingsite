@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_main_page_ai_contents",
+  "info": {
+    "displayName": "aiContents"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_main_page_ais",
+  "info": {
+    "displayName": "ai",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "aiContents": {
+      "displayName": "aiContents",
+      "type": "component",
+      "repeatable": true,
+      "component": "main-page.ai-contents"
+    }
+  }
+}

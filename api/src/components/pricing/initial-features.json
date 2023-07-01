@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_pricing_initial_features",
+  "info": {
+    "displayName": "initialFeatures"
+  },
+  "options": {},
+  "attributes": {
+    "initialFeatures": {
+      "type": "string"
+    }
+  }
+}

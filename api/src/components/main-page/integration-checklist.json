@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_main_page_integration_checklists",
+  "info": {
+    "displayName": "integrationChecklist"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}
