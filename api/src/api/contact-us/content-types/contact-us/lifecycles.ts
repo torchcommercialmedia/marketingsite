@@ -4,8 +4,8 @@ export default {
 
     try {
       await strapi.plugins["email"].services.email.send({
-        to: process.env.SENDGRID_EMAIL_FROM,
-        from: process.env.SENDGRID_EMAIL_TO,
+        to: process.env.SENDGRID_EMAIL_TO,
+        from: process.env.SENDGRID_EMAIL_FROM,
         replyTo: result.email,
         subject: `Email from ${result.email}`,
         text: result.message,
