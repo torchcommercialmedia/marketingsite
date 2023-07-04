@@ -143,10 +143,11 @@ const Tools = ({ tools }: Props) => {
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
               <div className="flex border justify-center w-full rounded-2xl h-[400px]">
-                {tool?.img?.data?.attributes?.url && (
+                {tool?.img?.data && (
                   <Image
                     src={
-                      "http://localhost:1337" + tool.img?.data?.attributes?.url
+                      process.env.NEXT_PUBLIC_WEBSITE_URL +
+                      tool.img?.data?.attributes?.url
                     }
                     width={500}
                     height={500}

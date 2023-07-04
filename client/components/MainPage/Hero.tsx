@@ -31,6 +31,8 @@ const Hero = ({ hero }: Props) => {
     }
   };
 
+  console.log(hero);
+
   return (
     <div className="relative isolate w-full h-[calc(100vh-100px)]">
       <svg
@@ -151,16 +153,19 @@ const Hero = ({ hero }: Props) => {
                 transition={{ duration: 0.8 }}
                 className=""
               >
-                <Image
-                  src={
-                    process.env.NEXT_PUBLIC_WEBSITE_URL +
-                    hero?.img?.data?.attributes?.url
-                  }
-                  alt={""}
-                  width={1920}
-                  height={1080}
-                  className="object-contain"
-                />
+                {hero?.img?.data && (
+                  <Image
+                    src={
+                      process.env.NEXT_PUBLIC_WEBSITE_URL +
+                      hero?.img?.data?.attributes?.url
+                    }
+                    alt={""}
+                    width={1920}
+                    height={1080}
+                    className="object-contain"
+                  />
+                )}
+
                 <div className="" />
               </motion.div>
             </motion.div>

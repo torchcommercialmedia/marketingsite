@@ -1,7 +1,8 @@
 import { ResponseData } from "@/utils/types/types";
 
 export const fetchDataFromApi = async (
-  endpoint: string
+  path: string,
+  query: string
 ): Promise<ResponseData> => {
   const options = {
     method: "GET",
@@ -10,7 +11,7 @@ export const fetchDataFromApi = async (
       Authorization: "Bearer " + process.env.NEXT_PUBLIC_STRAPI_API_TOKEN,
     },
   };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}${query}`, {
     cache: "no-store",
     ...options,
   });

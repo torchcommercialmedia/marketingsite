@@ -194,7 +194,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           icon: FaBlog,
           size: 18,
           label: "Blog",
-          href: "#",
+          href: "/blog",
         },
       ],
     },
@@ -252,7 +252,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         </button>
       </div>
       <div className="hidden lg:flex lg:gap-x-12">
-        {routes.map((item) => {
+        {/* {routes.map((item) => {
           if (item.href === "/pricing")
             return (
               <Link
@@ -269,9 +269,9 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               active={item.active}
               href={item.href}
               key={item.label}
-            ></Navigation>
+            />
           );
-        })}
+        })} */}
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
         <Link

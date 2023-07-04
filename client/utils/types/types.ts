@@ -38,6 +38,18 @@ export type ResponseData = {
   };
 };
 
+export type ResponseBlog = {
+  data: BlogAttributes[];
+  meta: {
+    pagination?: Pagination;
+  };
+};
+
+export type BlogAttributes = {
+  attributes: Blog;
+  id: number;
+};
+
 export type Data = {
   attributes: Attributes;
   id: number;
@@ -95,7 +107,7 @@ export interface Attributes extends BuiltInDates {
   uses?: UsesData;
   ai?: AIData;
   nativeIntegration?: NativeIntegration;
-  testimonials: Testimonial;
+  testimonials?: Testimonial;
 }
 
 export type TypedColumn =
@@ -220,4 +232,37 @@ export type ContactForm = {
   companyName: string;
   companyType: string;
   message?: string;
+};
+
+type Author = {
+  data: {
+    attributes: {
+      name: string;
+      email: string;
+      avatar: ImageData;
+    };
+    id: number;
+  };
+};
+
+type Categories = {
+  data: {
+    attributes: {
+      title: string;
+      slug: string;
+    };
+  }[];
+};
+
+export type Blog = {
+  title: string;
+  desc: string;
+  isFeatured: boolean;
+  slug: string;
+  img: ImageData;
+  updatedAt: Date;
+  publishedAt: string;
+  blog_author: Author;
+  blog_categories: Categories;
+  content: string;
 };

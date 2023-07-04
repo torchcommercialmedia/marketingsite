@@ -24,6 +24,14 @@ import { TbHelp } from "react-icons/tb";
 import { FaBlog, FaUserCog } from "react-icons/fa";
 import { IconType } from "react-icons";
 import Link from "next/link";
+import { fetchBlogFromApi } from "@/utils/fetch/fetchBlog";
+import qs, { IStringifyOptions } from "qs";
+
+interface Props {
+  label: string;
+  active: boolean;
+  href: string;
+}
 
 interface NavigationProps {
   label: string;
@@ -42,10 +50,21 @@ interface PopoverContent {
   [key: string]: React.ReactNode;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
+const Navigation = async ({ label, active, href }: Props) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const timeoutDuration = 200;
   let timeout: any;
+
+  const _state: any = {
+    sort: "publishedAt:desc",
+  };
+
+  const latestBlogs = await fetch(
+    process.env.NEXT_PUBLIC_API_URL +
+      "/blogs?populate=deep&sort=publishedAt%3desc"
+  );
+
+  console.log(latestBlogs);
 
   const Features: DivArray[] = [
     { icon: AiOutlinePaperClip, size: 24, text: "Repair Orders" },
@@ -90,7 +109,7 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
       text: "About Us",
       href: "about-us",
     },
-    { icon: FaBlog, size: 24, text: "Blog" },
+    { icon: FaBlog, size: 24, text: "Blog", href: "blog" },
   ];
 
   const addedDivArray = (array: DivArray[]) => {
@@ -109,10 +128,10 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
           {div2 && (
             <div className="relative flex-1 rounded-lg p-4 hover:bg-gray-50 flex space-x-4">
               <div2.icon size={div2.size} />
-              <div className="text-gray-900">
-                {div2.text}
+              <Link href={div2.href || "#"} className="text-gray-900">
+                <span>{div2.text}</span>
                 <span className="absolute inset-0" />
-              </div>
+              </Link>
             </div>
           )}
         </div>
@@ -146,13 +165,13 @@ const Navigation: React.FC<NavigationProps> = ({ label, active, href }) => {
           <div className="h-[200px]">
             <p className="mb-4">Recent Blogs</p>
             <div className="flex space-x-4">
-              <div className="flex flex-col h-[150px]">
+              <div className="flex flex-col h-[100px]">
                 <div className="border border-neutral-900 rounded-lg px-8 py-2 flex-1">
                   <p className="mb-4">Blog post 1</p>
                   {/* <Image /> */}
                 </div>
               </div>
-              <div className="flex flex-col h-[150px]">
+              <div className="flex flex-col h-[100px]">
                 <div className="border border-neutral-900 rounded-lg px-8 py-2 flex-1">
                   <p className="mb-4">Blog post 2</p>
                   {/* <Image /> */}

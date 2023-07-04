@@ -6,15 +6,6 @@ import SwiperCore, { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-//Icons
-import { BiStore } from "react-icons/bi";
-import { GiAutoRepair } from "react-icons/gi";
-import {
-  MdOutlineInventory2,
-  MdOutlineSell,
-  MdOutlineSwapHoriz,
-} from "react-icons/md";
-import { RiServiceLine } from "react-icons/ri";
 import { DealersData } from "@/utils/types/types";
 
 type Props = {
