@@ -219,7 +219,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 absolute bottom-0 pb-10 w-full max-w-7xl mx-auto">
+      <div className="mt-16 border-t px-8 border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 absolute bottom-0 pb-10 w-full max-w-7xl mx-auto">
         <p className="text-xs leading-5 text-gray-500">
           &copy; Chrome Lot 2023, All rights reserved.
         </p>
