@@ -10,7 +10,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const q = `filters[slug][$eq]=${params.slug}&populate=deep`;
   const content = await fetchBlogFromApi("/blog-posts?", q);
   const post = content.data[0].attributes;
-  console.log(post);
   return (
     <div className="bg-white px-6 py-12 lg:px-8">
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
