@@ -12,7 +12,6 @@ const page = (props: Props) => {
       <HeroAbout />
       <SinceThen />
       <TheTeam />
-      <Footer />
     </div>
   );
 };
