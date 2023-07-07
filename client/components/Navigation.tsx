@@ -50,21 +50,21 @@ interface PopoverContent {
   [key: string]: React.ReactNode;
 }
 
-const Navigation = async ({ label, active, href }: Props) => {
+const Navigation = ({ label, active, href }: Props) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const timeoutDuration = 200;
   let timeout: any;
 
-  const _state: any = {
-    sort: "publishedAt:desc",
-  };
+  // const _state: any = {
+  //   sort: "publishedAt:desc",
+  // };
 
-  const latestBlogs = await fetch(
-    process.env.NEXT_PUBLIC_API_URL +
-      "/blogs?populate=deep&sort=publishedAt%3desc"
-  );
+  // const latestBlogs = await fetch(
+  //   process.env.NEXT_PUBLIC_API_URL +
+  //     "/blogs?populate=deep&sort=publishedAt%3desc"
+  // );
 
-  console.log(latestBlogs);
+  // console.log(latestBlogs);
 
   const Features: DivArray[] = [
     { icon: AiOutlinePaperClip, size: 24, text: "Repair Orders" },
@@ -99,7 +99,7 @@ const Navigation = async ({ label, active, href }: Props) => {
   ];
 
   const AboutUs: DivArray[] = [
-    { icon: GiGraduateCap, size: 24, text: "Careers" },
+    { icon: GiGraduateCap, size: 24, text: "Careers", href: "careers" },
     { icon: HiOutlineBuildingOffice2, size: 24, text: "Agency Services" },
     { icon: TbHelp, size: 24, text: "Help Center" },
     { icon: MdOutlineReviews, size: 24, text: "Reviews" },
@@ -153,7 +153,7 @@ const Navigation = async ({ label, active, href }: Props) => {
     ),
     pricing: (
       <Link href="/pricing">
-        {/* <a className="flex">Content for Pricing</a> */}
+        <a className="flex">Content for Pricing</a>
       </Link>
     ),
     aboutus: (
