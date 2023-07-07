@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Container } from "@/components/Careers/Container";
 import { GridPattern } from "@/components/Careers/GridPattern";
 import { StarRating } from "@/components/Careers/StarRating";
 
@@ -23,7 +22,7 @@ export function Testimonial({ id, author }: Props) {
       <div className="text-slate-900/10">
         <GridPattern x="50%" patternTransform="translate(0 80)" />
       </div>
-      <Container size="xs" className="relative">
+      <div className="relative">
         <figure>
           <div className="flex text-slate-900 sm:justify-center">
             <StarRating />
@@ -49,7 +48,7 @@ export function Testimonial({ id, author }: Props) {
             </div>
           </figcaption>
         </figure>
-      </Container>
+      </div>
     </aside>
   );
 }
