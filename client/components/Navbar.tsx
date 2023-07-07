@@ -164,7 +164,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           icon: GiGraduateCap,
           size: 18,
           label: "Careers",
-          href: "#",
+          href: "/careers",
         },
         {
           icon: HiOutlineBuildingOffice2,
@@ -252,7 +252,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         </button>
       </div>
       <div className="hidden lg:flex lg:gap-x-12">
-        {/* {routes.map((item) => {
+        {routes.map((item) => {
           if (item.href === "/pricing")
             return (
               <Link
@@ -271,7 +271,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               key={item.label}
             />
           );
-        })} */}
+        })}
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
         <Link
