@@ -5,47 +5,38 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { HiMagnifyingGlass, HiMinusSmall, HiPlusSmall } from "react-icons/hi2";
 import { fetchBlogFromApi } from "@/utils/fetch/fetchBlog";
 import qs from "qs";
+import { FAQsAttributes, ResponseFAQs } from "@/utils/types/types";
+import { fetchFAQfromApi } from "@/utils/fetch/fetchFAQs";
 
-type Props = {};
+type Props = {
+  data: ResponseFAQs;
+};
 
-const FAQs = (props: Props) => {
+const FAQs = ({ data }: Props) => {
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [faqsData, setFaqsData] = useState<ResponseFAQs>(data);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<{ search: string }>();
-  const faqs = [
-    {
-      title: "Pricing",
-      faq: [
-        {
-          question: "What's the best thing about Switzerland?",
-          answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-        },
-      ],
-    },
-    {
-      title: "Pricing",
-      faq: [
-        {
-          question: "What's the best thing about Switzerland?",
-          answer:
-            "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-        },
-      ],
-    },
-    // More questions...
-  ];
+
+  if (!data?.data[0]) return <></>;
+  const faqs = faqsData.data[0].attributes.faqList;
 
   const onSubmit: SubmitHandler<{ search: string }> = async ({ search }) => {
     setLoading(true);
     const query = qs.stringify(
       {
+        // populate: ["faqList.faq"],
         filters: {
-          title: {
-            $contains: search,
+          faqs: {
+            question: {
+              $contains: "pictures",
+            },
+            answer: {
+              $contains: "per car",
+            },
           },
         },
       },
@@ -53,15 +44,13 @@ const FAQs = (props: Props) => {
         encodeValuesOnly: true, // prettify URL
       }
     );
-    const onFetch = await fetchBlogFromApi(
-      "/blog-posts?",
-      query + "&populate=deep"
-    );
+    const onFetch = await fetchFAQfromApi("/faq-pages?", query);
     if (onFetch.data) {
+      setFaqsData(onFetch);
       setLoading(false);
     }
   };
-
+  console.log(faqsData);
   return (
     <div>
       <div className="flex justify-between">
@@ -101,7 +90,7 @@ const FAQs = (props: Props) => {
             <h2 className="text-2xl mt-8 font-bold leading-10 tracking-tight text-gray-900">
               {item.title}
             </h2>
-            {item.faq.map((next) => (
+            {item.faqs.map((next) => (
               <Disclosure as="div" key={next.question} className="pt-6">
                 {({ open }) => (
                   <>
