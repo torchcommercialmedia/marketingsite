@@ -38,6 +38,13 @@ export type ResponseData = {
   };
 };
 
+export type ResponseFAQs = {
+  data: FAQsAttributes[];
+  meta: {
+    pagination?: Pagination;
+  };
+};
+
 export type ResponseBlog = {
   data: BlogAttributes[];
   meta: {
@@ -47,6 +54,11 @@ export type ResponseBlog = {
 
 export type BlogAttributes = {
   attributes: Blog;
+  id: number;
+};
+
+export type FAQsAttributes = {
+  attributes: FAQs;
   id: number;
 };
 
@@ -265,4 +277,15 @@ export type Blog = {
   blog_author: Author;
   blog_categories: Categories;
   content: string;
+};
+
+export type FAQs = {
+  title: string;
+  faqList: {
+    title: string;
+    faqs: {
+      question: string;
+      answer: string;
+    }[];
+  }[];
 };
