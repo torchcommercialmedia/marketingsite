@@ -132,7 +132,7 @@ export type TypedColumn =
   | "nativeIntegration"
   | "testimonials";
 
-type ImageData = {
+export type ImageData = {
   data: {
     id: number;
     attributes: StrapiImage;
@@ -175,7 +175,7 @@ export type IntegrationData = {
     title: string;
     icon: string;
   }[];
-  img?: StrapiImage;
+  img?: ImageData;
   integrationLinks: {
     title: string;
     link?: string;
@@ -188,7 +188,7 @@ export type DealersData = {
   dealersTool: {
     id: number;
     title: string;
-    icon: IconType;
+    icon: string;
     content?: string;
   }[];
 };

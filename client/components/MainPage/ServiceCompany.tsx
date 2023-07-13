@@ -11,6 +11,9 @@ import { TfiAlarmClock, TfiDashboard } from "react-icons/tfi";
 import { FcInspection } from "react-icons/fc";
 import { VscChecklist } from "react-icons/vsc";
 import { FaWpforms } from "react-icons/fa";
+import { EffectCoverflow, Navigation, Pagination } from "swiper";
+import Image from "next/image";
+import { ImageData } from "@/utils/types/types";
 
 type Props = {};
 
@@ -18,6 +21,7 @@ interface ToolsForProfessional {
   icon: IconType;
   size: number;
   text: string;
+  img?: any;
 }
 
 const ServiceCompany = (props: Props) => {
@@ -26,20 +30,61 @@ const ServiceCompany = (props: Props) => {
 
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => [
-      { icon: RiToolsFill, size: 24, text: "Repair Orders" },
-      { icon: TfiAlarmClock, size: 24, text: "Products" },
-      { icon: BsGear, size: 24, text: "Dispatching" },
-      { icon: HiOutlineBuildingOffice2, size: 24, text: "Merchandising Tools" },
-      { icon: FcInspection, size: 24, text: "Dealer Integration" },
-      { icon: VscChecklist, size: 24, text: "2-Way SMS" },
-      { icon: TfiDashboard, size: 24, text: "Invoice & Payments" },
-      { icon: FaWpforms, size: 24, text: "Lead Forms" },
+      {
+        icon: RiToolsFill,
+        size: 24,
+        text: "Repair Orders",
+        img: "/images/landing-page/Repair-Orders.jpg",
+      },
+      {
+        icon: TfiAlarmClock,
+        size: 24,
+        text: "Products",
+        img: "/images/landing-page/Products.jpg",
+      },
+      {
+        icon: BsGear,
+        size: 24,
+        text: "Dispatching",
+        img: "/images/landing-page/Dispatching.jpg",
+      },
+      {
+        icon: HiOutlineBuildingOffice2,
+        size: 24,
+        text: "Merchandising Tools",
+        img: "/images/landing-page/Merchandising-Tools.jpg",
+      },
+      {
+        icon: FcInspection,
+        size: 24,
+        text: "Dealer Integration",
+        img: "/images/landing-page/Dealer-Integration.jpg",
+      },
+      {
+        icon: VscChecklist,
+        size: 24,
+        text: "2-Way SMS",
+        img: "/images/landing-page/2-Way-SMS.jpg",
+      },
+      {
+        icon: TfiDashboard,
+        size: 24,
+        text: "Invoice & Payments",
+        img: "/images/landing-page/Invoice-Payments.jpg",
+      },
+      {
+        icon: FaWpforms,
+        size: 24,
+        text: "Lead Forms",
+        img: "/images/landing-page/Lead-Form.jpg",
+      },
     ],
     []
   );
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
+    if (array.length < 1) return;
     for (let i = 0; i < array.length; i++) {
       const div = array[i];
       rows.push(
@@ -52,7 +97,9 @@ const ServiceCompany = (props: Props) => {
             <div className="flex">
               <div.icon
                 size={div.size}
-                className={selectedTool === div.text ? "text-red-500" : ""}
+                className={
+                  selectedTool === div.text ? "text-red-500" : "text-gray-600"
+                }
               />
             </div>
             <div className="p-2"></div>
@@ -110,8 +157,28 @@ const ServiceCompany = (props: Props) => {
       <div className="lg:p-4"></div>
       <div className="h-auto">
         <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          // loop={true}
+          // slidesPerView={"auto"}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+          }}
+          // pagination={{ el: ".swiper-pagination", clickable: true }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          // spaceBetween={50}
+          // slidesOffsetAfter={100}
+          // slidesOffsetBefore={100}
+          // width={1080}
+          slidesPerView={2}
           onSlideChange={(swiper) => {
             const toolText = ProductArray[swiper.activeIndex].text;
             setSelectedTool(toolText);
@@ -122,9 +189,16 @@ const ServiceCompany = (props: Props) => {
         >
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
-              <div className="flex border justify-center w-full rounded-2xl h-[400px]">
-                <p className="mt-40 w-24">Image here</p>
-                <p className="mt-40 w-24">Slide {index + 1}</p>
+              <div className="flex border-white border-8 justify-center w-full rounded-2xl h-[400px]">
+                {tool.img && (
+                  <Image
+                    src={tool.img}
+                    width={400}
+                    height={400}
+                    alt={tool.img}
+                    className="w-full inset-0 h-full rounded-2xl bg-gray-50 object-cover"
+                  />
+                )}
               </div>
             </SwiperSlide>
           ))}

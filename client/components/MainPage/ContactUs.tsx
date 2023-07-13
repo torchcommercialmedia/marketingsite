@@ -38,10 +38,7 @@ const ContactUs = (props: Props) => {
     // window.location.href = `mailto:devjrl.programmer@gmail?subject=${formData.companyName}&body=Hi, my name is ${formData.firstName} ${formData.lastName}, ${formData.message} (${formData.email})`;
   };
   return (
-    <section
-      className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8"
-      id="contact-us"
-    >
+    <section className="isolate bg-white px-6 lg:px-8" id="contact-us">
       <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 relative">
         <div className="mx-auto max-w-2xl text-left">
           <h2 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">

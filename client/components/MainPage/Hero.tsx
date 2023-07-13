@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useId } from "react";
 import { BsCameraFill } from "react-icons/bs";
 import { IoCarSportSharp } from "react-icons/io5";
 import { MdMiscellaneousServices } from "react-icons/md";
@@ -10,6 +10,14 @@ import { motion } from "framer-motion";
 import { HeroData, HeroList } from "@/utils/types/types";
 import { IconType } from "react-icons";
 import { env } from "process";
+import { textVariant } from "@/utils/motion/motion";
+import { GiF1Car } from "react-icons/gi";
+import {
+  CarDealerIcon,
+  MerchandiserAutomotive,
+  Service,
+  Shop,
+} from "@/utils/svg/SVG";
 
 interface Props {
   hero: HeroData;
@@ -19,19 +27,17 @@ const Hero = ({ hero }: Props) => {
   const getIconComponent = (iconName: string): IconType | null => {
     switch (iconName) {
       case "IoCarSportSharp":
-        return IoCarSportSharp;
+        return CarDealerIcon;
       case "BsCameraFill":
-        return BsCameraFill;
+        return MerchandiserAutomotive;
       case "VscTools":
-        return VscTools;
+        return Shop;
       case "MdMiscellaneousServices":
-        return MdMiscellaneousServices;
+        return Service;
       default:
         return null;
     }
   };
-
-  console.log(hero);
 
   return (
     <div className="relative isolate w-full h-[calc(100vh-100px)]">
@@ -80,21 +86,24 @@ const Hero = ({ hero }: Props) => {
         <div className="mx-auto max-w-7xl px-6 pb-32 pt-10 sm:pt-10 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mx-auto">
-              <motion.h1
+              <motion.div
+                variants={textVariant(1)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-2xl font-bold tracking-tight flex text-gray-900 sm:text-4xl md:text-left text-center"
               >
-                <span className=" mr-2">{hero.title}</span>
-              </motion.h1>
+                <h1 className="text-4xl tracking-tight flex text-gray-900 sm:text-4xl md:text-left text-center">
+                  {hero.title}
+                </h1>
+              </motion.div>
+
               <div className="p-4"></div>
-              <div className="sm:flex">
+              <div className="sm:flex py-8">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
-                  className="gap-2 grid grid-cols-2 sm:grid-cols-4 items-center"
+                  className="gap-2 grid grid-cols-2 sm:grid-cols-4 w-3/4 sm:w-full mx-auto items-center"
                 >
                   {hero.listHeroIcon.map((item: HeroList) => {
                     const IconComponent = getIconComponent(item.icon);
@@ -104,13 +113,13 @@ const Hero = ({ hero }: Props) => {
                           className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl"
                           key={item.title}
                         >
-                          <div className="flex col-span-1">
+                          <div className="flex col-span-1 text-gray-500">
                             {React.createElement(IconComponent, {
-                              size: 42,
+                              size: 24,
                               className: "flex sm:hidden",
                             })}
                             {React.createElement(IconComponent, {
-                              size: 52,
+                              size: 32,
                               className: "hidden sm:block",
                             })}
                           </div>
@@ -125,7 +134,14 @@ const Hero = ({ hero }: Props) => {
                 </motion.div>
               </div>
               <div className="p-2"></div>
-              <div className="flex text-xl">{hero?.desc}</div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="flex text-lg"
+              >
+                {hero?.desc}
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -148,7 +164,7 @@ const Hero = ({ hero }: Props) => {
               className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
             >
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, x: -20, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 className=""
@@ -162,7 +178,7 @@ const Hero = ({ hero }: Props) => {
                     alt={""}
                     width={1920}
                     height={1080}
-                    className="object-contain"
+                    className="object-contain lg:block hidden"
                   />
                 )}
 

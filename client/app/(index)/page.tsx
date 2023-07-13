@@ -39,7 +39,9 @@ export default async function Home() {
       <Suspense fallback={<p>Loading dealers...</p>}>
         {dealers && <ToolsForDealers dealers={dealers} />}
       </Suspense>
-      <ServiceCompany />
+      <Suspense fallback={<p>Loading...</p>}>
+        <ServiceCompany />
+      </Suspense>
       <Suspense fallback={<p>Loading uses...</p>}>
         {uses && <Uses uses={uses} />}
       </Suspense>
@@ -54,7 +56,6 @@ export default async function Home() {
       <Suspense fallback={<p>Loading testimonial...</p>}>
         {testimonial && <Testimonials testimonial={testimonial} />}
       </Suspense>
-      <ContactUs />
     </main>
   );
 }

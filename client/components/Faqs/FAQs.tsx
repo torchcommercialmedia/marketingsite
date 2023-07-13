@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { HiMagnifyingGlass, HiMinusSmall, HiPlusSmall } from "react-icons/hi2";
-import { fetchBlogFromApi } from "@/utils/fetch/fetchBlog";
 import qs from "qs";
-import { FAQsAttributes, ResponseFAQs } from "@/utils/types/types";
+import { ResponseFAQs } from "@/utils/types/types";
 import { fetchFAQfromApi } from "@/utils/fetch/fetchFAQs";
 
 type Props = {

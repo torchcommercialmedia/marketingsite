@@ -67,7 +67,9 @@ const Tools = ({ tools }: Props) => {
                 {React.createElement(IconComponent, {
                   size: 42,
                   className: `${
-                    selectedTool === div.title ? "text-red-500" : ""
+                    selectedTool === div.title
+                      ? "text-red-500"
+                      : "text-gray-600"
                   }`,
                 })}
               </div>
@@ -119,8 +121,8 @@ const Tools = ({ tools }: Props) => {
     >
       <div className="flex justify-center w-full flex-col">
         <div className="p-10"></div>
-        <h2 className="font-semibold mx-auto text-2xl text-center">
-          Tools for All Auto Professionals
+        <h2 className="text-3xl font-bold tracking-tight text-neutral-700 sm:text-4xl mx-auto">
+          {tools?.title || ""}
         </h2>
         <div className="p-2"></div>
         <div className="flex justify-center space-x-4">
@@ -142,7 +144,7 @@ const Tools = ({ tools }: Props) => {
         >
           {ProductArray.map((tool, index) => (
             <SwiperSlide key={index}>
-              <div className="flex border justify-center w-full rounded-2xl h-[400px]">
+              <div className="flex border justify-center w-full sm:w-8/12 lg:w-3/4 mx-auto rounded-2xl h-[400px]">
                 {tool?.img?.data && (
                   <Image
                     src={
@@ -152,9 +154,9 @@ const Tools = ({ tools }: Props) => {
                     width={500}
                     height={500}
                     alt=""
+                    className="w-full inset-0 h-full rounded-2xl bg-gray-50 object-cover"
                   />
                 )}
-                <p className="mt-40 w-24">Slide {index + 1}</p>
               </div>
             </SwiperSlide>
           ))}
