@@ -8,7 +8,12 @@ import "swiper/css/pagination";
 
 import { DealersData, ImageData } from "@/utils/types/types";
 import Image from "next/image";
-import { BiArrowFromLeft, BiArrowFromRight, BiStore } from "react-icons/bi";
+import {
+  BiArrowFromLeft,
+  BiArrowFromRight,
+  BiArrowToRight,
+  BiStore,
+} from "react-icons/bi";
 import { GiAutoRepair } from "react-icons/gi";
 import {
   MdOutlineInventory2,
@@ -16,6 +21,8 @@ import {
   MdOutlineSwapHorizontalCircle,
 } from "react-icons/md";
 import { RiServiceLine } from "react-icons/ri";
+import Link from "next/link";
+import { HiEllipsisHorizontal } from "react-icons/hi2";
 
 type Props = {
   dealers: DealersData;
@@ -31,6 +38,33 @@ interface ToolsForProfessional {
 }
 
 const ToolsForDealers = ({ dealers }: Props) => {
+  const repairOrders = [
+    {
+      icon: HiEllipsisHorizontal,
+      content:
+        "Write repaird orders, look up parts and labor, and calculate profitability before you send an estimate.",
+    },
+    {
+      icon: HiEllipsisHorizontal,
+      content:
+        "Use custom parts and labor matrixes to manage pricing for bulk customers",
+    },
+    {
+      icon: HiEllipsisHorizontal,
+      content:
+        "Save canned services, to quickly add frequent services to repair orders",
+    },
+    {
+      icon: HiEllipsisHorizontal,
+      content: "Publish estimate links, and get approvals in-app or via SMS",
+    },
+    {
+      icon: HiEllipsisHorizontal,
+      content:
+        "Order parts for repair orders from providers like Nexpart and Worldpac",
+    },
+  ];
+
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => dealers.dealersTool,
     [dealers.dealersTool]
@@ -128,10 +162,10 @@ const ToolsForDealers = ({ dealers }: Props) => {
   return (
     <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen">
       <div
-        className="hidden sm:absolute sm:inset-y-0 sm:block sm:h-full sm:w-full -z-10"
+        className="hidden sm:absolute sm:inset-y-0 sm:block sm:h-full -z-10"
         aria-hidden="true"
       >
-        <div className="relative mx-auto h-full max-w-7xl">
+        <div className="relative mx-auto h-full w-full">
           <svg
             className="absolute right-full translate-x-1/4 translate-y-1/4 transform lg:translate-x-1/2"
             width={404}
@@ -209,30 +243,24 @@ const ToolsForDealers = ({ dealers }: Props) => {
         </div>
       </div>
       <div className="lg:p-4"></div>
-      <div className="h-auto w-full hidden lg:block">
+      <div className="h-auto w-full hidden lg:block border-2 border-neutral-400 py-8 rounded-2xl">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
-          // loop={true}
-          // slidesPerView={"auto"}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
             depth: 100,
             modifier: 2.5,
           }}
-          // pagination={{ el: ".swiper-pagination", clickable: true }}
+          pagination={{ el: ".swiper-pagination", clickable: true }}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
           modules={[EffectCoverflow, Pagination, Navigation]}
-          // spaceBetween={50}
-          // slidesOffsetAfter={100}
-          // slidesOffsetBefore={100}
-          // width={1080}
-          slidesPerView={2}
+          slidesPerView={1.1}
           onSlideChange={(swiper) => {
             const toolText = ProductArray[swiper.activeIndex].title;
             setSelectedTool(toolText);
@@ -242,8 +270,8 @@ const ToolsForDealers = ({ dealers }: Props) => {
           }}
         >
           {ProductArray.map((tool, index) => (
-            <SwiperSlide key={index}>
-              <div className="flex shadow-md border-white border-8 justify-center w-full rounded-2xl h-[400px]">
+            <SwiperSlide key={index} className="border-2 rounded-2xl">
+              <div className="flex w-full h-[400px] rounded-2xl">
                 {tool.img?.data && (
                   <Image
                     src={
@@ -253,9 +281,28 @@ const ToolsForDealers = ({ dealers }: Props) => {
                     width={tool.img?.data.attributes.width}
                     height={400}
                     alt={tool.img?.data.attributes.url!}
-                    className="w-full inset-0 h-full rounded-2xl bg-gray-50 object-cover"
+                    className="w-1/2 inset-0 h-full rounded-2xl object-cover bg-clip-custom clip-custom"
                   />
                 )}
+                <div className="p-8 bg-white rounded-2xl flex justify-between flex-col">
+                  <h3 className="text-2xl font-bold">REPAIR ORDERS</h3>
+                  <div className="space-y-2 mt-2 flex-1">
+                    {repairOrders?.map((item) => (
+                      <div className="flex" key={item.content}>
+                        <item.icon width={12} className="flex" />
+                        <p>{item.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <Link href="#" className="flex justify-end text-red-500">
+                    <p className="flex justify-center items-center">
+                      Learn More{" "}
+                      <span>
+                        <BiArrowToRight height={12} width={12} />
+                      </span>
+                    </p>
+                  </Link>
+                </div>
               </div>
             </SwiperSlide>
           ))}
@@ -279,10 +326,10 @@ const ToolsForDealers = ({ dealers }: Props) => {
             prevEl: ".swiper-button-prev",
           }}
           modules={[EffectCoverflow, Pagination, Navigation]}
+          spaceBetween={50}
+          slidesOffsetAfter={20}
+          slidesOffsetBefore={20}
           slidesPerView={1}
-          spaceBetween={20}
-          centeredSlides={true}
-          watchOverflow
           onSlideChange={(swiper) => {
             const toolText = ProductArray[swiper.activeIndex].title;
             setSelectedTool(toolText);
