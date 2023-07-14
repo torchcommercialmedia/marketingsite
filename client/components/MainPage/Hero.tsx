@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useId } from "react";
+import React, { useId, useRef } from "react";
 import { BsCameraFill } from "react-icons/bs";
 import { IoCarSportSharp } from "react-icons/io5";
 import { MdMiscellaneousServices } from "react-icons/md";
@@ -11,36 +11,47 @@ import { HeroData, HeroList } from "@/utils/types/types";
 import { IconType } from "react-icons";
 import { env } from "process";
 import { textVariant } from "@/utils/motion/motion";
-import { GiF1Car } from "react-icons/gi";
-import {
-  CarDealerIcon,
-  MerchandiserAutomotive,
-  Service,
-  Shop,
-} from "@/utils/svg/SVG";
+import { hover3d } from "@/utils/motion/hover";
 
 interface Props {
   hero: HeroData;
 }
 
 const Hero = ({ hero }: Props) => {
+  const heroImage = useRef<HTMLDivElement>(null);
+
+  const hoverHero = hover3d(heroImage, {
+    x: 30,
+    y: -40,
+    z: 30,
+  });
+
+  const imageHover = hover3d(heroImage, {
+    x: 20,
+    y: -5,
+    z: 11,
+  });
+
   const getIconComponent = (iconName: string): IconType | null => {
     switch (iconName) {
       case "IoCarSportSharp":
-        return CarDealerIcon;
+        return IoCarSportSharp;
       case "BsCameraFill":
-        return MerchandiserAutomotive;
+        return BsCameraFill;
       case "VscTools":
-        return Shop;
+        return VscTools;
       case "MdMiscellaneousServices":
-        return Service;
+        return MdMiscellaneousServices;
       default:
         return null;
     }
   };
 
   return (
-    <div className="relative isolate w-full h-[calc(100vh-100px)]">
+    <div
+      className="relative isolate w-full h-[calc(100vh-100px)]"
+      ref={heroImage}
+    >
       <svg
         className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
         aria-hidden="true"
@@ -103,7 +114,7 @@ const Hero = ({ hero }: Props) => {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
-                  className="gap-2 grid grid-cols-2 sm:grid-cols-4 w-3/4 sm:w-full mx-auto items-center"
+                  className="gap-2 grid grid-cols-2 sm:grid-cols-4 w-3/4 sm:w-3/4 mx-auto sm:mx-0 items-center"
                 >
                   {hero.listHeroIcon.map((item: HeroList) => {
                     const IconComponent = getIconComponent(item.icon);
@@ -113,7 +124,7 @@ const Hero = ({ hero }: Props) => {
                           className="flex text-center hover:scale-105 mx-auto w-32 sm:w-[120px] items-center justify-center flex-col hover:cursor-pointer rounded-2xl"
                           key={item.title}
                         >
-                          <div className="flex col-span-1 text-gray-500">
+                          <div className="flex col-span-1 text-gray-700">
                             {React.createElement(IconComponent, {
                               size: 24,
                               className: "flex sm:hidden",
@@ -149,25 +160,24 @@ const Hero = ({ hero }: Props) => {
                 className="mt-10 flex items-center gap-x-6"
               >
                 <Link
-                  href="/"
+                  href="/contact-us"
                   className="rounded-md bg-red-500 px-3.5 py-2.5 mx-auto sm:mx-0 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   {hero?.btn}
                 </Link>
               </motion.div>
             </div>
-            {/* To Change */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
             >
-              <motion.div
-                initial={{ opacity: 0, x: -20, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
+              <div
                 className=""
+                style={{
+                  transform: hoverHero.transform,
+                }}
               >
                 {hero?.img?.data && (
                   <Image
@@ -178,12 +188,15 @@ const Hero = ({ hero }: Props) => {
                     alt={""}
                     width={1920}
                     height={1080}
+                    style={{
+                      transform: imageHover.transform,
+                    }}
                     className="object-contain lg:block hidden"
                   />
                 )}
 
                 <div className="" />
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
