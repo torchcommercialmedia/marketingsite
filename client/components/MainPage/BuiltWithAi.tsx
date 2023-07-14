@@ -7,7 +7,7 @@ type Props = {
 
 const BuiltWithAi = ({ ai }: Props) => {
   return (
-    <section className="mx-auto max-w-7xl min-h-screen flex h-auto items-center flex-col pt-24 pb-24 sm:mt-0">
+    <section className="mx-auto max-w-7xl min-h-auto flex h-auto items-center flex-col pt-24 pb-24 sm:mt-0">
       <h2 className="font-bold text-3xl">{ai.title}</h2>
       <h3>{ai.desc}</h3>
       <div className="sm:p-8"></div>
