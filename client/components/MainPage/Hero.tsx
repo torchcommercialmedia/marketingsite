@@ -175,9 +175,9 @@ const Hero = ({ hero }: Props) => {
             >
               <div
                 className=""
-                style={{
-                  transform: hoverHero.transform,
-                }}
+                // style={{
+                //   transform: hoverHero.transform,
+                // }}
               >
                 {hero?.img?.data && (
                   <Image
@@ -188,9 +188,9 @@ const Hero = ({ hero }: Props) => {
                     alt={""}
                     width={1920}
                     height={1080}
-                    style={{
-                      transform: imageHover.transform,
-                    }}
+                    // style={{
+                    //   transform: imageHover.transform,
+                    // }}
                     className="object-contain lg:block hidden"
                   />
                 )}
