@@ -1,6 +1,7 @@
 "use client";
 
 import { UsesData } from "@/utils/types/types";
+import Image from "next/image";
 import React from "react";
 
 type Props = {
@@ -17,10 +18,19 @@ const Uses = ({ uses }: Props) => {
           {uses.usesList.map((item) => (
             <div
               key={item.id}
-              className="rounded-xl border h-52 w-52 flex flex-col"
+              className="rounded-xl border h-52 w-52 flex flex-col p-2 justify-between"
             >
-              <p className="flex-1 mx-auto mt-14">Image Here</p>
-              <p className="h-12 border-t-2 text-center font-semibold">
+              <Image
+                src={
+                  process.env.NEXT_PUBLIC_WEBSITE_URL +
+                  item.img.data[0].attributes.url
+                }
+                width={item.img.data[0].attributes.width}
+                height={item.img.data[0].attributes.height}
+                alt={item.img.data[0].attributes.url}
+                className="flex-1 object-cover"
+              />
+              <p className="border-t-2 text-center font-semibold">
                 {item.title}
               </p>
             </div>
