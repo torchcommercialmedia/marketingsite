@@ -1,4 +1,6 @@
+"use client";
 import { AIData } from "@/utils/types/types";
+import Image from "next/image";
 import React from "react";
 
 type Props = {
@@ -17,7 +19,22 @@ const BuiltWithAi = ({ ai }: Props) => {
             <h3 className="font-block h-16 font-semibold text-center text-lg mt-4">
               {list.title}
             </h3>
-            <div className="h-full w-full border pt-24 pb-24 mx-auto">
+            <div className="h-[200px] w-full border mx-auto overflow-hidden">
+              {process.env.NEXT_PUBLIC_WEBSITE_URL &&
+                list.img?.data &&
+                list.img?.data.attributes.width && (
+                  <Image
+                    width={list.img?.data.attributes.width}
+                    height={300}
+                    alt={list.img?.data.attributes.url}
+                    src={
+                      process.env.NEXT_PUBLIC_WEBSITE_URL +
+                      list.img?.data.attributes.url
+                    }
+                    className="object-cover flex-1"
+                  />
+                )}
+
               <p className="text-center">{list.content}</p>
             </div>
           </div>
