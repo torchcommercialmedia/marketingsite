@@ -48,7 +48,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </figcaption>
         </figure>
         <p className="text-2xl font-bold tracking-tight text-gray-900 mt-6">
-          {post.desc.charAt(0).toUpperCase() + post.desc.toLowerCase().slice(1)}
+          {post?.desc &&
+            post.desc.charAt(0).toUpperCase() +
+              post?.desc?.toLowerCase().slice(1)}
         </p>
         <div className="mt-10 max-w-2xl">{post.content}</div>
 
