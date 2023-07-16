@@ -199,6 +199,11 @@ export type UsesData = {
   usesList: {
     id: number;
     title: string;
+    img: {
+      data: {
+        attributes: StrapiImage;
+      }[];
+    };
   }[];
 };
 
