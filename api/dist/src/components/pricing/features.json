@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_pricing_features",
+    "info": {
+        "displayName": "features"
+    },
+    "options": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "serviceToolkit": {
+            "type": "boolean"
+        },
+        "dealerToolkit": {
+            "type": "boolean"
+        },
+        "completToolkit": {
+            "type": "boolean"
+        }
+    }
+}

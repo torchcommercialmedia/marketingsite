@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_pricing_feature_comparisons",
+    "info": {
+        "displayName": "featureComparison"
+    },
+    "options": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "features": {
+            "displayName": "features",
+            "type": "component",
+            "repeatable": true,
+            "component": "pricing.features"
+        }
+    }
+}

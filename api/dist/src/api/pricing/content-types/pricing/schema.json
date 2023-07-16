@@ -1,0 +1,30 @@
+{
+    "kind": "collectionType",
+    "collectionName": "pricings",
+    "info": {
+        "singularName": "pricing",
+        "pluralName": "pricings",
+        "displayName": "Pricing",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "priceCard": {
+            "displayName": "priceCard",
+            "type": "component",
+            "repeatable": true,
+            "component": "pricing.price-card"
+        },
+        "featureComparison": {
+            "type": "component",
+            "repeatable": true,
+            "component": "pricing.feature-comparison"
+        }
+    }
+}

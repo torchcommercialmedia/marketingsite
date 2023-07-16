@@ -1,0 +1,43 @@
+{
+    "collectionName": "components_pricing_price_cards",
+    "info": {
+        "displayName": "priceCard",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "desc": {
+            "type": "text"
+        },
+        "priceMonthly": {
+            "type": "integer"
+        },
+        "refId": {
+            "type": "string"
+        },
+        "initialFeatures": {
+            "displayName": "initialFeatures",
+            "type": "component",
+            "repeatable": true,
+            "component": "pricing.initial-features"
+        },
+        "additionalFeatures": {
+            "displayName": "additionalFeatures",
+            "type": "component",
+            "repeatable": true,
+            "component": "pricing.additional-features"
+        },
+        "mostPopular": {
+            "type": "boolean"
+        },
+        "addOnFeature": {
+            "displayName": "addOnFeature",
+            "type": "component",
+            "repeatable": true,
+            "component": "pricing.add-on-feature"
+        }
+    }
+}
