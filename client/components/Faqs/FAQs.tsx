@@ -49,7 +49,6 @@ const FAQs = ({ data }: Props) => {
       setLoading(false);
     }
   };
-  console.log(faqsData);
   return (
     <div>
       <div className="flex justify-between">

@@ -11,13 +11,13 @@ type Props = {
 const AllBlogPost = ({ blogPost }: Props) => {
   return (
     <div className="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2">
-      {blogPost.length < 1 && (
+      {blogPost?.length < 1 && (
         <div>
           <p>No blog...</p>
         </div>
       )}
-      {blogPost.length > 0 &&
-        blogPost.map((post) => (
+      {blogPost?.length > 0 &&
+        blogPost?.map((post) => (
           <article
             key={post.id}
             className="relative isolate flex flex-col gap-8 lg:flex-row"
