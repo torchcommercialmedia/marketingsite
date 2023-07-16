@@ -64,7 +64,6 @@ const Navigation = ({ label, active, href }: Props) => {
   //     "/blogs?populate=deep&sort=publishedAt%3desc"
   // );
 
-  // console.log(latestBlogs);
 
   const Features: DivArray[] = [
     { icon: AiOutlinePaperClip, size: 24, text: "Repair Orders" },
@@ -114,7 +113,7 @@ const Navigation = ({ label, active, href }: Props) => {
 
   const addedDivArray = (array: DivArray[]) => {
     const rows = [];
-    for (let i = 0; i < array.length; i += 2) {
+    for (let i = 0; i < array?.length; i += 2) {
       const div1 = array[i];
       const div2 = array[i + 1];
       rows.push(
