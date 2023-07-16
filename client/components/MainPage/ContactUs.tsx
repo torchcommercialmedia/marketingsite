@@ -34,8 +34,6 @@ const ContactUs = (props: Props) => {
     } catch {
       throw new Error("Error");
     }
-    // console.log('res', response);
-    // window.location.href = `mailto:devjrl.programmer@gmail?subject=${formData.companyName}&body=Hi, my name is ${formData.firstName} ${formData.lastName}, ${formData.message} (${formData.email})`;
   };
   return (
     <section className="isolate bg-white px-6 lg:px-8" id="contact-us">
