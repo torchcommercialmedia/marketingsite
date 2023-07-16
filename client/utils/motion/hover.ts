@@ -23,7 +23,6 @@ export const hover3d = (_ref: any, { x = 0, y = 0, z = 0 }: any) => {
 
   React.useEffect(() => {
     const { current } = _ref;
-    console.log(current);
     if (!current) return;
     current.addEventListener("mousemove", handleMouseMove);
     current.addEventListener("mouseenter", handleMouseEnter);

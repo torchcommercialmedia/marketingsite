@@ -42,7 +42,7 @@ const ServiceToolkit = (props: Props) => {
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array?.length; i++) {
       const div = array[i];
       rows.push(
         <div
