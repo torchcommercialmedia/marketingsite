@@ -230,7 +230,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
-        <Link href="#" className="-m-1.5 p-1.5">
+        <Link
+          href="#"
+          className="-m-1.5 p-1.5"
+          onClick={() => setMobileMenuOpen(false)}
+        >
           <span className="sr-only">Chromelot</span>
           <Image
             src={"/logo/turbogear.svg"}
@@ -259,6 +263,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                 href={item.href}
                 key={item.label}
                 className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 outline-none"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
               </Link>
@@ -335,13 +340,16 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                         }
                       >
                         {item.label === "Pricing" ? (
-                          <Link href="/pricing">
+                          <Link
+                            href="/pricing"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
                             <span>{item.label}</span>
                           </Link>
                         ) : (
                           item.label
                         )}
-                        {item.subMenuItems.length > 0 && (
+                        {item.subMenuItems?.length > 0 && (
                           <HiChevronDown
                             className={`h-6 w-6 transform ${
                               selectedMenu === item.label ? "rotate-180" : ""
@@ -360,6 +368,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                               <subItem.icon size={subItem.size} />
                               <Link
                                 href={subItem.href}
+                                onClick={() => setMobileMenuOpen(false)}
                                 className="-mx-3 block rounded-lg px-3 py-2.5 font-normal text-base leading-7 text-gray-900 hover:bg-gray-50"
                               >
                                 {subItem.label}
