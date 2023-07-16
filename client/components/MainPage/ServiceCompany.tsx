@@ -18,7 +18,7 @@ import { EffectCoverflow, Navigation, Pagination } from "swiper";
 import Image from "next/image";
 import { ImageData } from "@/utils/types/types";
 import Link from "next/link";
-import { BiArrowToRight } from "react-icons/bi";
+import { BiArrowToRight, BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 type Props = {};
 
@@ -32,6 +32,16 @@ interface ToolsForProfessional {
 const ServiceCompany = (props: Props) => {
   const [selectedTool, setSelectedTool] = useState<string>("");
   const swiperRef = useRef<SwiperClass | undefined>();
+
+  const handleMobileSlide = (direction: "prev" | "next") => {
+    if (swiperRef.current) {
+      if (direction === "prev") {
+        swiperRef.current.slidePrev();
+      } else {
+        swiperRef.current.slideNext();
+      }
+    }
+  };
 
   const ProductArray: ToolsForProfessional[] = useMemo(
     () => [
@@ -115,32 +125,72 @@ const ServiceCompany = (props: Props) => {
 
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
-    if (array.length < 1) return;
+    if (array?.length < 1) return;
     for (let i = 0; i < array.length; i++) {
       const div = array[i];
       rows.push(
-        <div
-          className="flex"
-          key={i}
-          onClick={() => handleToolSelect(div.text)}
-        >
-          <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
-            <div className="flex">
-              <div.icon
-                size={div.size}
-                className={
-                  selectedTool === div.text ? "text-red-500" : "text-gray-600"
-                }
-              />
+        <div>
+          <div
+            className="flex sm:hidden"
+            key={i}
+            onClick={() => handleToolSelect(div.text)}
+          >
+            {div.text === selectedTool && (
+              <div className="flex hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
+                <div className="hidden sm:flex mx-auto w-auto">
+                  <div.icon
+                    size={div.size}
+                    className={
+                      selectedTool === div.text
+                        ? "text-red-500"
+                        : "text-gray-600"
+                    }
+                  />
+                </div>
+                <div className="flex sm:hidden mx-auto w-auto">
+                  <div.icon
+                    size={div.size}
+                    className={
+                      selectedTool === div.text
+                        ? "text-red-500"
+                        : "text-gray-600"
+                    }
+                  />
+                </div>
+                <div className="p-2"></div>
+                <p
+                  className={`h-12 flex items-start text-center ${
+                    selectedTool === div.text ? "text-red-500" : ""
+                  }`}
+                >
+                  {div.text}
+                </p>
+              </div>
+            )}
+          </div>
+          <div
+            className="hidden sm:flex"
+            key={i + 3}
+            onClick={() => handleToolSelect(div.text)}
+          >
+            <div className="flex hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
+              <div className="flex">
+                <div.icon
+                  size={div.size}
+                  className={
+                    selectedTool === div.text ? "text-red-500" : "text-gray-600"
+                  }
+                />
+              </div>
+              <div className="p-2"></div>
+              <p
+                className={`h-12 flex items-start text-center ${
+                  selectedTool === div.text ? "text-red-500" : ""
+                }`}
+              >
+                {div.text}
+              </p>
             </div>
-            <div className="p-2"></div>
-            <p
-              className={`h-12 flex items-start text-center ${
-                selectedTool === div.text ? "text-red-500" : ""
-              }`}
-            >
-              {div.text}
-            </p>
           </div>
         </div>
       );
@@ -161,7 +211,7 @@ const ServiceCompany = (props: Props) => {
       if (swiperRef.current) {
         const swiper: SwiperClass = swiperRef.current;
         if (swiper) {
-          const nextIndex = (swiper.activeIndex + 1) % ProductArray.length;
+          const nextIndex = (swiper.activeIndex + 1) % ProductArray?.length;
           swiper.slideTo(nextIndex);
           setSelectedTool(ProductArray[nextIndex].text);
         }
@@ -181,8 +231,23 @@ const ServiceCompany = (props: Props) => {
           Tools for Service Companies & Dealer Service Departments
         </h2>
         <div className="p-2"></div>
-        <div className="flex justify-center space-x-2">
-          {AddedDivArray(ProductArray)}
+        <div className="flex space-x-4 overflow-hidden justify-between">
+          <div className="flex justify-between w-full items-center">
+            <BiChevronLeft
+              size={32}
+              className="text-gray-600 flex-1 cursor-pointer block sm:hidden"
+              onClick={() => handleMobileSlide("prev")}
+            />
+            <div className="sm:overflow-x-auto flex-1 flex justify-center">
+              {AddedDivArray(ProductArray)}
+            </div>
+
+            <BiChevronRight
+              size={32}
+              className="text-gray-600 cursor-pointer flex-1 block sm:hidden"
+              onClick={() => handleMobileSlide("next")}
+            />
+          </div>
         </div>
       </div>
       <div className="lg:p-4"></div>
@@ -221,20 +286,23 @@ const ServiceCompany = (props: Props) => {
                     width={400}
                     height={400}
                     alt={tool.img}
-                    className="w-1/2 inset-0 h-full rounded-2xl object-cover bg-clip-custom clip-custom"
+                    className="w-1/2 inset-0 h-full rounded-2xl object-cover bg-clip-custom clip-custom hidden sm:flex"
                   />
                 )}
-                <div className="p-8 bg-white rounded-2xl flex justify-between flex-col">
-                  <h3 className="text-2xl font-bold">REPAIR ORDERS</h3>
-                  <div className="space-y-2 mt-2 flex-1">
-                    {repairOrders?.map((item) => (
-                      <div className="flex" key={item.content}>
+                <div className="p-4 sm:p-8 bg-white rounded-2xl flex justify-between flex-col space-y-4">
+                  <h3 className="text-lg font-semibold">REPAIR ORDERS</h3>
+                  <div className="space-y-2 mt-2 flex-1 overflow-y-auto">
+                    {repairOrders?.map((item, index) => (
+                      <div className="flex" key={index}>
                         <item.icon width={12} className="flex" />
                         <p>{item.content}</p>
                       </div>
                     ))}
                   </div>
-                  <Link href="#" className="flex justify-end text-red-500">
+                  <Link
+                    href="#"
+                    className="flex justify-end text-red-500 hover:cursor-pointer"
+                  >
                     <p className="flex justify-center items-center">
                       Learn More{" "}
                       <span>
