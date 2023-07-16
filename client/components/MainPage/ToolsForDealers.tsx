@@ -12,6 +12,8 @@ import {
   BiArrowFromLeft,
   BiArrowFromRight,
   BiArrowToRight,
+  BiChevronLeft,
+  BiChevronRight,
   BiStore,
 } from "react-icons/bi";
 import { GiAutoRepair } from "react-icons/gi";
@@ -97,41 +99,91 @@ const ToolsForDealers = ({ dealers }: Props) => {
   const swiperRefToolGate = useRef<SwiperClass | undefined>();
   const AddedDivArray = (array: ToolsForProfessional[]) => {
     const rows = [];
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array?.length; i++) {
       const div = array[i];
       const IconComponent = getIconComponent(array[i].icon);
       if (IconComponent) {
         rows.push(
-          <div
-            className="flex"
-            key={i}
-            onClick={() => handleToolSelect(div.title)}
-          >
-            <div className="lg:flex hidden hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
-              <div className="flex">
-                {React.createElement(IconComponent, {
-                  size: 24,
-                  className: `${
-                    selectedTool === div.title
-                      ? "text-red-500"
-                      : "text-gray-600"
-                  }`,
-                })}
+          <div>
+            <div
+              className="flex sm:hidden"
+              key={i}
+              onClick={() => handleToolSelect(div.title)}
+            >
+              {div.title === selectedTool && (
+                <div className="flex hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
+                  <div className="hidden sm:flex mx-auto w-auto">
+                    {React.createElement(IconComponent, {
+                      size: 42,
+                      className: `${
+                        selectedTool === div.title
+                          ? "text-red-500"
+                          : "text-gray-600"
+                      }`,
+                    })}
+                  </div>
+
+                  <div className="flex sm:hidden">
+                    {React.createElement(IconComponent, {
+                      size: 24,
+                      className: `${
+                        selectedTool === div.title
+                          ? "text-red-500"
+                          : "text-gray-600 hidden"
+                      }`,
+                    })}
+                  </div>
+                  <div className="p-2"></div>
+                  <p
+                    className={`h-12 flex items-start text-center ${
+                      selectedTool === div.title ? "text-red-500" : "hidden"
+                    }`}
+                  >
+                    {div.title}
+                  </p>
+                </div>
+              )}
+            </div>
+            <div
+              className="hidden sm:flex"
+              key={i}
+              onClick={() => handleToolSelect(div.title)}
+            >
+              <div className="flex hover:scale-105 w-[120px] items-center justify-center p-4 flex-col hover:cursor-pointer rounded-2xl">
+                <div className="flex">
+                  {React.createElement(IconComponent, {
+                    size: 24,
+                    className: `${
+                      selectedTool === div.title
+                        ? "text-red-500"
+                        : "text-gray-600"
+                    }`,
+                  })}
+                </div>
+                <p
+                  className={`h-12 flex items-start text-center ${
+                    selectedTool === div.title ? "text-red-500" : ""
+                  }`}
+                >
+                  {div.title}
+                </p>
               </div>
-              <div className="p-2"></div>
-              <p
-                className={`h-12 flex items-start text-center ${
-                  selectedTool === div.title ? "text-red-500" : "text-gray-600"
-                }`}
-              >
-                {div.title}
-              </p>
             </div>
           </div>
         );
       }
     }
     return rows;
+  };
+
+  const handleMobileSlide = (direction: "prev" | "next") => {
+    if (swiperRefTool.current) {
+      if (direction === "prev") {
+        swiperRefTool.current.slidePrev();
+      } else {
+        swiperRefTool.current.slideNext();
+      }
+    }
   };
 
   const handleToolSelect = (toolText: string) => {
@@ -147,7 +199,7 @@ const ToolsForDealers = ({ dealers }: Props) => {
       if (swiperRefTool.current) {
         const swiper: SwiperClass = swiperRefTool.current;
         if (swiper) {
-          const nextIndex = (swiper.activeIndex + 1) % ProductArray.length;
+          const nextIndex = (swiper.activeIndex + 1) % ProductArray?.length;
           swiper.slideTo(nextIndex);
           setSelectedTool(ProductArray[nextIndex].title);
         }
@@ -160,7 +212,7 @@ const ToolsForDealers = ({ dealers }: Props) => {
   }, [ProductArray, setSelectedTool]);
 
   return (
-    <section className="relative isolate w-full max-w-7xl mx-auto p-2 h-screen">
+    <section className="relative isolate w-full max-w-7xl mx-auto p-2">
       <div
         className="hidden sm:absolute sm:inset-y-0 sm:block sm:h-full -z-10"
         aria-hidden="true"
@@ -238,12 +290,26 @@ const ToolsForDealers = ({ dealers }: Props) => {
           {dealers.title}
         </h2>
         <div className="p-2"></div>
-        <div className="flex justify-center space-x-4">
-          {AddedDivArray(ProductArray)}
+        <div className="flex space-x-4 overflow-hidden justify-between">
+          <div className="flex justify-between w-full items-center">
+            <BiChevronLeft
+              size={32}
+              className="text-gray-600 flex-1 cursor-pointer block sm:hidden"
+              onClick={() => handleMobileSlide("prev")}
+            />
+            <div className="sm:overflow-x-auto flex-1 flex justify-center">
+              {AddedDivArray(ProductArray)}
+            </div>
+            <BiChevronRight
+              size={32}
+              className="text-gray-600 cursor-pointer flex-1 block sm:hidden"
+              onClick={() => handleMobileSlide("next")}
+            />
+          </div>
         </div>
       </div>
       <div className="lg:p-4"></div>
-      <div className="h-auto w-full hidden lg:block border-2 border-neutral-400 py-8 rounded-2xl">
+      <div className="h-auto w-full border-2 border-neutral-400 py-8 rounded-2xl">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
@@ -270,7 +336,10 @@ const ToolsForDealers = ({ dealers }: Props) => {
           }}
         >
           {ProductArray.map((tool, index) => (
-            <SwiperSlide key={index} className="border-2 rounded-2xl">
+            <SwiperSlide
+              key={Math.random() * index * 1234}
+              className="border-2 rounded-2xl"
+            >
               <div className="flex w-full h-[400px] rounded-2xl">
                 {tool.img?.data && (
                   <Image
@@ -281,20 +350,26 @@ const ToolsForDealers = ({ dealers }: Props) => {
                     width={tool.img?.data.attributes.width}
                     height={400}
                     alt={tool.img?.data.attributes.url!}
-                    className="w-1/2 inset-0 h-full rounded-2xl object-cover bg-clip-custom clip-custom"
+                    className="w-1/2 inset-0 h-full rounded-2xl object-cover bg-clip-custom clip-custom hidden sm:block"
                   />
                 )}
-                <div className="p-8 bg-white rounded-2xl flex justify-between flex-col">
-                  <h3 className="text-2xl font-bold">REPAIR ORDERS</h3>
-                  <div className="space-y-2 mt-2 flex-1">
+                <div className="p-4 sm:p-8 bg-white rounded-2xl flex justify-between flex-col space-y-4">
+                  <h3 className="text-lg font-semibold">REPAIR ORDERS</h3>
+                  <div className="space-y-2 mt-2 flex-1 overflow-y-auto">
                     {repairOrders?.map((item) => (
-                      <div className="flex" key={item.content}>
+                      <div
+                        className="flex"
+                        key={item.content + Math.random() * index}
+                      >
                         <item.icon width={12} className="flex" />
                         <p>{item.content}</p>
                       </div>
                     ))}
                   </div>
-                  <Link href="#" className="flex justify-end text-red-500">
+                  <Link
+                    href="#"
+                    className="flex justify-end text-red-500 hover:cursor-pointer"
+                  >
                     <p className="flex justify-center items-center">
                       Learn More{" "}
                       <span>
@@ -308,7 +383,7 @@ const ToolsForDealers = ({ dealers }: Props) => {
           ))}
         </Swiper>
       </div>
-      <div className="h-auto w-full block lg:hidden p-4">
+      {/* <div className="h-auto w-full block lg:hidden p-4">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
@@ -358,7 +433,7 @@ const ToolsForDealers = ({ dealers }: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </div> */}
     </section>
   );
 };
