@@ -10,7 +10,6 @@ type Props = {
 };
 
 const DealersAndServiceProvider = ({ integration }: Props) => {
-  console.log(integration.img?.data.attributes.url);
   return (
     <section className="bg-white min-h-auto">
       <div className="relative isolate sm:mt-24">
